@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.1.41
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+popravi
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Izboljšana avto-prijava Minimax (geslo v iframe/Microsoft, 45 s čakanja).
+Stran ObracunDDV se ne zamenja več za login stran.
+KIR/KPR tok čaka na obračun DDV (ne na uvoz knjižb); ob neuspešni avto-prijavi 120 s za ročno prijavo v Chrome profilu MinimaxBlagajna.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.
+

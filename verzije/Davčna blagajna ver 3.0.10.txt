@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 3.0.10
+Datum: 2026-10-09
+
+=== VAŠ ZAHTEVEK (prompt) ===
+DA — UX status eDavki/Minimax Chrome + gumb za manjkajoce
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Status vrstica eDavki (9222) / Minimax (9223) Chrome + gumb Pripravi manjkajoce (zagon ali restart profila z debug). Meni Nastavitve enako. Brez menjave arhitekture.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_build.py
+  • v2/ui_build_v21.py
+  • v2/ui_hints.py
+  • v2/settings_menu.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

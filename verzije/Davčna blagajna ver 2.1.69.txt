@@ -1,0 +1,20 @@
+Davčna Blagajna — verzija 2.1.69
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Popravi … in vstavi v vse 3 panele, razširi, skrči …
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Vsi trije paneli imajo +/− v glavi (skrči / razširi vsebino panela):
+  • Vizualni designer
+  • Okno in mreža
+  • Polja izbrane knjige
+- Popravljen drag & drop: pravilne koordinate miške med vlečenjem (ne več napačnega premika).
+- Širina polja v designerju samo vodoravno (fiksna višina vrstice).
+- V «Okno in mreža» +/− pri vsaki širini/višini.
+- V designerju +/− za višino canvasa (več/manj prostora za mrežo).
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/knjizba_form_designer.py
+  • v2/collapsible.py
+  • v2/settings_menu.py

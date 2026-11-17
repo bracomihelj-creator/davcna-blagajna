@@ -1,0 +1,22 @@
+{
+  "minimax_api_base": "https://moj.minimax.si/SI/API",
+  "minimax_auth_url": "https://moj.minimax.si/SI/AUT/OAuth20/Token",
+  "minimax_scope": "minimax.si",
+  "minimax_client_id": "",
+  "minimax_client_secret": "",
+  "minimax_api_username": "",
+  "minimax_api_password": "",
+  "minimax_web_username": "",
+  "minimax_web_password": "",
+  "minimax_org_id": "",
+  "minimax_document_type": "IZT",
+  "minimax_customer_id": "",
+  "minimax_payment_method_code": "",
+  "minimax_payment_method_id": "",
+  "minimax_vat_accounting_type_s": "S",
+  "minimax_vat_accounting_type_z": "Z",
+  "minimax_vat_accounting_type_n": "N",
+  "minimax_vat_rate_22_search": "22",
+  "minimax_vat_rate_95_search": "9,5",
+  "minimax_vat_rate_0_search": "0"
+}

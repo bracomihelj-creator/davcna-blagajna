@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 3.0.47
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+če zamenjam firmo v levem panelu se podatki zbrišejo
+(+ dnevni gumb: če obstaja API → API, sicer WebView2)
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Ob menjavi firme se analiza shrani/obnovi po Zšt — podatki ne izginejo.
+Vrstica leta v drevesu kaže vsote; stolpec «Datum in čas pošiljanja»
+se napolni iz uspešnega Minimax uvoza za mesec.
+Dnevni gumb: API če je token, sicer ista WebView2 pot kot spletni uvoz.
+FURS PakR in Minimax WebView2 potek 3.0.42 nespremenjena.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+  • v2/ui_build.py

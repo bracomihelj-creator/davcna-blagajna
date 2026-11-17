@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.1.48
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Prenos KIR > eDavki odpira Minimax prijavo namesto eDavkov. Direct link naj gre v že odprt Chrome.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Napaka: gumb «Prenos KIR/KPR eDavki» je vedno odprl Minimax ObracunDDV — popravljeno.
+- eDavki KIR/KPR: povezava DDV_Evidenci_Oddane.aspx (DURS šifra firme).
+- Nov zavihek samo prek debug porta 9222 (obstoječi Chrome) — ne nove seje.
+- Ročni način: navodila za eDavke (Išči, prenesi ZIP), ne Minimax.
+- FURS blagajna: enako — samo obstoječi Chrome.
+
+=== DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/access_settings.py

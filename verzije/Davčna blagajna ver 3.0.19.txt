@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.19
+Datum: 2026-10-09
+
+=== VAŠ ZAHTEVEK (prompt) ===
+shrani zadnje stanje ob izhodu (Alfa + uvozeni podatki)
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Ob izhodu shrani firmo, obdobje, poti, zavihek in minimax_uvoz_by_zst. Ob zagonu obnovi obdobje, zavihek, status uvoza in pozeni analizo. Po uvozu shrani temelnica_url; ob izboru firme aktivira CDP zavihek.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

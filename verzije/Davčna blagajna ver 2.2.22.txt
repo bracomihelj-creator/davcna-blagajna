@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.2.22
+Datum: 2026-09-14
+
+=== VAŠ ZAHTEVEK (prompt) ===
+enako za minimax uvoz — hitro odpri OrganisationId URL, radio/datum/opis, avto priponi xlsx
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Minimax spletni uvoz: hitri potek kot FURS (localhost + Minimax podjetja 1.4.43). Nov zavihek UvozPodatkov?OrganisationId, radio Podatki naj se uvozijo, Datum/Opis/Vrsta, samodejna priponka xlsx. Brez CDP/WMIC zakasnitev.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • Chrome_add/Minimax_Odpiranje_Podjetij/background.js
+  • Chrome_add/Minimax_Odpiranje_Podjetij/content_automation.js
+  • Chrome_add/Minimax_Odpiranje_Podjetij/manifest.json
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

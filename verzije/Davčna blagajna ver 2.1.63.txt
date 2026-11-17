@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.1.63
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Ali je možno formo urediti (postavitev polj po moji zamisli) — če da, v Nastavitve.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Nastavitve → Videz in postavitev → zavihek «Minimax knjižba».
+- Vrstni red polj: gumbi Gor / Dol.
+- Vidno: dvojni klik ali «Preklopi vidno».
+- Lastna oznaka polja, ročna vrstica in stolpec (-1 = samodejno).
+- Velikost okna, širina oznake/vnosa, 1 ali 2 stolpca.
+- Shranjeno v blagajna_kirkpr_knjizba_form.json.
+
+=== DATOTEKE ===
+  • v2/kirkpr_knjizba_form_layout.py
+  • v2/kirkpr_editor.py
+  • v2/settings_menu.py

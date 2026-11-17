@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.1.28
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+dvojni klik odpre folder nastavitev
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Nov zavihek Nastavitve → Vedenje: dvojni klik na mesec v drevesu odpre mapo/ZIP (vklop/izklop). Shranjeno v blagajna_v2_theme.json (ui).
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/theme.py
+  • v2/settings_menu.py
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

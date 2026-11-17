@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 2.1.10
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Vsako spremembo zabeleži kot novo verzijo 2.1.01, 2.1.02 … Shrani v JSON ali log datoteko z opisom prompta in sprememb, da lahko slediva napredku in izbirava verzije ki so delovale.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Mapa verzije/ z davcna_blagajna_verzije.json in posameznimi TXT dnevniki. Modul v2/version_journal.py (record_version, load, list). Meni Verzija → Zgodovina sprememb + prikaz trenutne verzije v naslovu in znački. Povzetek verzij 2.1.01–2.1.09 v dnevniku.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/version_journal.py
+  • v2/version_history_ui.py
+  • v2/menubar.py
+  • v2/app_v21.py
+  • v2/ui_build_v21.py
+  • verzije/davcna_blagajna_verzije.json
+
+=== OPOMBA ===
+Dnevnik za sledenje napredku. Za povrnitev kode uporabite git ali primerjavo datotek.

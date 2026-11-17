@@ -1,0 +1,21 @@
+Davčna Blagajna — verzija 2.1.45
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+gumb odpre nov zavihek na Minimax ObracunDDV, nastavi v Nastavitvah
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Povezava ObracunDDV nastavljiva v Nastavitve → Dostop eDavki, Minimax.
+Gumb Prenos KIR/KPR odpre nov zavihek (CDP debug ali chrome --new-tab v profilu ChromeEdavki).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/access_settings.py
+  • v2/settings_menu.py
+  • v2/ui_hints.py
+  • blagajna_v2_access.json
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.
+

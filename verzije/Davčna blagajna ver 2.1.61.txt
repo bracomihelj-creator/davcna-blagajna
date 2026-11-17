@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.1.61
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+V KIR/KPR panelu ne potrebujem podvojenega dela od zavihka Blagajna (rdeč okvir — Izvoz Excel/knjižbe).
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Panel «Izvoz — Excel · knjižbe · Minimax API» je viden samo v zavihku Blagajna.
+- V zavihku KIR/KPR je ta panel skrit; ostane samo uvoz KIR/KPR in drevo.
+- Drevo v KIR/KPR se pomakne višje (brez prazne vrstice).
+- Odstranjena podvojena naslovna vrstica v panelu izvoza na Blagajni.
+
+=== DATOTEKE ===
+  • v2/app_v21.py
+  • v2/ui_build_v21.py
+  • v2/ui_build.py

@@ -1,0 +1,340 @@
+{
+  "dialog_width": 720,
+  "dialog_height": 640,
+  "label_width": 22,
+  "entry_width": 48,
+  "columns": 2,
+  "show_api_summary": true,
+  "fields_kir": [
+    {
+      "key": "document_type",
+      "visible": true,
+      "label": "",
+      "row": 0,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "datum",
+      "visible": true,
+      "label": "",
+      "row": 5,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "status",
+      "visible": true,
+      "label": "",
+      "row": 1,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "datum_zapadlosti",
+      "visible": true,
+      "label": "",
+      "row": 7,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "datum_transakcije",
+      "visible": true,
+      "label": "",
+      "row": 6,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "opis",
+      "visible": true,
+      "label": "",
+      "row": 2,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "sklic",
+      "visible": true,
+      "label": "",
+      "row": 4,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "konto",
+      "visible": true,
+      "label": "",
+      "row": 0,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "stranka_id",
+      "visible": true,
+      "label": "",
+      "row": 3,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "vrednost",
+      "visible": true,
+      "label": "",
+      "row": 1,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "osnova22",
+      "visible": true,
+      "label": "",
+      "row": 2,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "davek22",
+      "visible": true,
+      "label": "",
+      "row": 3,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "osnova95",
+      "visible": true,
+      "label": "",
+      "row": 4,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "davek95",
+      "visible": true,
+      "label": "",
+      "row": 5,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "neobdavcljive",
+      "visible": true,
+      "label": "",
+      "row": 7,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "oproscene",
+      "visible": true,
+      "label": "",
+      "row": 6,
+      "col": 1,
+      "entry_width": 0
+    }
+  ],
+  "fields_kpr": [
+    {
+      "key": "status",
+      "visible": true,
+      "label": "",
+      "row": 0,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "datum",
+      "visible": true,
+      "label": "",
+      "row": 8,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "datum_racuna",
+      "visible": true,
+      "label": "",
+      "row": 7,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "datum_zapadlosti",
+      "visible": true,
+      "label": "",
+      "row": 9,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "opis",
+      "visible": true,
+      "label": "",
+      "row": 1,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "sklic",
+      "visible": true,
+      "label": "",
+      "row": 6,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "dobavitelj_id",
+      "visible": true,
+      "label": "",
+      "row": 4,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "konto",
+      "visible": true,
+      "label": "",
+      "row": 5,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "vrednost",
+      "visible": true,
+      "label": "",
+      "row": 10,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "p8",
+      "visible": true,
+      "label": "",
+      "row": 0,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "p9",
+      "visible": true,
+      "label": "",
+      "row": 1,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "p10",
+      "visible": true,
+      "label": "",
+      "row": 2,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "p11",
+      "visible": true,
+      "label": "",
+      "row": 3,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "p12",
+      "visible": true,
+      "label": "",
+      "row": 4,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "p13",
+      "visible": true,
+      "label": "",
+      "row": 5,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "p14",
+      "visible": true,
+      "label": "",
+      "row": 6,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "p15",
+      "visible": true,
+      "label": "",
+      "row": 7,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "p16",
+      "visible": true,
+      "label": "",
+      "row": 8,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "p17",
+      "visible": true,
+      "label": "",
+      "row": 11,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "p18",
+      "visible": true,
+      "label": "",
+      "row": 9,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "p19",
+      "visible": true,
+      "label": "",
+      "row": 10,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "p20",
+      "visible": true,
+      "label": "",
+      "row": 11,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "p21",
+      "visible": true,
+      "label": "",
+      "row": 12,
+      "col": 1,
+      "entry_width": 0
+    },
+    {
+      "key": "st_listine",
+      "visible": true,
+      "label": "",
+      "row": 3,
+      "col": 0,
+      "entry_width": 0
+    },
+    {
+      "key": "vezni_dokument",
+      "visible": true,
+      "label": "",
+      "row": 2,
+      "col": 0,
+      "entry_width": 0
+    }
+  ]
+}

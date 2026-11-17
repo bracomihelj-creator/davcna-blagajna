@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.1.71
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Ni še ok — polje se poveča namesto da ga prestavim na drugo lokacijo.
+
+=== VZROK ===
+Desni rob polja je sprožil spreminjanje širine (resize), ne premik. Pri vlečenju
+se je širina spreminjala in polje vizualno «raslo».
+
+=== POPRAVEK ===
+- Odstranjen ročaj za širino na polju v designerju.
+- Vsako polje ima fiksno velikost v celici mreže (ne spreminja se med vlečenjem).
+- Premik: klikni, povleci vsaj 5 px, spusti v rumeno označeno celico.
+- Širina vnosa: še vedno v «Izbrano polje» spodaj ali −/+ v orodni vrstici nastavitev.
+
+=== SPREMENJENA DATOTEKA ===
+  • v2/knjizba_form_designer.py

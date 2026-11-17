@@ -1,0 +1,9 @@
+# Davčna Blagajna 5.0.11 — LOOK WebView2
+
+Glej isto pravilo v `D:\PISARNA\Python\DavčnaBlagajna\.cursor\rules\davcna-blagajna-5.0.1-webview2.mdc`.
+
+- Delovna app = 5.0.11. **V LOOK ni Tk oken** (messagebox, Toplevel, filedialog).
+- 3.0.68 = samo kontrola.
+- Prenos: API → Minimax Knjiženje; sicer Excel WebView2.
+- Klik firme levo osveži desno iz cache — brez blokirajočega `_analyze`.
+- Zagon: `DavcnaBlagajna.pyw` / `DavcnaBlagajna_5.0.9.pyw` / `DavcnaBlagajna_5.0.10.pyw` / `DavcnaBlagajna_5.0.11.pyw`.

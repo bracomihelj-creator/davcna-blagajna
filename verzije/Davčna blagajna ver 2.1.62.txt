@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.1.62
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Iz API Minimax dodaj v formo vse podatke: datum dd.mm.yyyy, zneski 1.111,11, konto Combobox iz API kontov.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Ob odprtju dialoga knjižbe se iz Minimax API naloži predloga IssuedInvoicePosting.
+- Datum in datum zapadlosti/transakcije v obliki dd.mm.yyyy.
+- Zneski v slovenskem zapisu (npr. 1.234,56).
+- Konto prihodkov: Combobox s konti iz API (koda — naziv).
+- Polja: tip dokumenta, status, opis, sklic, stranka, plačilo, osnove/davki DDV, neobdavčljive/oproščene.
+- Povzetek DDV in plačil iz API predloge pod obrazcem.
+
+=== DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/kirkpr_editor.py

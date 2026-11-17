@@ -1,0 +1,20 @@
+Davčna Blagajna — verzija 3.0.05
+Datum: 2026-10-08
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Implement the plan: WebView2 Minimax uvoz — po potrjenem zajemu
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Spletni uvoz: VrstaTemeljniceID=2 (IR), Opis=blagajna MM.YYYY. Po Uvozi: branje poročila (0 napak) + Prikaži temeljnico. Nov WebView2 host (v2/minimax_webview2*.py) ločen od FURS Chrome; minimax_uvoz_config.json (engine=webview2). Gumb Minimax spletni uvoz → WebView2.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/minimax_webview2.py
+  • v2/minimax_webview2_host.py
+  • v2/minimax_uvoz_config.py
+  • v2/ui_hints.py
+  • minimax_uvoz_config.json
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

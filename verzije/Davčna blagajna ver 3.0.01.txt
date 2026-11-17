@@ -1,0 +1,24 @@
+Davčna Blagajna — verzija 3.0.01
+Datum: 2026-10-08
+
+=== VAŠ ZAHTEVEK (prompt) ===
+kreiraj novo verzijo 3.0.01, staro pusti v arhivu, nova verzija naj dobi podatke iz SQL evidenca firm in ne več iz excela
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Nova serija 3.0. Firme iz dbo.Clients (EvidencaFirm SQL) namesto DURSanalitika.xlsx. 2.2.29 arhivirana v Arhiv/2.2.29. DDV checkbox iz OddajaDdv; ob izbiri firme se polni zapis dopolni iz SQL (popravek izgube oddaja DDV v drevesu).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • DavcnaBlagajna.pyw
+  • v2/companies_sql.py
+  • v2/ui_build.py
+  • v2/ui_hints.py
+  • v2/version_journal.py
+  • v2/app_v21.py
+  • ZAZENI_DavcnaBlagajna_V2_1.bat
+  • ZAZENI_DavcnaBlagajna_2.2.29_ARHIV.bat
+  • Arhiv/2.2.29/
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.61
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+po API si zmanjšal formo in nisi odprl minimaxa za pregled knjižb — preveri prej / WebView2?
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Po API spet odpre Minimax Knjiženje: Chrome/Edge --new-tab z OrganisationId (kot FURS). Mehko Od/Do+Najdi če je Minimax debug :9223. WebView2 KN uvoz host se ne uporablja; Portal WebView2 profil samo kot rezervna. Snapshot/restore geometrije glavnega okna po dialogu (ne skrči forme).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/browser_inapp.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

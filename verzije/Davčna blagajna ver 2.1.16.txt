@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 2.1.16
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+KIR/KPR podzavihki, prenos gumbi, Primerjava datotek
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Podzavihka KIR in KPR; Prenos eDavki/minimax; nov zavihek Primerjava datotek
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/app_v21.py
+  • v2/ui_build_v21.py
+  • v2/ui_build.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

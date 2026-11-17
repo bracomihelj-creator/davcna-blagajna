@@ -1,0 +1,20 @@
+Davčna Blagajna — verzija 3.0.57
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+DA, naj se pyw odpre ob zagonu chroma ce je potrebno
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Ob zagonu app: sync Minimax/eDavki/eVEM/AJPES iz Chrome v data/webview2/session_cache. WebView2 vzame Chrome ali cache. Ob zagonu Minimax/eDavki Chrome debug: odpre DavcnaBlagajna.pyw ce app ne tece (_ensure_davcna_pyw.py).
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/chrome_session_sync.py
+  • _ensure_davcna_pyw.py
+  • _start_chrome_minimax_debug.py
+  • _start_chrome_edavki_debug.py
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

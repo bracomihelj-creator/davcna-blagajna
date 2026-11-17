@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Davčna Blagajna 5.0.11</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app" id="app">
+  <header class="appbar">
+    <div class="brand">
+      <div class="brandlogo">D</div>
+      <div>
+        <div class="brandtitle">Davčna Blagajna</div>
+        <div class="branddesc" id="brandVer">WebView2 · 5.0.11 · isti AppV21</div>
+      </div>
+    </div>
+    <div class="appbarMeta">
+      <span class="pill" id="companyPill">Firma —</span>
+      <span class="pill" id="mmPill">Minimax: —</span>
+      <span class="badge">5.0.11</span>
+    </div>
+  </header>
+
+  <nav class="menubar">
+    <div class="menu">
+      <button type="button" data-tip="Datoteka">Datoteka</button>
+      <div class="menuDrop">
+        <button type="button" data-act="reload" data-tip="Osveži firme iz SQL Evidence firm.">Osveži firme</button>
+        <button type="button" data-act="history" data-tip="Zgodovina sprememb verzij.">Zgodovina verzij …</button>
+        <hr>
+        <button type="button" data-act="close" data-tip="Zapre okno.">Izhod</button>
+      </div>
+    </div>
+    <div class="menu">
+      <button type="button" data-tip="Verzija 5.0">Verzija</button>
+      <div class="menuDrop">
+        <button type="button" data-act="history" data-tip="Dnevnik verzij.">Zgodovina sprememb …</button>
+      </div>
+    </div>
+    <div class="menu">
+      <button type="button" data-tip="Nastavitve — vsebina 3.0.68">Nastavitve</button>
+      <div class="menuDrop">
+        <button type="button" data-act="settings" data-tip="LOOK videz (accent, tema). Tk dialog je odstranjen.">Videz in postavitev …</button>
+        <button type="button" data-act="videz" data-tip="Hitri WebView2 videz (accent/tema).">Hitri videz WebView2 …</button>
+        <button type="button" data-act="oauth" data-tip="OAuth / Minimax poverilnice.">OAuth / Minimax …</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="workspace">
+    <aside class="leftPane">
+      <div class="paneHead">
+        <div>
+          <div class="panelTitle">Firme (SQL EvidencaFirm)</div>
+          <div class="panelDesc" id="countLabel">Seznam se nalaga …</div>
+        </div>
+        <button class="btn" id="btnReload" data-tip="Osveži seznam firm iz SQL Evidence firm (dbo.Clients).">Osveži</button>
+      </div>
+      <div class="periodRow">
+        <label>Leto <select id="yearIn" class="field-yellow" data-tip="Leto obdobja analize in FURS Od/do."></select></label>
+        <label>Mesec <input id="monthIn" type="number" min="1" max="12" class="field-yellow" data-tip="Mesec (1–12) za analizo, FURS in knjižbe."></label>
+      </div>
+      <div class="searchRow">
+        <input id="searchIn" class="search field-yellow" placeholder="Išči firmo…" data-tip="Filter firm po Zšt, nazivu, davčni, DURS.">
+        <button class="btn sm" id="btnClearSearch" data-tip="Počisti iskalno polje.">✕</button>
+      </div>
+      <div class="leftChecks">
+        <label class="check"><input type="checkbox" id="chkEvidenca" data-tip="Prikaže samo firme z evidenco davčnih blagajn (kljukica Ev.)."> Evidenca Davčnih blagajn</label>
+      </div>
+      <div class="linksRow">
+        <span class="muted">eDavki:</span>
+        <select id="edavkiLink" class="field-yellow" data-tip="Povezava iz Nastavitve → Povezave."></select>
+        <button class="btn sm primary" id="btnEdavki" data-tip="Odpri izbrano povezavo v Chrome (DURS izbrane firme).">Odpri</button>
+        <span class="muted" id="srcLbl">Vir: —</span>
+      </div>
+      <div class="listwrap">
+        <table id="companyTable">
+          <thead><tr><th>Ev.</th><th>Zšt</th><th>Naziv</th><th>Davčna</th><th>DURS</th><th>Org</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </aside>
+
+    <div class="splitter" id="splitter"></div>
+
+    <section class="rightPane">
+      <div class="collapsible" id="mmBar">
+        <div class="colHead">
+          <strong>Minimax — Org ID / OAuth</strong>
+          <button type="button" class="btn sm colToggle" data-target="mmBarBody" data-tip="Skrči ali razširi vrstico Org ID.">−</button>
+        </div>
+        <div class="colBody" id="mmBarBody">
+          <label>Org ID <input id="orgIdIn" class="field-yellow" readonly data-tip="Org ID izbrane firme (SQL)."></label>
+          <button class="btn" id="btnOauth" data-tip="Odpre nastavitve OAuth za Minimax API (Client ID, Secret, token).">OAuth…</button>
+        </div>
+      </div>
+
+      <div class="viewHdr">
+        <span class="muted">Pogled analize:</span>
+        <div class="tabs" id="viewTabs" role="tablist"></div>
+      </div>
+
+      <div class="panelBlock" id="panelBlagajnaActions">
+        <div class="actionBar">
+          <button class="btn primary" id="btnAnalyze" data-tip="Uvozi podatke davčne blagajne za izbrano leto/mesec. Prebere CSV/ZIP in napolni drevo.">Uvozi podatke</button>
+          <button class="btn primary" id="btnFurs" data-tip="V že odprtem Chrome odpre DPR-PakR in v ~2 s vpiše Od/do. ZIP cilj: mapa Blagajna\YYYY-MM.zip. Avtomatika Pripravi+ZIP = kljukica selenium_auto v Nastavitve → Dostop.">FURS Blagajna</button>
+          <span class="note" id="fursZipHint"></span>
+        </div>
+      </div>
+
+      <div class="panelBlock hidden" id="panelKirkpr">
+        <div class="subTabs" id="kirkprBookTabs"></div>
+        <div class="subTabs" id="kirkprSourceTabs"></div>
+        <div class="actionBar" id="kirkprEdavkiBar">
+          <button class="btn primary" id="btnPrenosEdavki" data-tip="Prenos KIR/KPR eDavki v Chrome (:9222) — CDP Od/do + Išči, brez Selenium.">Prenos KIR/KPR eDavki</button>
+          <button class="btn primary" id="btnUvoziKirkpr" data-tip="Uvozi KIR in KPR iz ZIP evidenca eDavki (DDV_KIR_KPR).">Uvozi podatke</button>
+        </div>
+        <div class="actionBar hidden" id="kirkprMinimaxBar">
+          <button class="btn primary" id="btnPrenosMm" data-tip="Prenos KIR/KPR Minimax (povezava iz Nastavitve).">Prenos KIR/KPR minimax</button>
+          <button class="btn primary" id="btnUvoziKirkpr2" data-tip="Uvozi KIR/KPR iz Minimax ZIP/XML v mapi DDV.">Uvozi podatke</button>
+        </div>
+      </div>
+
+      <div class="panelBlock hidden" id="panelCompareKirkpr">
+        <p class="note">Primerjava eDavki KIR/KPR ↔ Minimax XML (prednastavitve iz Nastavitve → Primerjave datotek).</p>
+        <div class="actionBar">
+          <button class="btn primary" id="btnComparePresets" data-tip="Zaženi označene prednastavitve primerjave.">Primerjaj</button>
+          <button class="btn" id="btnAddRecord" data-tip="Dodaj nov zapis Minimax knjižbe (KIR/KPR).">Dodaj nov zapis</button>
+        </div>
+        <div class="presetList" id="comparePresetListKirkpr"></div>
+      </div>
+      <div class="panelBlock hidden" id="panelCompareFiles">
+        <div class="actionBar">
+          <button class="btn" id="btnCompareManual" data-tip="Ročna primerjava dveh datotek (izberi točno 2).">Primerjaj datoteki (ročno)</button>
+          <button class="btn primary" id="btnComparePresets2" data-tip="Prednastavljene primerjave.">Primerjaj</button>
+        </div>
+        <div class="presetList" id="comparePresetListFiles"></div>
+      </div>
+
+      <div class="collapsible" id="exportBar">
+        <div class="colHead">
+          <strong>Izvoz — Excel · knjižbe · Minimax API</strong>
+          <button type="button" class="btn sm colToggle" data-target="exportBody" data-tip="Skrči ali razširi izvoz.">−</button>
+        </div>
+        <div class="colBody" id="exportBody">
+          <div class="subTabs" id="exportTabs"></div>
+          <div id="exportExcel" class="actionBar wrap">
+            <button class="btn" id="btnSaveExcel" data-tip="Shrani trenutne rezultate analize v Excel (Blagajna.xlsx).">Shrani v Excel</button>
+            <button class="btn" id="btnExportExcel" data-tip="Izvozi analizo v ločen Excel.">Izvoz podatkov v excel</button>
+            <button class="btn" id="btnKnjMesec" data-tip="Kopira mesečne knjižbe DDV v predlogo KnjizbeInDDV.xlsx.">Knjižbe DDV po mesecih</button>
+            <button class="btn primary" id="btnKnjDan" data-tip="Kopira dnevne knjižbe DDV v predlogo za označene/izbrane dneve.">Knjižbe DDV po dnevih</button>
+            <button class="btn primary" id="btnPrenosMinimax" data-tip="Prenos v Minimax: najprej API (token/OAuth). Če API ni mogoč, pošlje Excel v že odprt Minimax WebView2 (isti profil, ne novo okno).">Prenos v minimax</button>
+            <button class="btn" id="btnMinimaxUvoz" data-tip="Minimax spletni uvoz v samostojnem WebView2 (3.0.42): Moje org → naziv → KN → Excel → Uvozi. Če je Minimax že odprt, uporabi isto okno.">Minimax spletni uvoz</button>
+            <label class="fldInline">Predloga <input id="tplIn" class="field-yellow" data-tip="Pot do predloge knjižb (privzeto D:\Trops\MiniMax\KnjizbeInDDV.xlsx).">
+              <button class="btn sm" id="btnPickTpl" data-tip="Izberi Excel predlogo za knjižbe.">…</button>
+            </label>
+          </div>
+          <div id="exportApi" class="actionBar wrap hidden">
+            <button class="btn" id="btnSendMonth" data-tip="Pošlje mesečne podatke v Minimax prek API (IssuedInvoicePosting).">Pošlji mesečne podatke v Minimax API</button>
+            <button class="btn primary" id="btnSendDaily" data-tip="Pošlje dnevne v Minimax API; WebView2 Knjiženje samo če API ni mogoč.">Pošlji dnevne podatke v Minimax API</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="treeToolbar">
+        <label>Filter <input id="docFilter" class="field-yellow" data-tip="Delni niz za Zap. št. / P3. Enter ali Filtriraj. Podpora za *."></label>
+        <button class="btn sm" id="btnFilter" data-tip="Filtrira dokumente v drevesu po delnem nizu.">Filtriraj</button>
+        <button class="btn sm" id="btnFilterClear" data-tip="Počisti filter dokumentov in prikaže vse vrstice.">Počisti filter</button>
+        <label class="check"><input type="checkbox" id="chkNeob" data-tip="Vključi neobdavčljive nabave (P10) v Vrednost računa pri KIR."> Vrednost Neobd.nabav</label>
+        <button class="btn sm" id="btnExpand" data-tip="Razširi vse veje drevesa rezultatov.">Razširi</button>
+        <button class="btn sm" id="btnCollapse" data-tip="Skrči drevo na leta/mesece.">Skrči</button>
+        <button class="btn sm" id="btnClearTree" data-tip="Izbriše označeno vrstico iz drevesa (leto/mesec/dan). Enako kot Delete v 3.0.68.">Sprazni</button>
+        <button class="btn sm" id="btnAddRecord2" data-tip="Dodaj nov zapis Minimax knjižbe (KIR/KPR).">Dodaj nov zapis</button>
+      </div>
+      <div class="checkedLine" id="checkedSum"></div>
+      <div class="statusLine" id="statusLine">Pripravljeno.</div>
+      <div class="rootLine">
+        <span class="muted">Root:</span> <code id="rootLbl">—</code>
+        <button class="btn sm" id="btnPickRoot" data-tip="Izberi koreninsko mapo firme (…\Blagajna).">Root …</button>
+        <label class="check"><input type="checkbox" id="chkZip" checked data-tip="Vključi ZIP pakete v analizo davčne blagajne."> ZIP</label>
+        <button class="btn sm" id="btnZipPaketi" data-tip="Nastavitve ZIP paketov — katere mesečne ZIP datoteke vključiti.">ZIP paketi…</button>
+        <span class="muted" id="autoHint"></span>
+      </div>
+
+      <div class="treeSplit">
+        <div class="tablewrap" id="treeWrap">
+          <table id="treeTable"><thead id="treeHead"></thead><tbody id="treeBody"></tbody></table>
+        </div>
+        <aside class="detailPane" id="detailPane">
+          <div class="detailHead">
+            <div class="panelTitle">Izbrano</div>
+            <button type="button" class="btn sm" id="btnResetDetail" data-tip="Ponastavi izbor v drevesu in počisti analitični panel. Podatki analize ostanejo.">Ponastavi</button>
+          </div>
+          <div class="panelDesc" id="detailTitle">(ni izbire)</div>
+          <div class="tablewrap detailTableWrap">
+            <table id="detailTable">
+              <thead><tr><th>Stolpec</th><th class="num">Znesek</th></tr></thead>
+              <tbody id="detailRows"></tbody>
+            </table>
+          </div>
+          <div class="panelDesc" id="analysisInfo"></div>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <div class="bottomPane">
+    <div class="colHead">
+      <div class="subTabs" id="settingsTabs"></div>
+      <button type="button" class="btn sm colToggle" data-target="bottomBody" data-tip="Skrči spodnji panel poti.">−</button>
+    </div>
+    <div class="colBody" id="bottomBody">
+      <div id="tabPaths" class="settingsTab">
+        <div class="formGrid">
+          <label>Root <input id="rootIn" class="field-yellow" data-tip="Mapa Blagajna izbrane firme."> <button class="btn sm" id="btnPickRoot2" data-tip="Izberi mapo Root.">…</button></label>
+          <label>Shranjevanje <input id="outDirIn" class="field-yellow" data-tip="Mapa za Excel/CSV/izvoz — ob izboru firme = Root."> <button class="btn sm" id="btnPickOut" data-tip="Izberi mapo shranjevanja.">…</button></label>
+          <label>Datoteka <input id="outFileIn" class="field-yellow" data-tip="Ime izhodne datoteke (npr. Blagajna.xlsx)."></label>
+          <label>Sheet <input id="sheetIn" class="field-yellow" data-tip="Ime lista v Excelu."></label>
+          <label>CSV <input id="csvIn" class="field-yellow" data-tip="Ime CSV v ZIP/mapi (privzeto blagajne.csv)."></label>
+        </div>
+        <p class="note">Root = …\Blagajna. Analiza bere YYYY-MM mape/ZIP. Predloga knjižb = D:\Trops\MiniMax\KnjizbeInDDV.xlsx.</p>
+      </div>
+      <div id="tabMinimax" class="settingsTab hidden">
+        <div class="formGrid">
+          <label>DocumentType
+            <select id="docTypeIn" class="field-yellow" data-tip="Vrsta dokumenta Minimax API."></select>
+          </label>
+          <label class="check"><input type="checkbox" id="chkDdv" data-tip="Če je firma zavezanec za DDV, API pošlje IssuedInvoicePostingTaxes."> Podjetje je zavezanec za DDV</label>
+          <label>Način plačila <input id="payIn" class="field-yellow" placeholder="(osveži ↻)" data-tip="Način plačila iz Minimax šifranta.">
+            <button class="btn sm" id="btnKontiPay" data-tip="Uredi kontiranje načinov plačila.">Konti…</button>
+            <button class="btn sm" id="btnPayRefresh" data-tip="Osveži načine plačila iz Minimax.">↻</button>
+          </label>
+          <label>Vrsta prodaje
+            <select id="vrstaIn" class="field-yellow" data-tip="Vrsta prodaje / konto prihodkov."></select>
+            <button class="btn sm" id="btnKontiVrsta" data-tip="Uredi kontiranje prihodkov.">Konti…</button>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    Davčna Blagajna <span id="footVer">5.0.11</span> · LOOK WebView2 · stanje = AppV21 · 3.0.68 ločena ·
+    <span id="footHint">pogled · uvoz · izvoz</span>
+  </footer>
+</div>
+
+<div class="dlg" id="dlgVidez" hidden>
+  <div class="dlgCard">
+    <h3>Hitri videz WebView2</h3>
+    <p class="note">LOOK videz — Tk dialogov ni. Poti in Minimax so v spodnjem panelu.</p>
+    <label class="fld">Tema
+      <select id="themeSel"><option value="light">Svetla</option><option value="dark">Temna</option></select>
+    </label>
+    <label class="fld">Accent <input id="accentIn" type="color" value="#5968e8"></label>
+    <label class="fld">Radius <input id="radiusIn" type="number" min="0" max="24" value="11"></label>
+    <label class="fld">Pisava <input id="fontIn" type="number" min="11" max="18" value="13"></label>
+    <div class="controls">
+      <button class="btn" id="btnResetTheme" data-tip="Ponastavi QUICK (accent #5968e8, radius 11, svetla).">Ponastavi QUICK</button>
+      <button class="btn primary" id="btnSaveTheme" data-tip="Shrani videz (ločeno od SQL/poslovnih podatkov).">Shrani</button>
+      <button class="btn" id="btnCloseTheme" data-tip="Zapri brez shranjevanja.">Prekliči</button>
+    </div>
+  </div>
+</div>
+
+<div class="dlg" id="dlgLook" hidden>
+  <div class="dlgCard dlgWide">
+    <h3 id="dlgLookTitle">LOOK</h3>
+    <div id="dlgLookBody"></div>
+    <div class="controls" id="dlgLookBtns"></div>
+  </div>
+</div>
+
+<div class="tip" id="tip" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

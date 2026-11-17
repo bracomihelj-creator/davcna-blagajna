@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.27
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ze logiran Chrome — samo nov zavihek in vpis polj
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Potek kot FURS/Pooblastila: ze prijavljen ChromeMinimax, CDP nov zavihek SAMO na :9223 (ne 9222), nato fill KN/IR/Excel. Brez restarta Chrome (to je povzrocilo Vstopite). Brez Moje organizacije.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

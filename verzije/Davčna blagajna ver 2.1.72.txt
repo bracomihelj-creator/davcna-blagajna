@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.1.72
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Dodaj nastavitev, ali me obvešča z MSG na koncu akcije, npr. pri KIR/KPR po uvozu.
+
+=== SPREMEMBE ===
+- Nastavitve → Dostop eDavki, Minimax → Obvestila: nov checkbox
+  «Prikaži obvestilo ob koncu akcije (npr. uvoz KIR/KPR)».
+- Ob odkljukanju se po uvozu KIR/KPR ne prikaže okno z uspehom, opozorilom ali napako;
+  podatki se še vedno naložijo v dreveso.
+- Velja za gumb «Uvozi podatke» (v2.1) in analizo KIR (v2.0).
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/access_settings.py
+  • v2/app_v21.py
+  • DavcnaBlagajna.py

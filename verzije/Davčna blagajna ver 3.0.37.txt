@@ -1,0 +1,20 @@
+Davčna Blagajna — verzija 3.0.37
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ne, aflo si dal med priljubljene, v seznamu na prvi strani najdi firmo ALFA GYM in klikni nanj!!!!
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+WebView2 ensure_organisation: pred skeniranjem počisti leftover #F_Search.
+Najprej najde vrstico v seznamu (tr[data-organizacijaid] / ujemanje naziva),
+scrollIntoView, klik na povezavo naziva (ne zvezda/priljubljene).
+#F_Search (npr. "alfa") samo kot zadnji fallback po ~12 s poskusov seznama.
+FURS PakR nespremenjen.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/minimax_webview2_host.py
+  • minimax_uvoz_config.json
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

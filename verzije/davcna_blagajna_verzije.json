@@ -1,0 +1,2451 @@
+{
+  "series": "5.0",
+  "current": "5.0.11",
+  "versions": [
+    {
+      "id": "2.1.01",
+      "date": "2026-05-30",
+      "title": "Zagon vmesnika 2.1 — zavihki pogleda",
+      "log_file": "Davčna blagajna ver 2.1.01.txt",
+      "user_prompt": "Ustvari verzijo 2.1 z zavihki za Davčno blagajno, KIR/KPR, Primerjavo in Minimax; orodna vrstica naj ostane kot v 2.0.",
+      "changes": "Dodani v2/app_v21.py, v2/ui_build_v21.py, DavcnaBlagajna_v2_1.py in ZAZENI_DavcnaBlagajna_V2_1.bat. Zavihki preklapljajo pogled rezultatov (drevo, primerjava, Minimax) ob ohranjeni skupni orodni vrstici in spodnjem panelu nastavitev.",
+      "files_changed": [
+        "v2/app_v21.py",
+        "v2/ui_build_v21.py",
+        "DavcnaBlagajna_v2_1.py",
+        "ZAZENI_DavcnaBlagajna_V2_1.bat",
+        "v2/version_switch.py"
+      ]
+    },
+    {
+      "id": "2.1.02",
+      "date": "2026-05-30",
+      "title": "Popravek preklopa zavihkov (napaka Labelframe)",
+      "log_file": "Davčna blagajna ver 2.1.02.txt",
+      "user_prompt": "Ob preklopu zavihkov v 2.1 pride do napake can't put labelframe inside...",
+      "changes": "Namesto reparentanja Labelframe med zavihki: en stack pod notebookom, zavihki samo prikažejo/skrijejo strani in obnovijo snapshot analize. Odpravljena Tcl napaka ob menjavi pogleda.",
+      "files_changed": [
+        "v2/app_v21.py",
+        "v2/ui_build_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.03",
+      "date": "2026-05-31",
+      "title": "Kontekstualni gumbi po zavihkih",
+      "log_file": "Davčna blagajna ver 2.1.03.txt",
+      "user_prompt": "Premakni gumbe Analiziraj in FURS na ustrezen zavihek (ne v skupno orodno vrstico). KIR/KPR naj ima svoje gumbe.",
+      "changes": "Analiziraj + FURS Blagajna na zavihku Davčna blagajna. Na KIR/KPR: Analiziraj KIR/KPR, Prenos eDavki, Izvoz eDavki, Izvoz Minimax. Orodna vrstica brez teh gumbov (include_analyze=False, include_furs=False).",
+      "files_changed": [
+        "v2/ui_build_v21.py",
+        "v2/app_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.04",
+      "date": "2026-05-31",
+      "title": "KIR/KPR — izvoz in primerjava XML",
+      "log_file": "Davčna blagajna ver 2.1.04.txt",
+      "user_prompt": "Dodaj izvoz KIR/KPR (eDavki, Minimax) in primerjavo med viri.",
+      "changes": "V DavcnaBlagajna.py: resolve_minimax_kirkpr_xml_path, _export_edavki_kirkpr, _export_minimax_kirkpr, _compare_kirkpr_edavki_minimax. load_aggregates_from_file podpira .xml. open_file_compare_results_window sprejme label_a/label_b.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/app_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.05",
+      "date": "2026-05-31",
+      "title": "Tooltipi (rumeni namigi) ob gumbih",
+      "log_file": "Davčna blagajna ver 2.1.05.txt",
+      "user_prompt": "Ob vsakem gumbu naj bo rumen namig ob miški (tooltip).",
+      "changes": "Dodana v2/tooltip.py in v2/ui_hints.py s slovenskimi opisi. Vsi pomembni gumbi v v2/v2.1 imajo bind za prikaz namiga.",
+      "files_changed": [
+        "v2/tooltip.py",
+        "v2/ui_hints.py",
+        "v2/ui_build.py",
+        "v2/ui_build_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.06",
+      "date": "2026-06-01",
+      "title": "Zožanje polj spodnjega panela",
+      "log_file": "Davčna blagajna ver 2.1.06.txt",
+      "user_prompt": "Zožaj polja v spodnjem panelu (poti, combo, predloga) — ne naj se raztegnejo čez celoten prostor.",
+      "changes": "Odstranjen fill=expand na rumenih poljih. Začetne širine: poti 28, combo 45, predloga 45 znakov.",
+      "files_changed": [
+        "v2/ui_build.py",
+        "v2/theme.py"
+      ]
+    },
+    {
+      "id": "2.1.08",
+      "date": "2026-06-01",
+      "title": "Meni Nastavitve — barve, fonti, širine",
+      "log_file": "Davčna blagajna ver 2.1.08.txt",
+      "user_prompt": "Dodaj Nastavitve → Videz in postavitev z zavihkoma Barve/fonti in Širine polj; shranjevanje v JSON.",
+      "changes": "V2SettingsDialog v v2/settings_menu.py. Tema v blagajna_v2_theme.json. V2Layout, register_layout_widget, apply_v2_layout v app.py. Gumbi Uporabi, Shrani, Shrani in zapri.",
+      "files_changed": [
+        "v2/settings_menu.py",
+        "v2/theme.py",
+        "v2/app.py",
+        "v2/menubar.py",
+        "blagajna_v2_theme.json"
+      ]
+    },
+    {
+      "id": "2.1.09",
+      "date": "2026-06-01",
+      "title": "Posamezne širine combo, drsnik, Shrani + refresh",
+      "log_file": "Davčna blagajna ver 2.1.09.txt",
+      "user_prompt": "1) vsak kombo ima svojo nastavitev, 2) dodaj drsnik ker ne vidim konca forme, 3) KJE JE GUMB SHRANI? dodaj ga na obeh zavihkih in takoj po shranjevanju refresh forme.",
+      "changes": "Razširjen DEFAULT_LAYOUT (root, out_dir, document_type, payment_method, vrsta_prodaje, template, out_file, sheet, csv, help_wraplength). Drsnik na obeh zavihkih nastavitev. Shrani/Uporabi na vsakem zavihku + fiksna spodnja vrstica. Po shranjevanju apply_v2_theme + update_idletasks. Migracija starih ključev combo_width/path_width.",
+      "files_changed": [
+        "v2/theme.py",
+        "v2/settings_menu.py",
+        "v2/ui_build.py"
+      ]
+    },
+    {
+      "id": "2.1.10",
+      "date": "2026-06-01",
+      "title": "Vodenje verzij 2.1.xx — dnevnik sprememb",
+      "log_file": "Davčna blagajna ver 2.1.10.txt",
+      "user_prompt": "Vsako spremembo zabeleži kot novo verzijo 2.1.01, 2.1.02 … Shrani v JSON ali log datoteko z opisom prompta in sprememb, da lahko slediva napredku in izbirava verzije ki so delovale.",
+      "changes": "Mapa verzije/ z davcna_blagajna_verzije.json in posameznimi TXT dnevniki. Modul v2/version_journal.py (record_version, load, list). Meni Verzija → Zgodovina sprememb + prikaz trenutne verzije v naslovu in znački. Povzetek verzij 2.1.01–2.1.09 v dnevniku.",
+      "files_changed": [
+        "v2/version_journal.py",
+        "v2/version_history_ui.py",
+        "v2/menubar.py",
+        "v2/app_v21.py",
+        "v2/ui_build_v21.py",
+        "verzije/davcna_blagajna_verzije.json"
+      ]
+    },
+    {
+      "id": "2.1.11",
+      "date": "2026-06-28",
+      "title": "Popravek IndentationError ob zagonu 2.1",
+      "log_file": "Davčna blagajna ver 2.1.11.txt",
+      "user_prompt": "Traceback ob zagonu v2.1: IndentationError v version_switch.py vrstica 53 (unindent does not match).",
+      "changes": "Popravljen pokvarjen odmik v v2/version_switch.py (ostanek po delni ureditvi switch_ui_version). Datoteka prepisana s cistimi 4-presledki; funkcije _open_versions_folder in switch_ui_version na pravem nivoju.",
+      "files_changed": [
+        "v2/version_switch.py"
+      ]
+    },
+    {
+      "id": "2.1.12",
+      "date": "2026-06-28",
+      "title": "Desni panel — drsniki in resize kot levi",
+      "log_file": "Davčna blagajna ver 2.1.12.txt",
+      "user_prompt": "tudi ta panel (rdece) vstavi drsnike in resize tako kot levi..ko dvignem srednjo crto se avtomaticky resiza tako levi",
+      "changes": "Desni panel v2.1: horizontalni Panedwindow med Firmami in Rezultati (rocno sirina). Popravljena veriga row/column weight za vertikalni resize ob premiku srednje crte. Rezultati grid_column=0 v zavihku. Primerjava/Minimax z drsnikoma. Drevo rezultatov ohranja V/H drsnika.",
+      "files_changed": [
+        "v2/ui_build_v21.py",
+        "v2/ui_build.py"
+      ]
+    },
+    {
+      "id": "2.1.13",
+      "date": "2026-06-28",
+      "title": "Celotna verzija v znacki glave",
+      "log_file": "Davčna blagajna ver 2.1.13.txt",
+      "user_prompt": "ne pise cele verzij...",
+      "changes": "V modrem znacki v glavi se zdaj prikaze celotna verzija (npr. 2.1.12) namesto odrezanega 1.12.",
+      "files_changed": [
+        "v2/ui_build_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.14",
+      "date": "2026-06-28",
+      "title": "Gumbi Davcna blagajna + stolpec posiljanja",
+      "log_file": "Davčna blagajna ver 2.1.14.txt",
+      "user_prompt": "1) FURS blagajna prvo mesto; 2) Analiziraj -> Uvozi podatke drugo; 3) FURS odpre stran + clipboard ZIP; 4) stolpec Datum in cas posiljanja v drevesu",
+      "changes": "Gumbi na zavihku Davcna blagajna: FURS Blagajna (1.), Uvozi podatke (2., prej Analiziraj). FURS: takoj webbrowser + clipboard polne poti ZIP + _furs_blagajna_save_path. V drevesu nov stolpec Datum in cas posiljanja iz CSV (in P2 pri KIR) na vrsticah racunov.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_build.py",
+        "v2/ui_hints.py",
+        "v2/app_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.15",
+      "date": "2026-06-28",
+      "title": "Drevo racunov pod ZIP paketom",
+      "log_file": "Davčna blagajna ver 2.1.15.txt",
+      "user_prompt": "drevesna struktura in oznake racunov manjkajo v oznacenem zip",
+      "changes": "Pod vsak ZIP v drevesu: dnevi in oznake racunov (iz analize ali predogled iz datoteke). Ce ZIP ni vkljucen: predogled iz CSV v ZIP. Normalizacija meseca 05 pri filtriranju. Sekcija Dnevi (skupaj) ostane za cel mesec.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.16",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.16",
+      "log_file": "Davčna blagajna ver 2.1.16.txt",
+      "user_prompt": "KIR/KPR podzavihki, prenos gumbi, Primerjava datotek",
+      "changes": "Podzavihka KIR in KPR; Prenos eDavki/minimax; nov zavihek Primerjava datotek",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/app_v21.py",
+        "v2/ui_build_v21.py",
+        "v2/ui_build.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "2.1.17",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.17",
+      "log_file": "Davčna blagajna ver 2.1.17.txt",
+      "user_prompt": "Aktivni zavihek bold rdeč; KIR/KPR eDavki+Minimax podzavihki; Uvozi podatke",
+      "changes": "Aktivni zavihek: krepko rdeče. KIR in KPR imata podzavihka eDavki in Minimax. Gumb Uvozi podatke nalozi glede na izbrano knjigo in vir; 4 ločeni posnetki drevesa.",
+      "files_changed": [
+        "v2/theme.py",
+        "v2/app_v21.py",
+        "v2/ui_build_v21.py",
+        "v2/ui_build.py",
+        "v2/ui_hints.py",
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.18",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.18",
+      "log_file": "Davčna blagajna ver 2.1.18.txt",
+      "user_prompt": "Aktivni zavihek bold red; gumba v eDavki/Minimax zavihke",
+      "changes": "Popravljen stil aktivnega zavihka (V2.ActiveTab.TNotebook.Tab + layout copy). Gumbi Uvozi in Prenos premaknjeni v podzavihka eDavki oziroma Minimax pri KIR in KPR.",
+      "files_changed": [
+        "v2/theme.py",
+        "v2/ui_build_v21.py",
+        "v2/ui_build.py",
+        "v2/app_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.19",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.19",
+      "log_file": "Davčna blagajna ver 2.1.19.txt",
+      "user_prompt": "Aktivni zavihek mora biti BOLD RED",
+      "changes": "Zamenjan ttk.Notebook z lastno vrstico TabBar (tk.Label): aktivni zavihek je krepko rdeč (#dc2626) z rdečo črto spodaj. Velja za glavne zavihke, KIR/KPR in eDavki/Minimax.",
+      "files_changed": [
+        "v2/tab_bar.py",
+        "v2/ui_build_v21.py",
+        "v2/app_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.20",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.20",
+      "log_file": "Davčna blagajna ver 2.1.20.txt",
+      "user_prompt": "uvozi podatke je drugi gumb",
+      "changes": "V zavihkih eDavki in Minimax (KIR/KPR): najprej Prenos, nato Uvozi podatke.",
+      "files_changed": [
+        "v2/ui_build_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.21",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.21",
+      "log_file": "Davčna blagajna ver 2.1.21.txt",
+      "user_prompt": "Prenos eDavki/minimax imena datotek in poti",
+      "changes": "eDavki ZIP: Evidenca eDavki KIRKPR_YYYYMM v Blagajna (DDV_Evidenci_Oddane). Minimax XML: Evidenca minimax KIRKPR_YYYYMM v mapo DDV. Iskanje podpira tudi starejša imena.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "2.1.22",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.22",
+      "log_file": "Davčna blagajna ver 2.1.22.txt",
+      "user_prompt": "Nastavitve obrobe zavihkov, panelov, črt",
+      "changes": "Nov zavihek Nastavitve → Obrobe: debelina in barva za zavihke, panele (TLabelframe) in ločilne črte. Shranjeno v blagajna_v2_theme.json (borders). TabBar in ttk se osvežita ob Shrani.",
+      "files_changed": [
+        "v2/theme.py",
+        "v2/settings_menu.py",
+        "v2/tab_bar.py",
+        "v2/app.py",
+        "v2/ui_build.py",
+        "v2/ui_build_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.23",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.23",
+      "log_file": "Davčna blagajna ver 2.1.23.txt",
+      "user_prompt": "Napaka Minimax; eDavki link; nastavitve dostopa",
+      "changes": "Popravljen _prenos_minimax_kirkpr (org_id + organisations). eDavki KIR/KPR: najprej odpri povezavo DDV_Evidenci_Oddane z RepresentedTaxPayerProfileId. Nov zavihek Nastavitve → Dostop eDavki, Minimax (chkbox: povezava, odložišče, Selenium, ročno ob napaki). Shranjeno v blagajna_v2_access.json.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/access_settings.py",
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "2.1.24",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.24",
+      "log_file": "Davčna blagajna ver 2.1.24.txt",
+      "user_prompt": "circular import ob zagonu",
+      "changes": "Odpravljen krožni uvoz: v2/__init__.py ne uvozi več AppV2 ob nalaganju paketa; DavcnaBlagajna uporablja v2.access_settings brez zagona app.py.",
+      "files_changed": [
+        "v2/__init__.py",
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.25",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.25",
+      "log_file": "Davčna blagajna ver 2.1.25.txt",
+      "user_prompt": "podvojen meni Nastavitve",
+      "changes": "Odstranjen podvojen meni Barve, ozadje in fonti — ostane samo Videz in postavitev (isti dialog).",
+      "files_changed": [
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "2.1.26",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.26",
+      "log_file": "Davčna blagajna ver 2.1.26.txt",
+      "user_prompt": "zavihek aktiven barva ozadja",
+      "changes": "Nastavitve → Obrobe: nov ključ Zavihek aktiven — ozadje (tab_active_bg). TabBar in ttk Notebook uporabljata barvo namesto PANEL_BG.",
+      "files_changed": [
+        "v2/theme.py",
+        "v2/tab_bar.py"
+      ]
+    },
+    {
+      "id": "2.1.27",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.27",
+      "log_file": "Davčna blagajna ver 2.1.27.txt",
+      "user_prompt": "ne potrebujem msg obveščanje v nastavitve",
+      "changes": "Nastavitve → Dostop: skupina Obvestila (navodila ročno, uspeh/napaka, vprašanje pred ročnim). Privzeto brez okna z navodili; status v glavi.",
+      "files_changed": [
+        "v2/access_settings.py",
+        "v2/settings_menu.py",
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.28",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.28",
+      "log_file": "Davčna blagajna ver 2.1.28.txt",
+      "user_prompt": "dvojni klik odpre folder nastavitev",
+      "changes": "Nov zavihek Nastavitve → Vedenje: dvojni klik na mesec v drevesu odpre mapo/ZIP (vklop/izklop). Shranjeno v blagajna_v2_theme.json (ui).",
+      "files_changed": [
+        "v2/theme.py",
+        "v2/settings_menu.py",
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.29",
+      "date": "2026-06-28",
+      "title": "Posodobitev 2.1.29",
+      "log_file": "Davčna blagajna ver 2.1.29.txt",
+      "user_prompt": "puščice layout spodnji panel +/-",
+      "changes": "Obdobje (Leto/Mesec) v levi plošči Firme. Minimax (Org ID, OAuth, uvoz) nad zavihki pogleda desno. Spodnji panel Pot/Minimax/Excel: vrstica z − in + za skrčitev — več prostora za drevo.",
+      "files_changed": [
+        "v2/ui_build.py",
+        "v2/ui_build_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.30",
+      "date": "2026-06-28",
+      "title": "KPR drevo — prejeti racuni",
+      "log_file": "Davčna blagajna ver 2.1.30.txt",
+      "user_prompt": "napolni drevo tudi pri KPR, ista logika kot pri KIR, tu so pa prejeti racuni",
+      "changes": "KPR: kpr_entry_to_sum_cols mapira P8/P11/P10+P18 (osnova), P18 (davek), P10 (neob.); _kpr_entry_ymd (P2/P4/P5); drevo z dnevi in prejetimi racuni ter zneski. Popravek vrstice KIR/KPR pasu (row=2).",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/app_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.31",
+      "date": "2026-06-28",
+      "title": "Postavitev: izvoz gor, pogled zavihki",
+      "log_file": "Davčna blagajna ver 2.1.31.txt",
+      "user_prompt": "kam si skril ostale zavihke; Excel in API zavihka gor v zgornji panel (uvoz-drevo-izvoz)",
+      "changes": "Zavihki pogleda: oznaka Pogled analize, krajša imena (Blagajna, Primerjaj KIRKPR, …). Excel in Izvoz API prestavljena iz spodnjega panela v zgornji del (korak 3 pred drevesom). Spodaj ostanejo Pot in Minimax nastavitve. KIR/KPR uvoz označen kot korak 1, drevo kot korak 2.",
+      "files_changed": [
+        "v2/ui_build.py",
+        "v2/ui_build_v21.py",
+        "v2/app_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.32",
+      "date": "2026-06-28",
+      "title": "KPR stolpci po shemi",
+      "log_file": "Davčna blagajna ver 2.1.32.txt",
+      "user_prompt": "tako zgleda KPR...kreiraj samo stolpce ki niso 0",
+      "changes": "KPR dreveso: stolpci P8-P21 po uradni eDavki shemi (blago, pridobitev blaga, DDV 22% ...). V drevesu samo polja z zneskom razlicnim od 0; brez praznih KIR stolpcev.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.33",
+      "date": "2026-06-28",
+      "title": "Minimax spletni uvoz pri Excel knjizbah",
+      "log_file": "Davčna blagajna ver 2.1.33.txt",
+      "user_prompt": "premik gumba Minimax spletni uvoz - ali je za uvoz excela",
+      "changes": "Minimax spletni uvoz prestavljen iz vrstice Org ID v zavihek Excel in knjizbe (po Knjizbe DDV). Odpre Minimax uvoz KnjizbeInDDV Excela - korak po izvozu knjizeb, ne uvoz v aplikacijo.",
+      "files_changed": [
+        "v2/ui_build.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "2.1.34",
+      "date": "2026-06-28",
+      "title": "Popravek uvoza blagajne/KPR stolpci",
+      "log_file": "Davčna blagajna ver 2.1.34.txt",
+      "user_prompt": "uvoz KPR???, popravi...",
+      "changes": "Popravljeno: KPR stolpci P8-P21 niso vec v SUM_COLS za Blagajna.csv — uvoz blagajne ne zahteva vec KPR polj. KPR uvoz ostane na zavihku KIR/KPR.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.35",
+      "date": "2026-06-28",
+      "title": "Uvoz meseca + Edge priklop Minimax",
+      "log_file": "Davčna blagajna ver 2.1.35.txt",
+      "user_prompt": "Uvozi podatke uvozil 2026-04 namesto 05; Minimax KIR ne odpiraj novega Edge",
+      "changes": "Uvoz blagajne: filtrira na izbrano Leto/Mesec, vklopi ZIP za ta mesec. Minimax KIR/KPR: brez open_url_in_edge pred Selenium; priklop na obstojeci Edge (debug port 9223), ne nov profil ce je Edge ze odprt.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.36",
+      "date": "2026-06-28",
+      "title": "Minimax KIR/KPR — Chrome nov zavihek",
+      "log_file": "Davčna blagajna ver 2.1.36.txt",
+      "user_prompt": "Prenos KIR/KPR naj odpre nov zavihek v Chromu (ne Edge)",
+      "changes": "Minimax KIR/KPR: Selenium preklop na Chrome profil MinimaxBlagajna\\ChromeMinimax (debug port 9223). Vedno nov zavihek za obračun DDV. ZAZENI_CHROME_MINIMAX_DEBUG.bat in _start_chrome_minimax_debug.py.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "_start_chrome_minimax_debug.py",
+        "ZAZENI_CHROME_MINIMAX_DEBUG.bat"
+      ]
+    },
+    {
+      "id": "2.1.37",
+      "date": "2026-06-28",
+      "title": "FURS PakR — status Pripravljen / V pripravi",
+      "log_file": "Davčna blagajna ver 2.1.37.txt",
+      "user_prompt": "Ali lahko dobiš povratno informacijo glede stanja Pripravljen ali V pripravi (več poslovnih prostorov)",
+      "changes": "DPR-PakR: branje statusa iz Angular data.InvoicePacket (Status 0/1). Povratna informacija v statusni vrstici med čakanjem (LJ: V pripravi | PO: Pripravljen). Čaka na vse prostore; prenese ločene ZIP po prostoru.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "2.1.38",
+      "date": "2026-06-28",
+      "title": "KPR drevo — seštevki P8–P21",
+      "log_file": "Davčna blagajna ver 2.1.38.txt",
+      "user_prompt": "KPR uvoz: Vrednost računa OK, stolpci P8/P10/P17/P18 v drevesu vsi 0",
+      "changes": "Popravljena agregacija KPR: sums_from_compare_docs in monthly_sums_from_docs_map vključita P8–P21 pri KPR dokumentih. Dreveso mesec/dan prikaže pravilne seštevke po eDavki shemi.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.39",
+      "date": "2026-06-28",
+      "title": "Popravek Prenos KIR/KPR minimax",
+      "log_file": "Davčna blagajna ver 2.1.39.txt",
+      "user_prompt": "spet pri minimaxu ne dela — on_done is not defined",
+      "changes": "Popravljen _prenos_minimax_kirkpr: on_done=on_fill_done (NameError).",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.40",
+      "date": "2026-06-28",
+      "title": "Minimax KIR/KPR — takoj nov zavihek Chrome",
+      "log_file": "Davčna blagajna ver 2.1.40.txt",
+      "user_prompt": "gumb ne izvede naloge, ne gre na minimax, dodatni zavihek ne NOV",
+      "changes": "Prenos KIR/KPR minimax vedno takoj odpre nov zavihek (CDP /json/new). Selenium ponovno uporabi zavihek če je že odprt. Ločen Chrome profil MinimaxBlagajna.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "2.1.41",
+      "date": "2026-06-01",
+      "title": "Minimax KIR/KPR — prijava in obračun DDV",
+      "log_file": "Davčna blagajna ver 2.1.41.txt",
+      "user_prompt": "popravi",
+      "changes": "Izboljšana avto-prijava (geslo v iframe/Microsoft, 45 s). ObracunDDV se ne zamenja za login stran. KIR/KPR čaka obračun DDV namesto uvoza; ob neuspehu 120 s za ročno prijavo v Chrome Minimax.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.42",
+      "date": "2026-06-01",
+      "title": "KIR/KPR prenos — ObracunDDV, Blagajna/DDV",
+      "log_file": "Davčna blagajna ver 2.1.42.txt",
+      "user_prompt": "ob kliku gre na ObracunDDV, ZIP v Blagajna (eDavki) ali DDV (Minimax)",
+      "changes": "Oba gumba Prenos KIR/KPR odpreta Minimax ObracunDDV.aspx. eDavki → Evidenca eDavki KIRKPR ZIP v Blagajna; Minimax → ZIP/XML v DDV. Popravljeno čakanje na prenos (ZIP ali XML).",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "2.1.43",
+      "date": "2026-06-01",
+      "title": "KIR/KPR — Blagajna/DDV po zavihku",
+      "log_file": "Davčna blagajna ver 2.1.43.txt",
+      "user_prompt": "zavihek eDavki → Blagajna, zavihek Minimax → DDV; od tam tudi uvoz",
+      "changes": "Uvoz in iskanje: eDavki samo mapa Blagajna (ZIP), Minimax samo DDV (ZIP/XML). Prenos upošteva aktivni zavihek eDavki/Minimax. Minimax uvoz podpira tudi ZIP iz DDV.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/app_v21.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "2.1.44",
+      "date": "2026-06-01",
+      "title": "KIR/KPR — zavihek v Chrome, Nastavitve",
+      "log_file": "Davčna blagajna ver 2.1.44.txt",
+      "user_prompt": "Ne odpiraš novo sejo, dodaš zavihek v chromu kot FURS blagajna, pravila v Nastavitvah",
+      "changes": "Prenos KIR/KPR: samo nov zavihek v obstoječem Chrome (debug 9222), brez zaganjanja nove seje. Selenium priklop na isti Chrome. Pravila po viru v Nastavitve → Dostop (edavki_kirkpr / minimax_kirkpr).",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/access_settings.py",
+        "v2/settings_menu.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "2.1.45",
+      "date": "2026-06-01",
+      "title": "KIR/KPR — URL v Nastavitvah, zavihek",
+      "log_file": "Davčna blagajna ver 2.1.45.txt",
+      "user_prompt": "gumb odpre nov zavihek na Minimax ObracunDDV, nastavi v Nastavitvah",
+      "changes": "Povezava ObracunDDV nastavljiva v Nastavitve → Dostop. Gumb odpre nov zavihek (CDP ali chrome --new-tab). Ne ustavi več toka, če debug port manjka.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/access_settings.py",
+        "v2/settings_menu.py",
+        "v2/ui_hints.py",
+        "blagajna_v2_access.json"
+      ]
+    },
+    {
+      "id": "2.1.46",
+      "date": "2026-06-01",
+      "title": "Nastavitve — open_url vs Selenium",
+      "log_file": "Davčna blagajna ver 2.1.46.txt",
+      "user_prompt": "open_url = samo link, selenium_auto = avtomatika; velja eDavki in Minimax",
+      "changes": "Popravljena logika Prenos KIR/KPR: brez Selenium samo odprt zavihek (ne ročni dialog). Z obema kljukicama najprej link, nato avtomatika. Jasnejši opisi v Nastavitvah.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/access_settings.py",
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "2.1.47",
+      "date": "2026-06-01",
+      "title": "Nastavitve — direct link + ročni vnos",
+      "log_file": "Davčna blagajna ver 2.1.47.txt",
+      "user_prompt": "drži se nastavitve; brez Selenium = direct link v nov zavihek + ročni vnos; enako eDavki, Minimax KIR/KPR in FURS blagajna",
+      "changes": "Checkbox direct_link v Nastavitvah (namesto open_url). Poenotena logika: direct_link → nov zavihek Chrome; brez Selenium → ročni vnos; z Selenium → avtomatika (po želji tudi direct link pred tem). Velja za FURS blagajno, eDavki KIR/KPR in Minimax KIR/KPR.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/access_settings.py",
+        "v2/settings_menu.py",
+        "blagajna_v2_access.json"
+      ]
+    },
+    {
+      "id": "2.1.48",
+      "date": "2026-06-01",
+      "title": "KIR/KPR eDavki — pravi URL in Chrome zavihek",
+      "log_file": "Davčna blagajna ver 2.1.48.txt",
+      "user_prompt": "Prenos KIR eDavki odpira Minimax namesto eDavkov; naj odpre link v že odprtem Chrome",
+      "changes": "Prenos KIR/KPR eDavki zdaj odpira edavki.durs.si DDV_Evidenci_Oddane (ne Minimax). Nov zavihek samo v obstoječem Chrome (CDP 9222), brez nove seje. Ročni način z eDavki navodili. FURS blagajna enako.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/access_settings.py"
+      ]
+    },
+    {
+      "id": "2.1.49",
+      "date": "2026-06-01",
+      "title": "Samodejni zagon eDavki Chrome",
+      "log_file": "Davčna blagajna ver 2.1.49.txt",
+      "user_prompt": "dodaj gumb Odpri eDavki Chrome; samodejni zagon ob Prenosu",
+      "changes": "Nastavitve → Odpri eDavki Chrome: zažene profil ChromeEdavki z debug portom 9222. Ob Prenosu/FURS, če Chrome še ne teče, ga program sam zažene in odpre zavihek. Bat datoteka ni več obvezna.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/settings_menu.py",
+        "_start_chrome_edavki_debug.py"
+      ]
+    },
+    {
+      "id": "2.1.50",
+      "date": "2026-06-01",
+      "title": "Nastavitve — zavihek Povezave eDavki",
+      "log_file": "Davčna blagajna ver 2.1.50.txt",
+      "user_prompt": "v nastavitve nov zavihek Povezave — combo eDavki kot v Evidence podjetij (SQL internet)",
+      "changes": "Zavihek Nastavitve → Povezave: tabela povezav (Naziv, Pot, Parametri, Opomba) kot SQL RefInternetLink. Uvoz iz SQL EvidencaFirm. Combo eDavki v levem panelu + gumb Odpri. Shranjeno v blagajna_edavki_links.json.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/settings_menu.py",
+        "v2/edavki_links_settings.py",
+        "v2/ui_build.py",
+        "blagajna_edavki_links.json"
+      ]
+    },
+    {
+      "id": "2.1.51",
+      "date": "2026-06-01",
+      "title": "Direct link — brez nove Chrome seje",
+      "log_file": "Davčna blagajna ver 2.1.51.txt",
+      "user_prompt": "direct link spet odpira novo sejo Chrome; dodaj Odpri Minimax Chrome v meni",
+      "changes": "Direct link samo CDP nov zavihek (9222/9223), brez auto_start in brez chrome --new-tab profila. Samodejni zagon Chrome samo iz menija. Dodan Nastavitve → Odpri Minimax Chrome. Če profil ze teče brez debug porta — ne odpira druge seje.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/settings_menu.py",
+        "_start_chrome_minimax_debug.py"
+      ]
+    },
+    {
+      "id": "2.1.52",
+      "date": "2026-06-01",
+      "title": "Povezave — osveži iz SQL ob zagonu",
+      "log_file": "Davčna blagajna ver 2.1.52.txt",
+      "user_prompt": "dodaj gumb Osveži iz SQL ob zagonu",
+      "changes": "Nastavitve → Povezave: checkbox Osveži iz SQL ob zagonu. Ob zagonu aplikacije naloži dbo.RefInternetLink iz EvidencaFirm SQL in posodobi combo eDavki.",
+      "files_changed": [
+        "v2/edavki_links_settings.py",
+        "v2/settings_menu.py",
+        "v2/ui_build.py",
+        "DavcnaBlagajna.py",
+        "blagajna_edavki_links.json"
+      ]
+    },
+    {
+      "id": "2.1.53",
+      "date": "2026-06-01",
+      "title": "Direct link — zavihek v odprtem Chrome",
+      "log_file": "Davčna blagajna ver 2.1.53.txt",
+      "user_prompt": "Chrome je odprt, dodaš zavihek in link",
+      "changes": "Direct link: če CDP ni dosegljiv, nov zavihek v že odprtem Chrome (profil ChromeEdavki ali privzeti Chrome --new-tab). Krajše opozorilo samo če vse spodleti. CDP poskusi vse zaznane debug porte.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.54",
+      "date": "2026-06-01",
+      "title": "KIR/KPR Minimax — pravi gumb, ObracunDDV",
+      "log_file": "Davčna blagajna ver 2.1.54.txt",
+      "user_prompt": "kir/kpr za minimax je ObracunDDV.aspx",
+      "changes": "Gumb Prenos KIR/KPR minimax vedno odpre ObracunDDV (ne glede na izbran vir KIR/KPR). Gumb eDavki vedno DDV_Evidenci_Oddane. Ločeno opozorilo za Minimax Chrome.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.55",
+      "date": "2026-06-01",
+      "title": "KIR/KPR drevo — vsi datumi, rdeče izven obdobja",
+      "log_file": "Davčna blagajna ver 2.1.55.txt",
+      "user_prompt": "Popravi drevesno strukturo KIR/KPR; prikaži vse dokumente in datume; rdeče izven obdobja; filter",
+      "changes": "KIR/KPR uvoz prikaže vse vrstice iz XML/ZIP (ne samo izbran mesec). Rdeče označeni datumi izven meseca izvoza. Filter Datumi izvoza: Vsi / Izven izvoza / V izvozu. Brez blagajna ZIP pod drevesom. P polja v podrobnostih dokumenta.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/app_v21.py"
+      ]
+    },
+    {
+      "id": "2.1.56",
+      "date": "2026-06-01",
+      "title": "Zložljivi paneli + urejanje KIR/KPR",
+      "log_file": "Davčna blagajna ver 2.1.56.txt",
+      "user_prompt": "panel +/−; dvojni klik KIR/KPR minimax API knjižba, eDavki XML forma",
+      "changes": "Zložljivi paneli (+/−): Minimax vrstica, uvoz KIR/KPR, izvoz Excel/API. Dvojni klik na dokument: eDavki → XML v ZIP; Minimax → XML + API knjižba. Shranjevanje vrstice v datoteko.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_build_v21.py",
+        "v2/collapsible.py",
+        "v2/kirkpr_editor.py"
+      ]
+    },
+    {
+      "id": "2.1.57",
+      "date": "2026-06-01",
+      "title": "Vedenje — dvojni klik po drevesu",
+      "log_file": "Davčna blagajna ver 2.1.57.txt",
+      "user_prompt": "dvojni klik velja za posamezna drevesa; KIR/KPR drugačen dvojni klik; nastavitve",
+      "changes": "Nastavitve → Vedenje: ločeno Blagajna (mesec → mapa/ZIP) in KIR/KPR (dokument → urejanje). V KIR/KPR načinu dvojni klik na mesec ne odpira blagajna mape.",
+      "files_changed": [
+        "v2/theme.py",
+        "DavcnaBlagajna.py",
+        "blagajna_v2_theme.json"
+      ]
+    },
+    {
+      "id": "2.1.58",
+      "date": "2026-06-01",
+      "title": "KIR/KPR — rdeč seznam datuma izven izvoza",
+      "log_file": "Davčna blagajna ver 2.1.58.txt",
+      "user_prompt": "obdobje 2026-05, pokaži pod hint in v drevesu dokumente z drugačnim datumom",
+      "changes": "Rdeč seznam pod hintom z datumom, dokumentom in P2/P4. V drevesu vozlišče Izven izvoza, mesec/dan/dokument z ⚠ in rdečim ozadjem.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.59",
+      "date": "2026-06-01",
+      "title": "KIR/KPR — samo Minimax API knjižba",
+      "log_file": "Davčna blagajna ver 2.1.59.txt",
+      "user_prompt": "Panel izvoz v Blagajna in KIR/KPR; dvojni klik odpre Minimax API knjižbo, ne eDavki XML",
+      "changes": "Dvojni klik na dokument KIR/KPR vedno odpre Minimax API knjižbo (eDavki in Minimax vir). Odstranjeno urejanje XML v ZIP. Dialog poenostavljen — samo API polja.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/kirkpr_editor.py",
+        "v2/theme.py"
+      ]
+    },
+    {
+      "id": "2.1.60",
+      "date": "2026-06-01",
+      "title": "Popravek dvojnega klika KIR/KPR v v2.1",
+      "log_file": "Davčna blagajna ver 2.1.60.txt",
+      "user_prompt": "dvojni klik na item v KIR in KPR ne deluje, ne odpre API minimax knjižbe",
+      "changes": "V v2.1 dreveso je bilo vezano na _on_double_click_month namesto _on_tree_double_click — v KIR/KPR načinu dvojni klik ni naredil nič. Popravljeno vezavo in robustnejše branje tree tagov.",
+      "files_changed": [
+        "v2/ui_build.py",
+        "DavcnaBlagajna.py",
+        "v2/app.py"
+      ]
+    },
+    {
+      "id": "2.1.61",
+      "date": "2026-06-01",
+      "title": "Izvoz panel samo v zavihku Blagajna",
+      "log_file": "Davčna blagajna ver 2.1.61.txt",
+      "user_prompt": "v KIR/KPR panelu ne potrebujem podvojenega dela od zavihka Blagajna (Izvoz Excel/knjižbe)",
+      "changes": "Panel Izvoz — Excel · knjižbe · Minimax API je viden samo v zavihku Blagajna, v KIR/KPR je skrit. Drevo se v KIR/KPR pomakne višje. Odstranjena podvojena naslovna vrstica panela.",
+      "files_changed": [
+        "v2/app_v21.py",
+        "v2/ui_build_v21.py",
+        "v2/ui_build.py"
+      ]
+    },
+    {
+      "id": "2.1.62",
+      "date": "2026-06-01",
+      "title": "KIR/KPR Minimax knjižba — polna forma iz API",
+      "log_file": "Davčna blagajna ver 2.1.62.txt",
+      "user_prompt": "iz API minimax dodaj v formo vse podatke, datum dd.mm.yyyy, zneski 1.111,11, konto combo iz API",
+      "changes": "Dialog knjižbe naloži IssuedInvoicePosting predlogo iz Minimax API. Datum v dd.mm.yyyy, zneski v slovenskem formatu. Konto je Combobox s konti iz API. Polja: tip, status, datumi, opis, sklic, stranka, DDV zneski.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/kirkpr_editor.py"
+      ]
+    },
+    {
+      "id": "2.1.63",
+      "date": "2026-06-01",
+      "title": "Nastavitve — postavitev obrazca Minimax knjižbe",
+      "log_file": "Davčna blagajna ver 2.1.63.txt",
+      "user_prompt": "ali je možno formo urediti postavitev polj po moji zamisli, daj v Nastavitve",
+      "changes": "Novi zavihek Nastavitve → Minimax knjižba: vrstni red polj, vidnost, oznake, 1/2 stolpca, velikost okna, ročna vrstica/stolpec. Shranjeno v blagajna_kirkpr_knjizba_form.json.",
+      "files_changed": [
+        "v2/kirkpr_knjizba_form_layout.py",
+        "v2/kirkpr_editor.py",
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "2.1.64",
+      "date": "2026-06-01",
+      "title": "Minimax knjižba — DatePicker, comboboxi, ločen KIR/KPR obrazec",
+      "log_file": "Davčna blagajna ver 2.1.64.txt",
+      "user_prompt": "popravki: datum naj bo DTpicker; Tip dokumenta in Status naj bo combobox; Forma za KIR je drugačna od forme za KPR, preveri polja za izdane in prejete račune",
+      "changes": "Datumi z izbirnikom dan/mesec/leto. Tip dokumenta (IZT/IRI/IRS/AVA) in status kot combobox. Ločena polja in postavitev za KIR (izdani) in KPR (prejeti, P8–P21). KPR pošiljanje prek Minimax ReceivedInvoice API.",
+      "files_changed": [
+        "v2/date_picker.py",
+        "v2/kirkpr_knjizba_form_layout.py",
+        "v2/kirkpr_editor.py",
+        "v2/settings_menu.py",
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.65",
+      "date": "2026-06-01",
+      "title": "Minimax knjižba — drag & drop designer, stranke API, nov zapis",
+      "log_file": "Davčna blagajna ver 2.1.65.txt",
+      "user_prompt": "vizualni drag & drop designer; stranke combo iz API; gumb Dodaj nov zapis",
+      "changes": "Vizualni designer postavitve polj (povleci-in-spusti) v Nastavitve. Stranka/dobavitelj kot combobox iz Minimax customers API. Gumb «Dodaj nov zapis» za ročno knjiženje brez dvojnega klika.",
+      "files_changed": [
+        "v2/knjizba_form_designer.py",
+        "v2/kirkpr_knjizba_form_layout.py",
+        "v2/kirkpr_editor.py",
+        "v2/settings_menu.py",
+        "v2/ui_build.py",
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.66",
+      "date": "2026-06-01",
+      "title": "DT picker — koledar s padajočim izborom",
+      "log_file": "Davčna blagajna ver 2.1.66.txt",
+      "user_prompt": "za datum sem mislik DT picker (koledar kot na sliki)",
+      "changes": "SlDatePicker zamenjan: polje dd.mm.yyyy + gumb ▼ odpre mesečni koledar (tedni, Pon–Ned), gumb × počisti. Ročni vnos še vedno možen.",
+      "files_changed": [
+        "v2/date_picker.py"
+      ]
+    },
+    {
+      "id": "2.1.67",
+      "date": "2026-06-01",
+      "title": "Minimax knjižba — pravilni podatki iz API",
+      "log_file": "Davčna blagajna ver 2.1.67.txt",
+      "user_prompt": "Pridobi pravilne podatke iz Minimax API (status potrjen, KPR stroškovno konto, pravilna stranka).",
+      "changes": "Ob dvojnem kliku KIR/KPR obrazec išče obstoječi zapis v Minimaxu (issuedinvoiceposting / receivedinvoice) in naloži dejanske vrednosti (status P, konto, stranka). KPR combobox kont filtrira na 4*/6* (stroški), ne prihodkov. Status vrstica prikaže vir podatkov.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/kirkpr_editor.py"
+      ]
+    },
+    {
+      "id": "2.1.68",
+      "date": "2026-06-01",
+      "title": "Designer knjižbe — +/−, drag & drop, širina polja",
+      "log_file": "Davčna blagajna ver 2.1.68.txt",
+      "user_prompt": "Za urejevalnik dodaj panele +,-, popravi povleci in spusti, omogoči razširitev/zoženje textboxa.",
+      "changes": "Vizualni designer: popravljen drag & drop (bind_all med premikom). Gumbi +/− na vsakem polju in v orodni vrstici za širino vnosa. Ročaj na desnem robu polja za vlečenje širine. Posamezna širina vnosa na polju (0 = globalna).",
+      "files_changed": [
+        "v2/knjizba_form_designer.py",
+        "v2/kirkpr_knjizba_form_layout.py",
+        "v2/kirkpr_editor.py",
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "2.1.69",
+      "date": "2026-06-01",
+      "title": "Knjižba nastavitve — zložljivi paneli + popravljen drag",
+      "log_file": "Davčna blagajna ver 2.1.69.txt",
+      "user_prompt": "Popravi in vstavi v vse 3 panele razširi/skrci (+/−).",
+      "changes": "Vsi trije paneli (designer, okno in mreža, seznam polj) imajo +/− za skrčitev/razširitev. Popravljene koordinate pri vlečenju (bind_all + pozicija miške). Širina polja samo vodoravno; +/− pri vrednostih v Okno in mreža.",
+      "files_changed": [
+        "v2/knjizba_form_designer.py",
+        "v2/collapsible.py",
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "2.1.70",
+      "date": "2026-06-01",
+      "title": "KPR knjižba — filter combobox, konto iz temeljnice, št. listine",
+      "log_file": "Davčna blagajna ver 2.1.70.txt",
+      "user_prompt": "Filter dobavitelj/konto, konto iz knjiženja, polja št. listine, vezni dokument, opis P3;vezni, status iz API.",
+      "changes": "Combobox filter med tipkanjem (dobavitelj, konto 41%). Konto stroškov iz journal-entries (temeljnica). Nova polja KPR: Št. listine (P3), Vezni dokument, Opis (P3;vezni). Dobavitelj po davčni št. P1 in delnem imenu.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/kirkpr_editor.py",
+        "v2/kirkpr_knjizba_form_layout.py",
+        "v2/filtered_combobox.py"
+      ]
+    },
+    {
+      "id": "2.1.71",
+      "date": "2026-06-01",
+      "title": "Designer — popravljen drag & drop (brez nenamerne širine)",
+      "log_file": "Davčna blagajna ver 2.1.71.txt",
+      "user_prompt": "Premikanje polja ne deluje — polje se poveča namesto da se prestavi.",
+      "changes": "Odstranjen ročaj za širino na polju (povzročal resize namesto premika). Polja imajo fiksno velikost v celici. Drag z pragom 5 px, dogodki vezani na canvas. Spust v rumeno označeno celico.",
+      "files_changed": [
+        "v2/knjizba_form_designer.py"
+      ]
+    },
+    {
+      "id": "2.1.72",
+      "date": "2026-06-01",
+      "title": "Nastavitev obvestil ob koncu akcije (uvoz KIR/KPR)",
+      "log_file": "Davčna blagajna ver 2.1.72.txt",
+      "user_prompt": "Dodaj, ali me ali ne obvešča z MSG na koncu akcije, npr pri KIR/KPR po uvoz.",
+      "changes": "Nov checkbox v Obvestila: prikaži obvestilo ob koncu akcije (uvoz KIR/KPR). Uvoz in analiza spoštujeta nastavitev; brez MSG se podatki še vedno naložijo.",
+      "files_changed": [
+        "v2/access_settings.py",
+        "v2/app_v21.py",
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.73",
+      "date": "2026-06-01",
+      "title": "Uvoz KIR/KPR — en klik, obe knjigi iz iste datoteke",
+      "log_file": "Davčna blagajna ver 2.1.73.txt",
+      "user_prompt": "Ko uvozim xml iz edavkov ali minimaxa napolni oba lista KIR in KPR — kako poenostaviti?",
+      "changes": "Skupen panel eDavki/Minimax (brez podvojenih gumbov pod KIR in KPR). Uvozi podatke naloži Lista_KIR in Lista_KPR iz iste ZIP/XML v ločena drevesa; zavihek KIR/KPR samo preklopi pogled.",
+      "files_changed": [
+        "v2/app_v21.py",
+        "v2/ui_build_v21.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "2.1.74",
+      "date": "2026-06-01",
+      "title": "KPR obrazec — velikost v nastavitvah, drsnik, status in zapadlost",
+      "log_file": "Davčna blagajna ver 2.1.74.txt",
+      "user_prompt": "Obrazec v nastavitve (širina/višina), drsnik spodaj, popravek Osnutek in prazen datum zapadlosti.",
+      "changes": "Nastavitve → Minimax knjižba → Okno in mreža (širina/višina px, privzeto odprto). Vodoravni + navpični drsnik na obrazcu. Iskanje prejetega računa po datumu in temeljnici; status Potrjen iz knjiženja; datum zapadlosti iz P5/P6 ali API.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/kirkpr_editor.py",
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "2.1.75",
+      "date": "2026-06-01",
+      "title": "Designer — popravljen premik polj v prazne celice",
+      "log_file": "Davčna blagajna ver 2.1.75.txt",
+      "user_prompt": "Zakaj noče nekatere premakniti v vizualnem designerju?",
+      "changes": "Spust zazna središče vlečenega polja (ne le kazalec). Samodejno drsenje ob vlečenju. Panel spodaj ne prepisuje več vrstice/stolpca po premiku v designerju.",
+      "files_changed": [
+        "v2/knjizba_form_designer.py",
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "2.1.76",
+      "date": "2026-06-01",
+      "title": "Designer — klik celice, stolpec 0/1, zanesljiv premik",
+      "log_file": "Davčna blagajna ver 2.1.76.txt",
+      "user_prompt": "Urejanje ne deluje — dovoli premik kateregakoli polja v prvi ali drugi stolpec.",
+      "changes": "Klik rumene celice premakne izbrano polje (zamenjava z occupant). Gumbi ← Stol. 0 / Stol. 1 → in v panelu Izbrano polje. Shranjevanje ne prepisuje več pozicij iz panela. Celice označene z vrstica,stolpec.",
+      "files_changed": [
+        "v2/knjizba_form_designer.py",
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "2.1.77",
+      "date": "2026-06-01",
+      "title": "KPR obrazec — API v ozadju, okno ne zamrzne",
+      "log_file": "Davčna blagajna ver 2.1.77.txt",
+      "user_prompt": "Okno Minimax knjižba — KPR se obesi (Se ne odziva) med nalaganjem API.",
+      "changes": "Nalaganje konteksta in pošiljanje v Minimax API tečeta v ozadnji niti; UI ostane odziven (watch kurzor, status). Ob zaprtju okna se zastareli odziv API ignorira (_load_token).",
+      "files_changed": [
+        "v2/kirkpr_editor.py"
+      ]
+    },
+    {
+      "id": "2.1.78",
+      "date": "2026-06-01",
+      "title": "KPR obrazec — hitrejše nalaganje Minimax API",
+      "log_file": "Davčna blagajna ver 2.1.78.txt",
+      "user_prompt": "Nalaganje Minimax knjižbe KPR dolgo traja.",
+      "changes": "Takojšen obrazec iz KPR evidence, nato posodobitev iz API. Vmesni cache kont/strank. Vzporedno nalaganje kont in strank. Manj klicov: temeljnica (zgodnji izhod), iskanje računa (največ 3 GET + en enrich), status korakov v dialogu.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/kirkpr_editor.py"
+      ]
+    },
+    {
+      "id": "2.1.79",
+      "date": "2026-06-01",
+      "title": "KPR obrazec — dobavitelj, konto, vezni, layout",
+      "log_file": "Davčna blagajna ver 2.1.79.txt",
+      "user_prompt": "Dobavitelj prikaže «1», konto prazen, manjka vezni dokument — malo ti še manjka?",
+      "changes": "Popravljeno prekrivanje comboboxov z API namigi v 2-stolpčnem layoutu. Dobavitelj po davčni P1 (ne napačna nastavitev ID 1). Vezni dokument iz P6 evidence. Konto iz temeljnice v combobox seznamu.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/kirkpr_editor.py"
+      ]
+    },
+    {
+      "id": "2.1.80",
+      "date": "2026-06-01",
+      "title": "KPR — pravilen opis/vezni/sklic, konto iz temeljnice",
+      "log_file": "Davčna blagajna ver 2.1.80.txt",
+      "user_prompt": "Opis, vezni in sklic napačni (P6 naslov); konto stroškov je v temeljnici — ven ga potegni.",
+      "changes": "P6 = naslov dobavitelja (ne vezni). Vezni in opis (P3;TS1-2-…) iz Minimax temeljnice PaymentReference. Sklic ločen, brez naslova. Konto iz journal-entries z ujemanjem osnove P8 (177,50), ne le bruto 216,55.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.81",
+      "date": "2026-06-01",
+      "title": "KIR/KPR — dobavitelj, konto, stranka iz API",
+      "log_file": "Davčna blagajna ver 2.1.81.txt",
+      "user_prompt": "Manjkajo pridobljeni podatki: KPR dobavitelj in konto, KIR stranka.",
+      "changes": "Iskanje stranke/dobavitelja po P1 in imenu (API search + GET po ID). Konto iz temeljnice v combobox (merge accounts). KIR: stranka iz evidence in API. Izbrani ID vedno v seznamu comboboxa.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.1.82",
+      "date": "2026-06-01",
+      "title": "Primerjaj datoteke — raztegnjen panel, 3 prednastavitve",
+      "log_file": "Davčna blagajna ver 2.1.82.txt",
+      "user_prompt": "Raztegni panel; dodaj primerjave s checkboxom: Davčna blagajna, KIR eDavki minimax, KPR eDavki minimax.",
+      "changes": "Zavihek Primerjaj datoteke brez scrolla — tabela zapolni spodnji del. Tri checkbox primerjave (Blagajna KIR↔ZIP, DDV KIR eDavki↔Minimax, DDV KPR eDavki↔Minimax). load_aggregates_from_file podpira knjigo KIR/KPR.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_build_v21.py",
+        "v2/app_v21.py"
+      ]
+    },
+    {
+      "id": "2.2.01",
+      "date": "2026-06-29",
+      "title": "Nastavljive primerjave datotek + Excel parser",
+      "log_file": "Davčna blagajna ver 2.2.01.txt",
+      "user_prompt": "Dodaj parser in kreiraj novo verzijo 2.2.01.",
+      "changes": "Primerjave datotek so premaknjene v nastavitve z novim JSON modelom in dinamičnim seznamom v UI. Dodan je parser za Excel (.xlsx/.xlsm) z mesečnimi seštevki, skupni runner primerjav in nova forma Nastavitve → Primerjave datotek.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/app_v21.py",
+        "v2/ui_build_v21.py",
+        "v2/settings_menu.py",
+        "v2/file_compare_settings.py"
+      ]
+    },
+    {
+      "id": "2.2.02",
+      "date": "2026-06-29",
+      "title": "Polna Excel podpora v primerjavah datotek",
+      "log_file": "Davčna blagajna ver 2.2.02.txt",
+      "user_prompt": "Maximalno Excel: list, način branja, analiza Mesečno/Dnevno/Dokumenti.",
+      "changes": "Excel parser razširjen na načine auto/analysis/monthly/daily z branjem listov Mesečno, Dnevno in Dokumenti. Nastavitve primerjav vključujejo izbiro lista, način branja, gumb Prebrskaj Excel, osvežitev listov in podvojitev primerjave.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/settings_menu.py",
+        "v2/file_compare_settings.py"
+      ]
+    },
+    {
+      "id": "2.2.03",
+      "date": "2026-06-29",
+      "title": "KPR Minimax — pravilen opis in konto iz prejetega računa",
+      "log_file": "Davčna blagajna ver 2.2.03.txt",
+      "user_prompt": "Opis naj bo 2026-264;260327;, ne 260327;2026271; prazen konto stroškov.",
+      "changes": "Opis KPR: Year-InvoiceNumber iz ReceivedInvoice + P3 (npr. 2026-264;260327;). Konto stroškov iz odhodkov prejetega računa (API items/expenses, koda iz Account.Name npr. 4190). ID temeljnice (2026271) se ne uporabi več kot vezni.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/kirkpr_knjizba_form_layout.py"
+      ]
+    },
+    {
+      "id": "2.2.04",
+      "date": "2026-06-29",
+      "title": "Prazna analiza — uvoz 0 in jasen vzrok",
+      "log_file": "Davčna blagajna ver 2.2.04.txt",
+      "user_prompt": "Če ni podatkov pač uvozi 0; ne javi zavajajočega err o stolpcu z datumom.",
+      "changes": "FURS CSV sniffer raje uporabi `;` (ne `,` ob samo glavi). ZIP za izbrano obdobje ostane vklopljen pred branjem. Prazen CSV (samo glava) se zabeleži kot empty. Dialog ob 0 podatkih je Info z dejanskim vzrokom.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.2.05",
+      "date": "2026-09-08",
+      "title": "FURS Blagajna — CDP vpis Od/do po mesecu",
+      "log_file": "Davčna blagajna ver 2.2.05.txt",
+      "user_prompt": "FURS Blagajna: CDP samoizpolnjevanje Od dne / do dne glede na mesec.",
+      "changes": "Ob FURS Blagajna (brez selenium_auto) se prek CDP Runtime.evaluate vpišeta Od dne/do dne iz Leto+Mesec (npr. 01.08.2026–31.08.2026) in po potrebi P1. Gumb Pripravi nov paket ostane ročen.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.2.06",
+      "date": "2026-09-08",
+      "title": "FURS Blagajna — samo CDP, brez novega zavihka",
+      "log_file": "Davčna blagajna ver 2.2.06.txt",
+      "user_prompt": "Ne odpiraj nove strani; eDavki so odprti; izklopi Selenium; uporabi CDP.",
+      "changes": "FURS Blagajna ne odpira več novega zavihka in ne kliče Selenium. Samo CDP vpis Od/do na že odprtem DPR_PakR (debug 9222). direct_link za edavki_blagajna privzeto izklopljen.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "blagajna_v2_access.json",
+        "v2/access_settings.py"
+      ]
+    },
+    {
+      "id": "2.2.07",
+      "date": "2026-09-08",
+      "title": "FURS Blagajna — vtičnik fill (brez :9222)",
+      "log_file": "Davčna blagajna ver 2.2.07.txt",
+      "user_prompt": "err, uredi to....ni dodatnih zagonov....glej kako je narejen vtičnik in CDP!!!",
+      "changes": "FURS Blagajna vpiše Od/do prek Minimax podjetja (localhost sprožilec + chrome.scripting MAIN), enako kot MRN. Brez ZAZENI_CHROME bat in brez zahteve po debug 9222. CDP ostane tihi fallback. Vtičnik 1.4.36: fursFillPakrPeriod na že odprtem DPR_PakR.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/content_automation.js",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/background.js",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/manifest.json"
+      ]
+    },
+    {
+      "id": "2.2.08",
+      "date": "2026-09-08",
+      "title": "FURS Blagajna — odpri DPR_PakR + datumi + Pripravi",
+      "log_file": "Davčna blagajna ver 2.2.08.txt",
+      "user_prompt": "ko odpreš pravi link za davčno blagajno bi moral samo dodati datume in prenos",
+      "changes": "FURS Blagajna spet odpre pravi DPR_PakR link za firmo, vpiše Od/do in klikne Pripravi nov paket (vtičnik 1.4.37). Ne zahteva več že odprtega zavihka. Brez debug bat.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/content_automation.js",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/background.js",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/manifest.json"
+      ]
+    },
+    {
+      "id": "2.2.09",
+      "date": "2026-09-08",
+      "title": "FURS Blagajna — Shrani + izhod DeputyList",
+      "log_file": "Davčna blagajna ver 2.2.09.txt",
+      "user_prompt": "deluje, dodaj še izhod... glej zajem DeputyList",
+      "changes": "Po Pripravi počaka Pripravljen, klikne Shrani, nato izhod na Zamenjava zavezanca (DeputyList). Vtičnik 1.4.38.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/background.js",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/content_automation.js",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/manifest.json"
+      ]
+    },
+    {
+      "id": "2.2.10",
+      "date": "2026-09-08",
+      "title": "FURS Blagajna — tihi ZIP prenos (brez Save As)",
+      "log_file": "Davčna blagajna ver 2.2.10.txt",
+      "user_prompt": "popravi chrome prenost datotek; ne sprašuje kje prenesti",
+      "changes": "Shrani ne kliče več HTML povezave (Save As). Vtičnik 1.4.39: chrome.downloads saveAs:false + onDeterminingFilename. ZIP nato premakne v mapo Blagajna.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/background.js",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/content_automation.js",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/manifest.json"
+      ]
+    },
+    {
+      "id": "2.2.11",
+      "date": "2026-09-08",
+      "title": "Izbira avtomatike + XML Banka nastavitev",
+      "log_file": "Davčna blagajna ver 2.2.11.txt",
+      "user_prompt": "ne, vedno mi daj izbiro avtomatike (Meni oz. nastavitve), to je bilo iz Banka > Placilni nalogi in so bili virmani za placila dobaviteljem....",
+      "changes": "FURS Blagajna znova spoštuje Nastavitve → Dostop → Avtomatika (selenium_auto). Brez kljukice = ročno (link+pot). Z kljukico = vtičnik. Place Oddaje 1.2.57: v glavi izbira XML (Banka/SIEUR): Shrani kot / Trops\\\\Virmani / Downloads; STOJANOVIĆ → Trops\\\\03\\\\Virmani.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/access_settings.py",
+        "Chrome_add/Place_Oddaje (1.2.57)"
+      ]
+    },
+    {
+      "id": "2.2.12",
+      "date": "2026-09-08",
+      "title": "Pojasnilo Direct link / Avtomatika",
+      "log_file": "Davčna blagajna ver 2.2.12.txt",
+      "user_prompt": "potrebujem pojasnilo Direkt link in Avtomatika , a ta Silenium zamenjamo s CDP ?",
+      "changes": "Nastavitve Dostop: pojasnjena legenda Direct link vs Avtomatika; Selenium odstranjen iz oznake (zdaj: Avtomatika — vtičnik / Chrome). CDP omenjen kot mozna podpora, ne kot zamenjava za vse.",
+      "files_changed": [
+        "v2/access_settings.py",
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "2.2.13",
+      "date": "2026-09-13",
+      "title": "Popravek FURS Blagajna odpri+Od/do",
+      "log_file": "Davčna blagajna ver 2.2.13.txt",
+      "user_prompt": "davcna blagajna: ne odpre edavkov!!!! in moral bi vnesti datume v textboxe, je ze pred kratkim delovalo, poglej kaj si pokvaril??",
+      "changes": "Popravek 2.2.11: FURS Blagajna znova VEDNO odpre eDavke + vpiše Od/do prek vtičnika. Kljukica Avtomatika = še Pripravi/Shrani/izhod (ne več pogoj za odprtje). Posodobljena legenda v Nastavitve → Dostop.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/access_settings.py",
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "2.2.14",
+      "date": "2026-09-14",
+      "title": "FURS brez vtičnika — CDP v app",
+      "log_file": "Davčna blagajna ver 2.2.14.txt",
+      "user_prompt": "chrome vticnik Minimax podjetja 1.4.42 pretvori v kodo za v sistem da bo app neodvisen!!!! To velja za vse vticnike!!!!",
+      "changes": "FURS Blagajna: avtomatika PRESTAVLJENA v aplikacijo (CDP Runtime.evaluate + Page.setDownloadBehavior; Selenium attach kot rezervni). Vtičnik Minimax podjetja NI več potreben za PakR. Nov v2/browser_inapp.py — register migracije vseh vtičnikov (Place Oddaje, CDP Snemalnik, KIR PR … še TODO). Nastavitve Dostop: posodobljena legenda.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/browser_inapp.py",
+        "v2/access_settings.py",
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "2.2.15",
+      "date": "2026-09-14",
+      "title": "Reuse eDavki + Minimax uvoz CDP",
+      "log_file": "Davčna blagajna ver 2.2.15.txt",
+      "user_prompt": "ni se OK...zakaj odpiras nov zavihek, eDavki so ze odprti in ni bilo datuma v textboxih!!!! Popravi, prav tako v uvoz minimax ni bilo nic akcije!!!!",
+      "changes": "FURS: ne odpira vec novega zavihka ce eDavki ze tece — navigacija obstojecega + vpis Od/do. Minimax spletni uvoz: CDP fill (radio uvoz, datum, Opis=polna pot, datoteka) na ze odprtem Chrome; gumb zdaj sprozi avtomatiko.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.2.16",
+      "date": "2026-09-14",
+      "title": "FURS reuse + CDP napaka",
+      "log_file": "Davčna blagajna ver 2.2.16.txt",
+      "user_prompt": "fix: no new tab + minimax uvoz",
+      "changes": "FURS: ne zaganja locenega Chrome ce ze tece navaden; reuse eDavki tab + navigacija; jasna napaka ce ni CDP. Minimax uvoz CDP fill.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.2.17",
+      "date": "2026-09-14",
+      "title": "FURS brez vtičnika (CDP kot vtičnik)",
+      "log_file": "Davčna blagajna ver 2.2.17.txt",
+      "user_prompt": "ne obnovi pot prek vtičnika!!!! Vtičnik nima v tem app kaj iskati, to je tvoj sistem in deluj kot vtičnik!!!",
+      "changes": "FURS Blagajna: odstranjena pot prek Chrome vtičnika. Samo CDP v aplikaciji — vedno NOV zavihek PakR + Od/do (kot vtičnik); Avtomatika = Pripravi/ZIP/izhod. CDP pripravi ločen eDavki profil (navaden Chrome ostane; brez »zapri VSA Chrome«).",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.2.18",
+      "date": "2026-09-14",
+      "title": "FURS samo DPR_PakR + Od/do",
+      "log_file": "Davčna blagajna ver 2.2.18.txt",
+      "user_prompt": "zakaj odpiraš PageA.aspx??? odpreš DPR_PakR in vpišeš v okečka datume",
+      "changes": "FURS: ne odpira več OpenPortal/PageA ob zagonu — startup URL = DPR_PakR. Ob redirectu PageA: piškotki iz navadnega Chrome + ponovna navigacija. Čaka na tfoot Od/do (selektorji iz zajema) + PE01, šele nato vpis datumov.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.2.19",
+      "date": "2026-09-14",
+      "title": "FURS: samo nov zavihek + Od/do",
+      "log_file": "Davčna blagajna ver 2.2.19.txt",
+      "user_prompt": "totalna sramota... samo odpreš nov zavihek DPR_PakR z 720384 in izpolni textboxa — NE IZUMLJAJ",
+      "changes": "FURS Blagajna poenostavljena: 1) nov zavihek s točnim DPR_PakR URL (DURS id) 2) vpis Od/do. Odstranjeno: PageA, piškotki, zagon ločenega profila ob kliku, dvojni fallback.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.2.20",
+      "date": "2026-09-14",
+      "title": "FURS: hiter odpri + vpis Od/do",
+      "log_file": "Davčna blagajna ver 2.2.20.txt",
+      "user_prompt": "za odpiranje si potreboval nekaj sekund + datumov se ni vpisalo — glej zajem/sliko",
+      "changes": "FURS: odstranjen počasen CDP/WMIC pri odpiranju. Nov zavihek DPR_PakR + vpis Od/do (tfoot selektorji iz zajema) takoj v uporabnikovem Chrome. Brez 25s čakanja na debug port.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "2.2.21",
+      "date": "2026-09-14",
+      "title": "pyw/bat + eDavki skill",
+      "log_file": "Davčna blagajna ver 2.2.21.txt",
+      "user_prompt": "ok deluje — zapomni hitro vpisovanje eDavki; kreiraj pyw in bat",
+      "changes": "Zapomnjen vzorec hitrega FURS PakR (skill + .cursor rule). Dodana DavcnaBlagajna.pyw in ZAZENI_DavcnaBlagajna_PYW.bat (zagon brez konzole).",
+      "files_changed": [
+        "DavcnaBlagajna.pyw",
+        "ZAZENI_DavcnaBlagajna_PYW.bat",
+        "ZAZENI_DavcnaBlagajna_PY.bat",
+        ".cursor/rules/edavki-furs-pakr-fast.mdc"
+      ]
+    },
+    {
+      "id": "2.2.22",
+      "date": "2026-09-14",
+      "title": "Minimax uvoz: hitro odpri+vpis+datoteka",
+      "log_file": "Davčna blagajna ver 2.2.22.txt",
+      "user_prompt": "enako za minimax uvoz — hitro odpri OrganisationId URL, radio/datum/opis, avto priponi xlsx",
+      "changes": "Minimax spletni uvoz: hitri potek kot FURS (localhost + Minimax podjetja 1.4.43). Nov zavihek UvozPodatkov?OrganisationId, radio Podatki naj se uvozijo, Datum/Opis/Vrsta, samodejna priponka xlsx. Brez CDP/WMIC zakasnitev.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/background.js",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/content_automation.js",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/manifest.json"
+      ]
+    },
+    {
+      "id": "2.2.23",
+      "date": "2026-09-14",
+      "title": "pyw/bat → v2_1 (2.2*)",
+      "log_file": "Davčna blagajna ver 2.2.23.txt",
+      "user_prompt": "pyw si napačno izbral — ver 2.2* = DavcnaBlagajna_v2_1.py",
+      "changes": "DavcnaBlagajna.pyw in ZAZENI_DavcnaBlagajna_PYW.bat zdaj zaganjata DavcnaBlagajna_v2_1.py (UI serije 2.2*).",
+      "files_changed": [
+        "DavcnaBlagajna.pyw",
+        "ZAZENI_DavcnaBlagajna_PYW.bat",
+        "ZAZENI_DavcnaBlagajna_PY.bat"
+      ]
+    },
+    {
+      "id": "2.2.24",
+      "date": "2026-09-14",
+      "title": "Minimax: pravi URL, ne 127.0.0.1",
+      "log_file": "Davčna blagajna ver 2.2.24.txt",
+      "user_prompt": "za minimax...od kje ti ta link 127.0.0.1",
+      "changes": "Minimax uvoz: najprej odpre pravi moj.minimax.si UvozPodatkov URL; 127.0.0.1 je samo kratek sprožilec za vtičnik (z redirect rezervnim). Vtičnik 1.4.44 reuse že odprtega uvoz zavihka.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/background.js",
+        "Chrome_add/Minimax_Odpiranje_Podjetij/manifest.json"
+      ]
+    },
+    {
+      "id": "2.2.25",
+      "date": "2026-09-14",
+      "title": "Brez vticnikov: samo direktni URL",
+      "log_file": "Davčna blagajna ver 2.2.25.txt",
+      "user_prompt": "DOGOVOR: ni v APP vec kombiniranje z vticniki — direkt link kot eDavki, NE VTICNIKE",
+      "changes": "FURS in Minimax: odstranjena pot prek vticnika/localhost. Samo neposredni URL (DPR_PakR / UvozPodatkov?OrganisationId) + CDP vpis ce debug Chrome ze tece. Brez Reload extension sporocil.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        ".cursor/rules/edavki-furs-pakr-fast.mdc"
+      ]
+    },
+    {
+      "id": "2.2.26",
+      "date": "2026-10-04",
+      "title": "FURS PakR: takojšnji link v eDavki Chrome + vpis Od/do; zagon .pyw",
+      "log_file": "Davčna blagajna ver 2.2.26.txt",
+      "user_prompt": "ne ni OK...link se odpre takoj, in naredi pyw (ZAZENI_DavcnaBlagajna_V2_1.bat)",
+      "changes": "FURS Blagajna ne odpira vec navadnega Chrome (--new-tab), kjer vpis ni mogoc. PakR se odpre takoj v eDavki debug Chrome (CDP /json/new) in program pocaka na Od/do polja v tem istem zavihku, nato vpis. ZAZENI_DavcnaBlagajna_V2_1.bat in PYW.bat zaganjata DavcnaBlagajna.pyw (pythonw).",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "ZAZENI_DavcnaBlagajna_V2_1.bat",
+        "ZAZENI_DavcnaBlagajna_PYW.bat",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "2.2.27",
+      "date": "2026-10-04",
+      "title": "FURS: nov zavihek v ze odprtem Chrome + PakR link",
+      "log_file": "Davčna blagajna ver 2.2.27.txt",
+      "user_prompt": "crome je ze odprt, dodaj nov zavihek in link! Tako enostavno, na eDavke sem pa ze prijavljen.",
+      "changes": "FURS Blagajna ne zaganja vec novega Chrome. V ze odprtem Chrome (CDP, prednost 9222 kjer je eDavki) doda nov zavihek z DPR_PakR linkom (Target.createTarget) in vpiše Od/do. Fallback: chrome --new-tab.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "2.2.28",
+      "date": "2026-10-04",
+      "title": "FURS: obnovljena hitra pot 2.2.20/2.2.21",
+      "log_file": "Davčna blagajna ver 2.2.28.txt",
+      "user_prompt": "dovolj! Ni ok, preveri prejsnje verzije ki je takoj odprl nov zavihek v chromu, vnesel datume ...vse skupaj v 2 sekundah. NAJDI TO",
+      "changes": "FURS Blagajna spet kot 2.2.20 (uporabnik: ok deluje): chrome --new-tab v ze odprtem Chrome + vpis Od/do v ~2 s (fursFillPakrPeriod). Odstranjen pocasen CDP/WMIC/nov profil.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py",
+        ".cursor/rules/edavki-furs-pakr-fast.mdc"
+      ]
+    },
+    {
+      "id": "2.2.29",
+      "date": "2026-10-08",
+      "title": "DDV zavezanec checkbox iz DURSanalitika",
+      "log_file": "Davčna blagajna ver 2.2.29.txt",
+      "user_prompt": "Davcna blagajna: ce je zavezanec je na chk kljukica, ce ni zavezanec ni kljukice, naj bo avtomatika",
+      "changes": "Ob izbiri firme checkbox Podjetje je zavezanec za DDV samodejno iz stolpca oddaja DDV (Ni zavezanec = brez kljukice, mesečna/tromesečna = kljukica).",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_build.py"
+      ]
+    },
+    {
+      "id": "3.0.01",
+      "date": "2026-10-08",
+      "title": "3.0.01: firme iz SQL EvidencaFirm",
+      "log_file": "Davčna blagajna ver 3.0.01.txt",
+      "user_prompt": "kreiraj novo verzijo 3.0.01, staro pusti v arhivu, nova verzija naj dobi podatke iz SQL evidenca firm in ne več iz excela",
+      "changes": "Nova serija 3.0. Firme iz dbo.Clients (EvidencaFirm SQL) namesto DURSanalitika.xlsx. 2.2.29 arhivirana v Arhiv/2.2.29. DDV checkbox iz OddajaDdv; ob izbiri firme se polni zapis dopolni iz SQL (popravek izgube oddaja DDV v drevesu).",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "DavcnaBlagajna.pyw",
+        "v2/companies_sql.py",
+        "v2/ui_build.py",
+        "v2/ui_hints.py",
+        "v2/version_journal.py",
+        "v2/app_v21.py",
+        "ZAZENI_DavcnaBlagajna_V2_1.bat",
+        "ZAZENI_DavcnaBlagajna_2.2.29_ARHIV.bat",
+        "Arhiv/2.2.29/"
+      ]
+    },
+    {
+      "id": "3.0.02",
+      "date": "2026-10-08",
+      "title": "Zagon V3.bat + DDV iz SQL seznama",
+      "log_file": "Davčna blagajna ver 3.0.02.txt",
+      "user_prompt": "ok, naj bo Zagon_davcnaBlagajna_V3.bat!!! Iz tega seznama pridobi podatek ali je zavezanec oz . ali ni!!",
+      "changes": "Glavni zagon: Zagon_davcnaBlagajna_V3.bat. Stari ZAZENI_* klicajo V3. DDV checkbox ob izbiri firme iz SQL OddajaDdv (isti seznam firm).",
+      "files_changed": [
+        "Zagon_davcnaBlagajna_V3.bat",
+        "ZAZENI_DavcnaBlagajna_V2_1.bat",
+        "ZAZENI_DavcnaBlagajna_PYW.bat",
+        "v2/ui_build.py"
+      ]
+    },
+    {
+      "id": "3.0.03",
+      "date": "2026-10-08",
+      "title": "Čiščenje mape po arhivu 2.2.29",
+      "log_file": "Davčna blagajna ver 3.0.03.txt",
+      "user_prompt": "zdej ko je narejen arhiv odstrani vse kar ne potrebuješ iz mape",
+      "changes": "Odstranjeni odvečni zagonski bat (V2/V2_1/PYW), DavcnaBlagajna_v2.py, logi, __pycache__, build. Glavni zagon ostane Zagon_davcnaBlagajna_V3.bat; konzola ZAZENI_DavcnaBlagajna_PY.bat; arhiv 2.2.29 v Arhiv/. Meni Verzija poenostavljen.",
+      "files_changed": [
+        "ZAZENI_DavcnaBlagajna_PY.bat",
+        "v2/version_switch.py",
+        "(removed stubs/logs/build)"
+      ]
+    },
+    {
+      "id": "3.0.04",
+      "date": "2026-10-08",
+      "title": "Nova Minimax predloga KnjizbeInDDV (15/22 stolpcev)",
+      "log_file": "Davčna blagajna ver 3.0.04.txt",
+      "user_prompt": "ok, kreiraj da stestiram — popravi izvoz Excel na novo Minimax KnjizbeInDDV.xlsx",
+      "changes": "Globalna predloga D:\\Trops\\MiniMax\\KnjizbeInDDV.xlsx zamenjana z novo strukturo (VrsticeTemeljnice +UvozPodatkov.VrsticaTemeljniceKnjizba; DDV +UvozPodatkov.DDVGlavaStevilkaKnjizbe pred Storno). Stara predloga arhivirana kot KnjizbeInDDV_OLD_*.xlsx. DDV_HEADERS in ddv_fields v DavcnaBlagajna.py usklajeni; nova stolpca ostaneta prazna ob izvozu.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "D:\\Trops\\MiniMax\\KnjizbeInDDV.xlsx"
+      ]
+    },
+    {
+      "id": "3.0.05",
+      "date": "2026-10-08",
+      "title": "WebView2 Minimax uvoz (IR=2) + poročilo",
+      "log_file": "Davčna blagajna ver 3.0.05.txt",
+      "user_prompt": "Implement the plan: WebView2 Minimax uvoz — po potrjenem zajemu",
+      "changes": "Spletni uvoz: VrstaTemeljniceID=2 (IR), Opis=blagajna MM.YYYY. Po Uvozi: branje poročila (0 napak) + Prikaži temeljnico. Nov WebView2 host (v2/minimax_webview2*.py) ločen od FURS Chrome; minimax_uvoz_config.json (engine=webview2). Gumb Minimax spletni uvoz → WebView2.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/minimax_webview2.py",
+        "v2/minimax_webview2_host.py",
+        "v2/minimax_uvoz_config.py",
+        "v2/ui_hints.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.06",
+      "date": "2026-10-08",
+      "title": "Minimax uvoz: privzeto Chrome (ne WebView2 login)",
+      "log_file": "Davčna blagajna ver 3.0.06.txt",
+      "user_prompt": "ne ne...direkt odpri, ker sem že prijavljen na minimax",
+      "changes": "Gumb Minimax spletni uvoz privzeto chrome_cdp (že prijavljen Minimax Chrome). WebView2 samo če engine=webview2. Posodobljen tooltip in minimax_uvoz_config.json.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "minimax_uvoz_config.json",
+        "v2/minimax_uvoz_config.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.07",
+      "date": "2026-10-08",
+      "title": "Minimax uvoz: izbira firme na Zacetek.aspx",
+      "log_file": "Davčna blagajna ver 3.0.07.txt",
+      "user_prompt": "tu je zaceten zajem - Zacetek -> ALFA GYM -> Uvoz",
+      "changes": "Pred uvozom: odpri Moje organizacije, #F_Search + klik tr.prijava[data-organizacijaid], pocakaj ZacetekOrganizacije, nato UvozPodatkov. Org ID npr. ALFA GYM=134748.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.08",
+      "date": "2026-10-09",
+      "title": "Minimax uvoz: vrnitev — reuse seje, brez bloka Zacetek",
+      "log_file": "Davčna blagajna ver 3.0.08.txt",
+      "user_prompt": "spet po svoje...glej dosezek WebView2 v pooblastila.pyw....vrni se na prejsnjo delujoce kodo",
+      "changes": "Odstranjen obvezen klik firme na Zacetek.aspx (blokiral tok). Spet: reuse ze odprtega Minimax Chrome zavihka (_minimax_ensure_uvoz_tab_cdp) + UvozPodatkov z OrgId, IR=2, opis, Excel, porocilo — kot pred 3.0.07 / vzorec Pooblastila.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.09",
+      "date": "2026-10-09",
+      "title": "Minimax uvoz: pravi klik firme (postback)",
+      "log_file": "Davčna blagajna ver 3.0.09.txt",
+      "user_prompt": "tole je ponudil! Groza, reši problem, glej zgodovino",
+      "changes": "Minimax uvoz: izbira firme z delujočim __doPostBack (minimax_pr_browser) na že odprtem zavihku — brez ročnega »odpri firmo« in brez OrganisationId-only. Nato isti zavihek → UvozPodatkov IR=2. Posodobljen tooltip.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.10",
+      "date": "2026-10-09",
+      "title": "Chrome seje: status + Pripravi manjkajoce",
+      "log_file": "Davčna blagajna ver 3.0.10.txt",
+      "user_prompt": "DA — UX status eDavki/Minimax Chrome + gumb za manjkajoce",
+      "changes": "Status vrstica eDavki (9222) / Minimax (9223) Chrome + gumb Pripravi manjkajoce (zagon ali restart profila z debug). Meni Nastavitve enako. Brez menjave arhitekture.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_build.py",
+        "v2/ui_build_v21.py",
+        "v2/ui_hints.py",
+        "v2/settings_menu.py"
+      ]
+    },
+    {
+      "id": "3.0.11",
+      "date": "2026-10-09",
+      "title": "Minimax uvoz: pocakaj CDP + Vstopite",
+      "log_file": "Davčna blagajna ver 3.0.11.txt",
+      "user_prompt": "napaka.mp4 — Firma ni izbrana CDP / Vstopite v program; glej kjer je ze delovalo",
+      "changes": "Minimax uvoz: pred firmo pocakaj stabilen debug 9223 (restart profila ce tece brez debug); retry odpiranja Zacetek; klik Vstopite v program na vhodni strani. Odpravi ConnectionRefused iz napaka.mp4.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "3.0.12",
+      "date": "2026-10-09",
+      "title": "Minimax uvoz: vrnitev toka 3.0.06/3.0.08",
+      "log_file": "Davčna blagajna ver 3.0.12.txt",
+      "user_prompt": "to je pa dovolj, predhodne verzije so normalno izpeljale — preveri zgodovino in popravi",
+      "changes": "Vrnjen delujoci tok Minimax uvoz kot 3.0.06/3.0.08: brez obveznega Zacetek klika firme. Reuse/odpri UvozPodatkov?OrganisationId + IR=2 + opis + Excel + Uvozi/porocilo. Ohranjen CDP restart ce profil tece brez debug.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.13",
+      "date": "2026-10-09",
+      "title": "Minimax uvoz: hitri open kot 2.2.25",
+      "log_file": "Davčna blagajna ver 3.0.13.txt",
+      "user_prompt": "davcna blagajna ne deluje — vrni se v verzije ko je hitro odprl Minimax Uvoz",
+      "changes": "Minimax uvoz: vrnjen hitri tok 2.2.22/2.2.25 — TAKOJ odpri UvozPodatkov?OrganisationId (brez CDP restarta/cakanja). CDP fill samo ce debug ze tece. Ne ubija ze prijavljenega Minimax Chrome profila.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.14",
+      "date": "2026-10-09",
+      "title": "Minimax uvoz: Podatki KN nato celoten obrazec",
+      "log_file": "Davčna blagajna ver 3.0.14.txt",
+      "user_prompt": "tu si se ustavil (Podatki prazno) — najdi logiko celotnega postopka",
+      "changes": "Minimax uvoz: korak 1 izberi Podatki=Knjizbe in DDV (KN) da se razsiri obrazec; nato IR/datum/opis/Excel/Uvozi kot Hitri zajem. Nov _minimax_uvoz_select_podatki_kn_js + dvo-fazni CDP fill.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.15",
+      "date": "2026-10-09",
+      "title": "Minimax uvoz: CDP obvezen (kot Arhiv)",
+      "log_file": "Davčna blagajna ver 3.0.15.txt",
+      "user_prompt": "nic ni drugace — preveri delujoco kodo mogoce 3.0.04",
+      "changes": "Vzrok open_only/chrome_default: brez CDP se Podatki-KN ne izpolni. Vrnjen Arhiv 2.2.29 tok: najprej Minimax debug 9223 (restart profila ce treba), CDP nov zavihek UvozPodatkov, nato KN+IR+Excel+Uvozi. Brez chrome_default.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.16",
+      "date": "2026-10-09",
+      "title": "Minimax uvoz: WebView2 (ne CDP)",
+      "log_file": "Davčna blagajna ver 3.0.16.txt",
+      "user_prompt": "ne, ni ok!! Ali CDP ali WebView2",
+      "changes": "Minimax spletni uvoz: privzeto WebView2 (ne CDP Chrome). Host: korak Podatki->KN pred fill obrazca (datum/opis/IR), nato Excel+Uvozi. CDP samo ce engine=chrome_cdp.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/minimax_uvoz_config.py",
+        "minimax_uvoz_config.json",
+        "v2/minimax_webview2_host.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.17",
+      "date": "2026-10-09",
+      "title": "Minimax uvoz: engine=chrome_cdp",
+      "log_file": "Davčna blagajna ver 3.0.17.txt",
+      "user_prompt": "ti nastavis vse in tudi to.. minimax_uvoz_config.json nastavis engine=chrome_cdp",
+      "changes": "minimax_uvoz_config.json + defaults: engine=chrome_cdp. Gumb spet CDP Chrome (9223); WebView2 samo ce engine=webview2.",
+      "files_changed": [
+        "minimax_uvoz_config.json",
+        "v2/minimax_uvoz_config.py",
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.18",
+      "date": "2026-10-09",
+      "title": "Minimax uvoz: najprej izbira firme",
+      "log_file": "Davčna blagajna ver 3.0.18.txt",
+      "user_prompt": "tu je ustavljeno (Moje organizacije) — kaj potrebujes: video/jpg/zajem?",
+      "changes": "CDP uvoz: pred UvozPodatkov kliče _minimax_cdp_select_organisation (klik firme na Zacetek). OrganisationId v URL ne zadošča — zato se je ustavilo na seznamu firm.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.19",
+      "date": "2026-10-09",
+      "title": "Shrani stanje ob izhodu + uvoz pri firmi",
+      "log_file": "Davčna blagajna ver 3.0.19.txt",
+      "user_prompt": "shrani zadnje stanje ob izhodu (Alfa + uvozeni podatki)",
+      "changes": "Ob izhodu shrani firmo, obdobje, poti, zavihek in minimax_uvoz_by_zst. Ob zagonu obnovi obdobje, zavihek, status uvoza in pozeni analizo. Po uvozu shrani temelnica_url; ob izboru firme aktivira CDP zavihek.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.20",
+      "date": "2026-10-09",
+      "title": "Fix: ne zmrzuj ob shrani/zagonu",
+      "log_file": "Davčna blagajna ver 3.0.20.txt",
+      "user_prompt": "oo...neeee,,,,,zmrzuje....vrni / najdi napako",
+      "changes": "Popravek zmrzovanja: odstranjen CDP iz vsakega save UI, odstranjen auto-_analyze ob zagonu, odstranjen auto-odpiranje temeljnice ob izboru firme, poti se ne obnovijo z diska (firma nastavi pot). Shramba firme/obdobja/uvoza ob izhodu ostane.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.21",
+      "date": "2026-10-10",
+      "title": "Obnova zadnje seje ob zagonu",
+      "log_file": "Davčna blagajna ver 3.0.21.txt",
+      "user_prompt": "ok, ne odpre zadnje seje, zadnje stanje",
+      "changes": "Ob zagonu obnovi firmo, obdobje, zavihke, poti in tiho požene analizo (drevo/Skupaj vse). Brez CDP. Dialogi med obnovo so utišani.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "3.0.22",
+      "date": "2026-10-10",
+      "title": "WebView2 hitri uvoz Excela",
+      "log_file": "Davčna blagajna ver 3.0.22.txt",
+      "user_prompt": "torej WebView2, in hitri postopek!! implementiraj!!!",
+      "changes": "Privzeto WebView2 hitri uvoz: Moje organizacije→firma, UvozPodatkov, Podatki KN, IR, datum/opis blagajna MM.YYYY, Excel, Uvozi, temeljnica. CDP samo ce engine=chrome_cdp.",
+      "files_changed": [
+        "minimax_uvoz_config.json",
+        "v2/minimax_uvoz_config.py",
+        "v2/minimax_webview2_host.py",
+        "v2/minimax_webview2.py",
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.23",
+      "date": "2026-10-10",
+      "title": "Uvoz: Chrome seja (ne WebView2 login)",
+      "log_file": "Davčna blagajna ver 3.0.23.txt",
+      "user_prompt": "spet mi ne sledis!! Prijavljen sem ze v minimaxu!!! Glej pooblastila.pyw",
+      "changes": "WebView2 ima locen profil → prijava. Privzeto spet chrome_cdp: hitri uvoz v ze prijavljenem ChromeMinimax :9223 (kot Pooblastila 3.0.08). WebView2 samo ce engine=webview2.",
+      "files_changed": [
+        "minimax_uvoz_config.json",
+        "v2/minimax_uvoz_config.py",
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.24",
+      "date": "2026-10-10",
+      "title": "Uvoz: brez bloka Moje organizacije",
+      "log_file": "Davčna blagajna ver 3.0.24.txt",
+      "user_prompt": "kaj ti ni jasno???? CDP??? video uvoz — Moje organizacije blokira",
+      "changes": "Video: ze si v firmi (ALFA GYM) → Uvoz iz Excela. Odstranjen trd fail na CDP izbiri firme (Moje organizacije). Org select samo mehak 8s; nato vedno UvozPodatkov + KN/IR/Excel (kot 3.0.08 / Pooblastila).",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.25",
+      "date": "2026-10-10",
+      "title": "Uvoz: naravnost UvozPodatkovCSV",
+      "log_file": "Davčna blagajna ver 3.0.25.txt",
+      "user_prompt": "ok, kreiraj da testiram — video + Hitri zajem bundle",
+      "changes": "Hitri zajem 11 strani + video: ze v firmi -> UvozPodatkovCSV. Odstranjen klic Moje organizacije (CDP) iz hitrega uvoza. KN->uvoz->IR->datum/opis blagajna MM.YYYY->Excel->Uvozi->Prikazi temeljnico. ChromeMinimax :9223.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.26",
+      "date": "2026-10-10",
+      "title": "Uvoz: Vstopite + reuse firme",
+      "log_file": "Davčna blagajna ver 3.0.26.txt",
+      "user_prompt": "Zadnji test: peach Vstopite v program — uskladi potek",
+      "changes": "Screenshot: nov zavihek je ostal na Vstopite v program. 3.0.26: preferira zavihek ze odprte firme, navigira na UvozPodatkovCSV, obvezno klikne Vstopite v program (tudi v fill zanki). Ne odpira slepo novega zavihka.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.27",
+      "date": "2026-10-10",
+      "title": "Uvoz: nov zavihek :9223 + vpis",
+      "log_file": "Davčna blagajna ver 3.0.27.txt",
+      "user_prompt": "ze logiran Chrome — samo nov zavihek in vpis polj",
+      "changes": "Potek kot FURS/Pooblastila: ze prijavljen ChromeMinimax, CDP nov zavihek SAMO na :9223 (ne 9222), nato fill KN/IR/Excel. Brez restarta Chrome (to je povzrocilo Vstopite). Brez Moje organizacije.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.28",
+      "date": "2026-10-10",
+      "title": "Uvoz pripravljen za test",
+      "log_file": "Davčna blagajna ver 3.0.28.txt",
+      "user_prompt": "ok, koncaj app da testiram zeljeno",
+      "changes": "3.0.28: ze prijavljen ChromeMinimax :9223, nov zavihek. Ce je firma ze v seji (navbar) → goli UvozPodatkovCSV.aspx (kot video). Sicer URL z OrganisationId namig. Fill KN/IR/Excel. Brez Moje org, brez restarta Chrome.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.29",
+      "date": "2026-10-10",
+      "title": "Uvoz: opozorilo odpri firmo",
+      "log_file": "Davčna blagajna ver 3.0.29.txt",
+      "user_prompt": "ok ...potem daj info msg ...da pred izvedbo odpres firmo v minimaxu ...ALfa",
+      "changes": "Pred Minimax spletni uvoz: askokcancel — odpri firmo v ChromeMinimax (npr. ALFA GYM), nato V redu. Prikaze naziv izbrane firme iz programa.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.30",
+      "date": "2026-10-10",
+      "title": "Minimax uvoz: video Moje org→firma→Uvoz",
+      "log_file": "Davčna blagajna ver 3.0.30.txt",
+      "user_prompt": "ni ok — Minimax spletni uvoz still wrong; Hitri zajem video Moje org→ALFA GYM→gear→Uvoz iz Excela",
+      "changes": "HARD video open: Moje org klik firme (data-organizacijaid/tr.prijava) → pocakaj navbar firmo → zobnik Uvoz iz Excela; goli UvozPodatkovCSV samo po potrjeni seji. Popravljen soft-skip ki je odprl uvoz brez firme. askokcancel + ui_hints usklajena z videom.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.31",
+      "date": "2026-10-10",
+      "title": "Minimax: Vstopite gate + reuse :9223",
+      "log_file": "Davčna blagajna ver 3.0.31.txt",
+      "user_prompt": "zakaj je to?? (moj.minimax.si Vstopite v program peach/gate)",
+      "changes": "3.0.31: Vstopite gate — reuse ze prijavljen zavihek na :9223 (Moje org/firma), zanesljiv klik »Vstopite v program« + cakanje do WebUI; uvoz ne odpira novih zavihkov prek any_debug_port/FURS; po org kliku pass gate na novem zavihku in HARD firm.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.32",
+      "date": "2026-10-10",
+      "title": "Minimax uvoz: standalone WebView2",
+      "log_file": "Davčna blagajna ver 3.0.32.txt",
+      "user_prompt": "ne, če bo ta app namenjen tudi drugim ki imajo minimax in poleg chroma lahko uporablja še edge ali firefox mora biti samostojen brez vtičnikov, tako kot pooblastila.pyw, preveri logiko in uporabi webview2",
+      "changes": "Minimax spletni uvoz privzeto standalone WebView2 (app profil) — enkratna prijava v oknu app-a; ni potreben Chrome debug / Edge / Firefox. Host: Vstopite → HARD firma (tr[data-organizacijaid]) → počakaj navbar → UvozPodatkov → KN/IR/Excel/Uvozi. chrome_cdp samo če engine=chrome_cdp.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/minimax_webview2_host.py",
+        "v2/minimax_uvoz_config.py",
+        "v2/ui_hints.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.33",
+      "date": "2026-10-10",
+      "title": "Minimax uvoz: attach Chrome/Edge first",
+      "log_file": "Davčna blagajna ver 3.0.33.txt",
+      "user_prompt": "Najprej poisce ze odprti/prijavljeni Chrome/Edge Minimax. Ce je Minimax zavihek ze odprt, uporabi isti zavihek. Ne odpira nove Minimax prijave.",
+      "changes": "Minimax spletni uvoz: engine=auto — najprej attach ze odprt Chrome (:9223) / Edge debug zavihek moj.minimax.si (isti tab, soft Vstopite, video fill). WebView2 samo ce engine=webview2 in ni CDP seje (+ potrditev). Ne auto-start Chrome/nove prijave. Posodobljeni endpoints, ui_hints, skill.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/minimax_uvoz_config.py",
+        "minimax_uvoz_config.json",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.34",
+      "date": "2026-10-10",
+      "title": "Minimax uvoz: privzeto WebView2",
+      "log_file": "Davčna blagajna ver 3.0.34.txt",
+      "user_prompt": "ej....hocem WebView2 zaradi neodvisnosti od chrome vticnikov, uredi kodo",
+      "changes": "Minimax spletni uvoz: privzeto engine=webview2 (standalone WebView2, profil data/webview2/minimax_uvoz_profile). Gumb gre najprej v WebView2 (tudi engine=auto); chrome_cdp samo ce engine=chrome_cdp. Odstranjena 3.0.33 prednost CDP attach. ui_hints + skill: brez Chrome vticnikov.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/minimax_uvoz_config.py",
+        "minimax_uvoz_config.json",
+        "v2/ui_hints.py",
+        "v2/minimax_webview2_host.py"
+      ]
+    },
+    {
+      "id": "3.0.35",
+      "date": "2026-10-10",
+      "title": "WebView2: čakanje prijave brez prekinitve",
+      "log_file": "Davčna blagajna ver 3.0.35.txt",
+      "user_prompt": "ni ok, zakaj na novo prijava v minimax??",
+      "changes": "WebView2 Minimax: ob neprijavljenem stanju ne aborta z messagebox — odpre/ohrani okno, status »Čakam prijavo v tem oknu…«, poll ~210 s (Vstopite soft-pass), nato isti uvoz nadaljuje (HARD firma → Uvoz → KN/IR). Profil data/webview2/minimax_uvoz_profile ni brisan (_clear_ipc samo IPC). Opcijski soft auto-fill iz nastavitev. Dialog/hints pojasnijo ločen profil od Chrome.",
+      "files_changed": [
+        "v2/minimax_webview2_host.py",
+        "v2/minimax_webview2.py",
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.36",
+      "date": "2026-10-10",
+      "title": "WebView2: firma v iskanju + Podatki KN",
+      "log_file": "Davčna blagajna ver 3.0.36.txt",
+      "user_prompt": "popravki, glej slike...odpreš minimax in v okno vpišeš firmo in ne email; v kobmo vpišeš Knjižbe in DDV!!",
+      "changes": "WebView2: try_fill_login ne polni #F_Search/Moje org z e-pošto (samo login polja). ensure_organisation v #F_Search vpiše naziv firme (npr. alfa), počisti leftover @. select_podatki_kn odpre Podatki mm-select, vpiše/izbere Knjižbe in DDV in nastavi skrito KN — ne samo skrito polje.",
+      "files_changed": [
+        "v2/minimax_webview2_host.py",
+        "v2/ui_hints.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.37",
+      "date": "2026-10-10",
+      "title": "WebView2: klik firme v seznamu",
+      "log_file": "Davčna blagajna ver 3.0.37.txt",
+      "user_prompt": "ne, aflo si dal med priljubljene, v seznamu na prvi strani najdi firmo ALFA GYM in klikni nanj!!!!",
+      "changes": "ensure_organisation: najprej počisti #F_Search, nato klik tr[data-organizacijaid]/naziv v seznamu (scrollIntoView), ne zvezda/priljubljene. #F_Search samo kot zadnji fallback po ~12 s. FURS nespremenjen.",
+      "files_changed": [
+        "v2/minimax_webview2_host.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.38",
+      "date": "2026-10-10",
+      "title": "WebView2: klik naziva, ne zvezde",
+      "log_file": "Davčna blagajna ver 3.0.38.txt",
+      "user_prompt": "ne, aflo si dal med priljubljene, v seznamu na prvi strani najdi firmo ALFA GYM in klikni nanj!!!!",
+      "changes": "Popravek: orgLink ne klikne več levega __doPostBack (zvezda/priljubljene). Zahteva ujemanje besedila naziva (ALFA GYM). Seznam na prvi strani; FURS nespremenjen.",
+      "files_changed": [
+        "v2/minimax_webview2_host.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.39",
+      "date": "2026-10-10",
+      "title": "WebView2: KN potrdi → radio → Excel",
+      "log_file": "Davčna blagajna ver 3.0.39.txt",
+      "user_prompt": "ko si izbral Knjižbe in DDV ga potrdiš in greš na radio button....izbereš po oknih..",
+      "changes": "Uvoz po korakih: KN potrdi (Enter) → radio Podatki naj se uvozijo → IR/datum/opis. CDP priponka Excel z retry + fallback Windows Open dialog. FURS nespremenjen.",
+      "files_changed": [
+        "v2/minimax_webview2_host.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.40",
+      "date": "2026-10-11",
+      "title": "Drevo in Podrobnosti: panela +/-",
+      "log_file": "Davčna blagajna ver 3.0.40.txt",
+      "user_prompt": "spremeni > glej kvadrata > v panela +/- da ju lahko skrčim ali raziširim",
+      "changes": "2. Drevo in Podrobnosti izbire sta ločena zložljiva panela (+/−). Naslov drevesa ostane sinhroniziran (Blagajna/KIR). FURS nespremenjen.",
+      "files_changed": [
+        "v2/ui_build.py",
+        "v2/collapsible.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.41",
+      "date": "2026-10-11",
+      "title": "Izberite datoteko → Uvozi",
+      "log_file": "Davčna blagajna ver 3.0.41.txt",
+      "user_prompt": "ni uspela ker nisi kliknil na gumb Izberi datoteko 1 potem pa 2",
+      "changes": "Priponka: 1) klik Izberite datoteko + Open dialog (WM_SETTEXT), 2) Uvozi. CDP z --remote-allow-origins=* in suppress_origin (popravek 403). FURS nespremenjen.",
+      "files_changed": [
+        "v2/minimax_webview2_host.py",
+        "v2/minimax_webview2.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.42",
+      "date": "2026-10-11",
+      "title": "CDP priponka v eni seji",
+      "log_file": "Davčna blagajna ver 3.0.42.txt",
+      "user_prompt": "naslednji korak je Izberite datoteko:",
+      "changes": "Popravek Could not find node: DOM.setFileInputFiles v ENI WebSocket seji. Korak Izberite datoteko: CDP najprej, nato dialog. FURS nespremenjen.",
+      "files_changed": [
+        "v2/minimax_webview2_host.py",
+        "minimax_uvoz_config.json"
+      ]
+    },
+    {
+      "id": "3.0.43",
+      "date": "2026-10-11",
+      "title": "KIR/KPR eDavki: Obdobje od/do",
+      "log_file": "Davčna blagajna ver 3.0.43.txt",
+      "user_prompt": "tako kot pri MRN tudi tu dodaj datum",
+      "changes": "Prenos KIR/KPR eDavki vpiše Obdobje od/do + Išči v že odprtem Chrome (CDP), kot FURS/MRN. Datum iz Leto/Mesec. FURS PakR in Minimax WebView2 3.0.42 nespremenjena.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.44",
+      "date": "2026-10-11",
+      "title": "KIR/KPR eDavki: brez Selenium",
+      "log_file": "Davčna blagajna ver 3.0.44.txt",
+      "user_prompt": "Selenium?? Spremeni,",
+      "changes": "Prenos KIR/KPR eDavki ne uporablja več Selenium — samo CDP Obdobje od/do + Išči (kot MRN/FURS). FURS PakR in Minimax WebView2 nespremenjena.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/access_settings.py"
+      ]
+    },
+    {
+      "id": "3.0.45",
+      "date": "2026-10-11",
+      "title": "Uskladitev z WebView2 (docs)",
+      "log_file": "Davčna blagajna ver 3.0.45.txt",
+      "user_prompt": "ok, na ruši že narejeno, kreiraj novo verzijo in vse uskladi z WebView2!!!",
+      "changes": "Nova verzija 3.0.45: uskladitev namigov, config notes, dialogov in status migracije z zaklenjeno Minimax WebView2 potjo 3.0.42 (klik naziva, KN→radio→Excel CDP). eDavki KIR/KPR ostane Chrome CDP (brez Selenium); FURS PakR in WebView2 avtomatika nespremenjena — samo dokumentacija/UI besedila.",
+      "files_changed": [
+        "v2/ui_hints.py",
+        "v2/minimax_uvoz_config.py",
+        "minimax_uvoz_config.json",
+        "v2/browser_inapp.py",
+        "DavcnaBlagajna.py",
+        ".cursor/rules/ne-spreminjaj-delujoce.mdc"
+      ]
+    },
+    {
+      "id": "3.0.46",
+      "date": "2026-10-11",
+      "title": "Dnevni izvoz → WebView2 uvoz",
+      "log_file": "Davčna blagajna ver 3.0.46.txt",
+      "user_prompt": "tudi pri Izvoz v minimax API > Pošlji dnevne podatke v Minimax API uporabi poglej in uporabi \"Minimax spletni uvoz\"",
+      "changes": "Gumb «Pošlji dnevne podatke v Minimax API» pripravi KnjizbeInDDV_dnevno Excel in zažene isto WebView2 pot kot «Minimax spletni uvoz» (3.0.42). Ne kliče več IssuedInvoicePosting API. Mesečni API gumb in FURS nespremenjena.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py",
+        "v2/ui_build.py"
+      ]
+    },
+    {
+      "id": "3.0.47",
+      "date": "2026-10-11",
+      "title": "Analiza po firmi + dnevni API/WebView2",
+      "log_file": "Davčna blagajna ver 3.0.47.txt",
+      "user_prompt": "če zamenjam firmo v levem panelu se podatki zbrišejo; dnevni gumb: API če token, sicer WebView2",
+      "changes": "Ob menjavi firme se analiza shrani/obnovi po Zšt (ne izgine). Leto v drevesu kaže vsote; Datum in čas pošiljanja iz Minimax uvoza. Dnevni gumb: API če je token, sicer WebView2 spletni uvoz.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py",
+        "v2/ui_build.py"
+      ]
+    },
+    {
+      "id": "3.0.48",
+      "date": "2026-10-11",
+      "title": "Dnevni: API prednost, WebView2 rezerva",
+      "log_file": "Davčna blagajna ver 3.0.48.txt",
+      "user_prompt": "če je možno API pošiljanje potem to odpade, to samo v primeru če ni možnost posredovati preko API",
+      "changes": "Dnevni gumb: če je API mogoč (token ali OAuth) → samo API; WebView2 dialog odpade. WebView2 samo kot rezerva brez potrditve, ko API ni mogoč.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py",
+        "v2/ui_build.py"
+      ]
+    },
+    {
+      "id": "3.0.49",
+      "date": "2026-10-11",
+      "title": "Dnevni: API ali direkt spletni uvoz",
+      "log_file": "Davčna blagajna ver 3.0.49.txt",
+      "user_prompt": "spet si malo pomešal, če ni API uporabi direkt \"Minimax spletni uvoz\", ostalo navlago opusti",
+      "changes": "Poenostavitev: dnevni gumb = API če je token, sicer direkt isti klic kot «Minimax spletni uvoz». Odstranjene ovojnice. Stari Chrome CDP fallback → isti WebView2 spletni uvoz.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py",
+        "v2/ui_build.py"
+      ]
+    },
+    {
+      "id": "3.0.50",
+      "date": "2026-10-11",
+      "title": "Dnevni: API če OAuth, sicer WebView2",
+      "log_file": "Davčna blagajna ver 3.0.50.txt",
+      "user_prompt": "Eko romatika lahko odda preko API minimaxa, zakaj potem WebView???? ČE ni mogoč API potem je WebView2",
+      "changes": "Dnevni gumb gre na API če obstaja token ALI popolni OAuth. WebView2 samo če API res ni mogoč. Odločanje ni več samo po praznem tokenu v statusu.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py",
+        "v2/ui_build.py"
+      ]
+    },
+    {
+      "id": "3.0.51",
+      "date": "2026-10-11",
+      "title": "Po API: knjiženje org + Datum/Najdi",
+      "log_file": "Davčna blagajna ver 3.0.51.txt",
+      "user_prompt": "po končane dodajanju se ne pokaže rezultat dodane knjižbe, preveri zajem, ali je prava firma",
+      "changes": "Po uspešnem API: odpre Knjiženje z OrganisationId (prava firma) in CDP vpis DatumOd/Do + Najdi. Hitri zajem: prazno iskanje + napačna seja (QUICK M.B.) nista več dovolj.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "3.0.52",
+      "date": "2026-10-11",
+      "title": "Knjiženje: Eko-romatika + TSearchFrame",
+      "log_file": "Davčna blagajna ver 3.0.52.txt",
+      "user_prompt": "tu bi moral biti: Eko-romatika + tabela Blagajna 19.09.2026 Iztržek (Hitri zajem)",
+      "changes": "Po API: HARD org (Eko-romatika 216317) v Minimax :9223 → Knjiženje → Najdi; preverba navbar + #TSearchFrame. Ne odpira več zavihka v napačnem Chrome (QUICK M.B.).",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "3.0.53",
+      "date": "2026-10-11",
+      "title": "WebView2: seja iz Minimax Chrome",
+      "log_file": "Davčna blagajna ver 3.0.53.txt",
+      "user_prompt": "WebView2 naj pridobi od chroma kukije in ostalo da lahko obdeluje Minimax",
+      "changes": "WebView2 ob zagonu uvoza/knjiženja vzame piškotke + local/sessionStorage iz Minimax Chrome CDP (:9223) in jih vstavi v WebView2 (:9333). Po API: Knjiženje odpre v WebView2 (HARD firma + Najdi), ne v FURS/napačnem Chrome. Potek uvoza KN/IR/Excel 3.0.42 nespremenjen.",
+      "files_changed": [
+        "v2/minimax_webview2_host.py",
+        "v2/minimax_webview2.py",
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.54",
+      "date": "2026-10-11",
+      "title": "Nazaj na delujoči WebView2 uvoz",
+      "log_file": "Davčna blagajna ver 3.0.54.txt",
+      "user_prompt": "spet groza, sploh ne razumes bistva, popravi kodo, ker je ze delovalo",
+      "changes": "Odstranjena pokvarjena avtomatika 3.0.51-3.0.53: Chrome piškotki v WebView2, odpiranje knjiženja po API (napačen Chrome / WebView2). Minimax spletni uvoz spet kot 3.0.42: lasten WebView2 profil, HARD firma, KN/IR/Excel. Dnevni gumb: API če mogoč, sicer WebView2 (3.0.50). Po API ni več avtomatskega brskalnika.",
+      "files_changed": [
+        "v2/minimax_webview2_host.py",
+        "v2/minimax_webview2.py",
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.55",
+      "date": "2026-10-11",
+      "title": "Mehak sync seje iz aktivnega Chrome",
+      "log_file": "Davčna blagajna ver 3.0.55.txt",
+      "user_prompt": "naj bo avtomatizem, odvisno kje je minimax, edavki, eVem, ajpes, ce je to aktivni chrome naj dobi podatke od chroma",
+      "changes": "Nov v2/chrome_session_sync.py: Minimax/eDavki/eVEM/AJPES — poišče že odprt Chrome CDP z aktivno storitvijo in izvozi piškotke + local/sessionStorage. Minimax WebView2 uvoz: če ni prijavljen, mehko vstavi sejo iz aktivnega Minimax Chrome; če Chrome ni, lastni profil + prijava (potek 3.0.42 nespremenjen). Ne zaganja Chrome, brez vtičnikov.",
+      "files_changed": [
+        "v2/chrome_session_sync.py",
+        "v2/minimax_webview2_host.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.56",
+      "date": "2026-10-11",
+      "title": "Sync: brez ponovne prijave ce Chrome aktiven",
+      "log_file": "Davčna blagajna ver 3.0.56.txt",
+      "user_prompt": "ampak Minimax v Chrome je ze aktiven, logiran, zakaj ponovno???",
+      "changes": "Po syncu iz Chrome ne kaze vec takoj Cakam prijavo. Osvezi Zacetek + Vstopite; ponovna prijava samo ce WebUI res ni. Jasnejse sporocilo ce Chrome tece brez debug.",
+      "files_changed": [
+        "v2/chrome_session_sync.py",
+        "v2/minimax_webview2_host.py"
+      ]
+    },
+    {
+      "id": "3.0.57",
+      "date": "2026-10-11",
+      "title": "Sync vseh sejov + pyw ob Chrome",
+      "log_file": "Davčna blagajna ver 3.0.57.txt",
+      "user_prompt": "DA, naj se pyw odpre ob zagonu chroma ce je potrebno",
+      "changes": "Ob zagonu app: sync Minimax/eDavki/eVEM/AJPES iz Chrome v data/webview2/session_cache. WebView2 vzame Chrome ali cache. Ob zagonu Minimax/eDavki Chrome debug: odpre DavcnaBlagajna.pyw ce app ne tece (_ensure_davcna_pyw.py).",
+      "files_changed": [
+        "v2/chrome_session_sync.py",
+        "_ensure_davcna_pyw.py",
+        "_start_chrome_minimax_debug.py",
+        "_start_chrome_edavki_debug.py",
+        "DavcnaBlagajna.py",
+        "v2/ui_hints.py"
+      ]
+    },
+    {
+      "id": "3.0.58",
+      "date": "2026-10-11",
+      "title": "Portal most + Plače iz Minimax",
+      "log_file": "Davčna blagajna ver 3.0.58.txt",
+      "user_prompt": "Portal most (vzorec QUICK_eNDM) — implementacija plana",
+      "changes": "Tanki adapter v2/portal_bridge.py na QUICK_eNDM PortalRouter (aktivni Chrome portal sicer trajni WebView2 profil). UI gumb Plače iz Minimax + namig + status motorja. Playbook: resolve minimax → HARD firma → ObracunPlac Excel → parse → eNDM SQL _Place. browser_inapp status. FURS PakR in Minimax KN uvoz nespremenjena.",
+      "files_changed": [
+        "v2/portal_bridge.py",
+        "v2/ui_build.py",
+        "v2/ui_hints.py",
+        "DavcnaBlagajna.py",
+        "v2/browser_inapp.py"
+      ]
+    },
+    {
+      "id": "3.0.59",
+      "date": "2026-10-11",
+      "title": "Portal most — samo bistvo (brez plač)",
+      "log_file": "Davčna blagajna ver 3.0.59.txt",
+      "user_prompt": "to je bil primer, in ne tlači plač v KIRKPR ali Davčno blagajno — uredi bistvo pristopka",
+      "changes": "Popravek 3.0.58: plače so bile samo primer. Odstranjen gumb/SQL uvoz plač iz Davčne Blagajne. v2/portal_bridge.py ostane bistvo — tanki klic QUICK_eNDM PortalRouter (aktivni Chrome portal, sicer trajni WebView2 profil). Brez playbookov plač/KIRKPR v tej app. Ob zagonu samo log motorja za minimax.",
+      "files_changed": [
+        "v2/portal_bridge.py",
+        "v2/ui_build.py",
+        "v2/ui_hints.py",
+        "DavcnaBlagajna.py",
+        "v2/browser_inapp.py"
+      ]
+    },
+    {
+      "id": "3.0.60",
+      "date": "2026-10-11",
+      "title": "Prikaz ID po API uvozu blagajne",
+      "log_file": "Davčna blagajna ver 3.0.60.txt",
+      "user_prompt": "za API minimax ni problem za excel pa ne pokvari postopka — problem je samo končni prikaz uvožene blagajne",
+      "changes": "Po API POST issuedinvoicepostings Minimax pogosto vrne body=[] z ID samo v Location. Add funkcija je ID že prebrala, a klicateljem vrnila [], zato dialog/status izgubila IssuedInvoicePostingId. Zdaj vrne slovar z ID. Excel/WebView2 uvoz nespremenjen.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "3.0.61",
+      "date": "2026-10-11",
+      "title": "Po API: odpri Knjiženje + ohrani formo",
+      "log_file": "Davčna blagajna ver 3.0.61.txt",
+      "user_prompt": "po API si zmanjšal formo in nisi odprl minimaxa za pregled knjižb — preveri prej / WebView2?",
+      "changes": "Po API spet odpre Minimax Knjiženje: Chrome/Edge --new-tab z OrganisationId (kot FURS). Mehko Od/Do+Najdi če je Minimax debug :9223. WebView2 KN uvoz host se ne uporablja; Portal WebView2 profil samo kot rezervna. Snapshot/restore geometrije glavnega okna po dialogu (ne skrči forme).",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/browser_inapp.py"
+      ]
+    },
+    {
+      "id": "3.0.62",
+      "date": "2026-10-11",
+      "title": "Po API: HARD firma pred Knjiženjem",
+      "log_file": "Davčna blagajna ver 3.0.62.txt",
+      "user_prompt": "nisi izbral firme, glej okno (Poišči organizacijo)",
+      "changes": "Po API: najprej HARD izbor firme na Moje org (Poišči organizacijo + klik naziva, ne zvezda) prek Minimax Chrome CDP :9223, nato Knjiženje in Od/Do+Najdi. Iskalnik počaka filter. WebView2 KN uvoz nespremenjen.",
+      "files_changed": [
+        "DavcnaBlagajna.py"
+      ]
+    },
+    {
+      "id": "3.0.63",
+      "date": "2026-10-11",
+      "title": "Pregled Knjiženja v prijavljeni seji",
+      "log_file": "Davčna blagajna ver 3.0.63.txt",
+      "user_prompt": "uporabi prijavljeno sejo v minimaxu za pregled Knjiženje izdanih računov in iztržkov",
+      "changes": "Po API pregled Knjiženja v že prijavljeni Minimax seji: najprej CDP :9223 (reuse zavihka; HARD firma samo če treba), nato Portal aktivni Chrome / trajni WebView2 profil, sicer --new-tab. WebView2 KN uvoz host nespremenjen.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/browser_inapp.py"
+      ]
+    },
+    {
+      "id": "3.0.64",
+      "date": "2026-10-11",
+      "title": "Reuse seje — brez novih zavihkov",
+      "log_file": "Davčna blagajna ver 3.0.64.txt",
+      "user_prompt": "vse seje so vedno prijavljene — to upoštevaj in ne odpiraj novih",
+      "changes": "Po API pregled Knjiženja samo v obstoječi Minimax seji (CDP). Brez --new-tab, webbrowser, novih profilov. HARD firma z allow_new_tab=False. Predpostavka: seje minimax/edavki/ajpes/eVEM so vedno prijavljene.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/portal_bridge.py",
+        "v2/browser_inapp.py"
+      ]
+    },
+    {
+      "id": "3.0.65",
+      "date": "2026-10-11",
+      "title": "3.0.65: Bridge HARD firma + Knjiženje v isti seji",
+      "log_file": "Davčna blagajna ver 3.0.65.txt",
+      "user_prompt": "DA, testirajva, glej zajem… najprej vse firme, potem MJ23, potem spet vse firme",
+      "changes": "Chrome Bridge klient (v2/chrome_bridge_client): status, HARD select_company (#F_Search+OrgID), go_org_list, navigate. Po API Knjiženje: najprej Bridge v istem Chromu, sicer CDP :9223 reuse-only. QUICK_eNDM vtičnik: F_Search + go_org_list + navigate.",
+      "files_changed": [
+        "v2/chrome_bridge_client.py",
+        "DavcnaBlagajna.py",
+        "v2/browser_inapp.py",
+        "D:/PISARNA/Python/QUICK_eNDM/quick_chrome_bridge.py",
+        "D:/PISARNA/Python/QUICK_eNDM/Chrome_Bridge_Extension/background.js"
+      ]
+    },
+    {
+      "id": "3.0.66",
+      "date": "2026-10-11",
+      "title": "3.0.66: zaključek Knjiženje + Najdi (video)",
+      "log_file": "Davčna blagajna ver 3.0.66.txt",
+      "user_prompt": "ker ti manjka zaključna faza poglej video OdpriKnjiženjeIRinIztržkov.mp4",
+      "changes": "Video zaključek: po HARD firmi odpri Knjiženje IR/iztržkov in klikni Najdi (Od/Do). Bridge action knjizenje_najdi; po API pot Bridge HARD → navigate → Najdi, brez CDP.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/chrome_bridge_client.py",
+        "v2/browser_inapp.py",
+        "D:/PISARNA/Python/QUICK_eNDM/Chrome_Bridge_Extension/background.js",
+        "D:/PISARNA/Python/QUICK_eNDM/quick_chrome_bridge.py"
+      ]
+    },
+    {
+      "id": "3.0.67",
+      "date": "2026-10-11",
+      "title": "3.0.67: po API Knjiženje v WebView2 (brez vtičnika)",
+      "log_file": "Davčna blagajna ver 3.0.67.txt",
+      "user_prompt": "nič, po oddanem API se ni nič zgodilo??? Izklopi vtičnik ker bo samostojen program, vklopi WebView2 in upoštevaj video",
+      "changes": "Po API Knjiženje samo še WebView2 (video): Moje org → HARD naziv → Knjiženje IR/iztržkov → Najdi. Chrome Bridge/vtičnik izklopljen iz te poti. KN uvoz 3.0.42 nespremenjen.",
+      "files_changed": [
+        "DavcnaBlagajna.py",
+        "v2/minimax_webview2.py",
+        "v2/minimax_webview2_host.py",
+        "v2/browser_inapp.py"
+      ]
+    },
+    {
+      "id": "3.0.68",
+      "date": "2026-10-11",
+      "title": "3.0.68: samo pywebview+WebView2 (brez Bridge)",
+      "log_file": "Davčna blagajna ver 3.0.68.txt",
+      "user_prompt": "uporabi pywebview + WebView2 ali Playwright namesto vtičnika QUICK Chrome Bridge",
+      "changes": "Potrjeno: po API Knjiženje = pywebview+WebView2 (ne Bridge, ne Playwright). Odstranjen v2/chrome_bridge_client in test Bridge. Portal most: chrome_bridge_enabled=False.",
+      "files_changed": [
+        "v2/chrome_bridge_client.py (removed)",
+        "_test_bridge_mj23.py (removed)",
+        "v2/portal_bridge.py",
+        "v2/browser_inapp.py"
+      ]
+    },
+    {
+      "id": "5.0.1",
+      "date": "2026-11-17",
+      "title": "5.0.1: LOOK WebView2, isto AppV21 stanje (brez 4.0 mostu)",
+      "log_file": "Davčna blagajna ver 5.0.1.txt",
+      "user_prompt": "DA — 5.0.1 iz 3.0.68, LOOK QUICK WebView2, 5 pogledov levo, en proces AppV21",
+      "changes": "Kopija 3.0.68. host_webview + tree_view: JS kliče iste metode AppV21. Tk withdraw. Ni motor/tk_actions. Levi QUICK sidebar. Win32 odložišče. 3.0.68 nedotaknjena.",
+      "files_changed": [
+        "host_webview.py",
+        "tree_view.py",
+        "ui/index.html",
+        "ui/app.css",
+        "ui/app.js",
+        "DavcnaBlagajna.pyw",
+        "DavcnaBlagajna_5.0.1.pyw",
+        "INSTALL.pyw",
+        "ZAZENI_5.0.1.bat",
+        "v2/app_v21.py (UI_VERSION)",
+        "v2/version_journal.py (SERIES 5.0)"
+      ]
+    },
+    {
+      "id": "5.0.2",
+      "date": "2026-11-17",
+      "title": "5.0.2: zavihki pogleda zgoraj desno (ne QUICK levi meni)",
+      "log_file": "Davčna blagajna ver 5.0.2.txt",
+      "user_prompt": "sorry, ne QUICK levi meni, tu to ni OK, popravi",
+      "changes": "Pet pogledov spet TabBar zgoraj desno kot 3.0.68. Levi panel samo firme.",
+      "files_changed": [
+        "ui/index.html",
+        "ui/app.css",
+        "ui/app.js",
+        "host_webview.py"
+      ]
+    },
+    {
+      "id": "5.0.3",
+      "date": "2026-11-17",
+      "title": "5.0.3: Minimax Knjiženje — isti WebView2 profil kot 3.0.68, popravljen Chrome sync",
+      "log_file": "Davčna blagajna ver 5.0.3.txt",
+      "user_prompt": "preveri če je vse tako kot pri v3, chk, query, prijava; zakaj nov Edge za prijavo Minimax",
+      "changes": "PYTHONPATH za v2 import; Minimax profil = 3.0.68 minimax_uvoz_profile; LOOK ne odpira zunanjega Edge.",
+      "files_changed": [
+        "v2/minimax_webview2.py",
+        "v2/minimax_webview2_host.py",
+        "host_webview.py"
+      ]
+    },
+    {
+      "id": "5.0.4",
+      "date": "2026-11-17",
+      "title": "5.0.4: HTML drevo (✓, razširitev) brez Tk okna; hitrejši LOOK",
+      "log_file": "Davčna blagajna ver 5.0.4.txt",
+      "user_prompt": "chk ne dela, klik na item se ne razširi, počasi; kaj spet dela Tk",
+      "changes": "LOOK drevo iz monthly/daily (ne Tk Treeview). ✓ in razširitev v HTML. Ping 400ms odstranjen. Skrito AppV21 okno ostane skrito.",
+      "files_changed": [
+        "host_webview.py",
+        "tree_view.py",
+        "ui/app.js",
+        "ui/app.css",
+        "ui/index.html"
+      ]
+    },
+    {
+      "id": "5.0.5",
+      "date": "2026-11-17",
+      "title": "5.0.5: evidenca ne prazni drevesa; po analizi so meseci vidni",
+      "log_file": "Davčna blagajna ver 5.0.5.txt",
+      "user_prompt": "err Izvedeno: _on_evidenca_filter_toggle in na desni ni podatkov",
+      "changes": "Filter evidence osveži samo seznam firm (ne invoke/drevo). Prazno drevo v snapshotu ne pobriše obstoječega. Po analizi se odpre leto/mesec obdobja.",
+      "files_changed": [
+        "host_webview.py",
+        "tree_view.py",
+        "ui/app.js",
+        "ui/index.html"
+      ]
+    },
+    {
+      "id": "5.0.6",
+      "date": "2026-11-17",
+      "title": "5.0.6: Izbrano analitika, Ponastavi, Prenos v minimax (API nato Excel)",
+      "log_file": "Davčna blagajna ver 5.0.6.txt",
+      "user_prompt": "SLIKA1 analitični podatki; slika 2 ponastavi; Prenos v minimax API/Excel; že odprt Minimax",
+      "changes": "Klik vrstice napolni panel Izbrano. Gumb Ponastavi počisti izbor. Prenos v minimax = _send_daily_to_minimax_api (API, sicer Excel). WebView2 Minimax reuse prek istega IPC/profila 3.0.68.",
+      "files_changed": [
+        "host_webview.py",
+        "v2/minimax_webview2.py",
+        "ui/app.js",
+        "ui/app.css",
+        "ui/index.html"
+      ]
+    },
+    {
+      "id": "5.0.7",
+      "date": "2026-11-17",
+      "title": "5.0.7: Prenos API brez Tk dialoga — direkt v Minimax Knjiženje",
+      "log_file": "Davčna blagajna ver 5.0.7.txt",
+      "user_prompt": "firma ima API gre direkt v minimax; excel poglej ver 3",
+      "changes": "Prenos: če je API, pošlje in odpre Knjiženje brez Tk messagebox. Če API ni, Excel uvoz kot 3.0.68 (_open_minimax_web_uvoz_browser). Tk okno po API ostane skrito.",
+      "files_changed": [
+        "host_webview.py",
+        "ui/index.html"
+      ]
+    },
+    {
+      "id": "5.0.8",
+      "date": "2026-11-17",
+      "title": "5.0.8: LOOK brez Tk messagebox — Tk je preteklost",
+      "log_file": "Davčna blagajna ver 5.0.8.txt",
+      "user_prompt": "spet Tk dialog, ali ni TK preteklost",
+      "changes": "Tk messagebox je trajno ugasnjen za cel LOOK proces. Uspeh API gre v statusno vrstico; Minimax Knjiženje ostane spredaj. Ni okna Minimax API — uspeh.",
+      "files_changed": [
+        "host_webview.py",
+        "ui/index.html",
+        "ui/app.js"
+      ]
+    },
+    {
+      "id": "5.0.9",
+      "date": "2026-11-17",
+      "title": "5.0.9: izbor firme levo osveži desni panel (root, ZIP, drevo)",
+      "log_file": "Davčna blagajna ver 5.0.9.txt",
+      "user_prompt": "ko se v levem meniju spremeni firma se posodobi desni meni s podatki",
+      "changes": "Klik firme: cache analize ali tiha analiza mape Blagajna. Desno drevo/ZIP/root/Org ID se zamenja (force_tree).",
+      "files_changed": [
+        "host_webview.py",
+        "ui/app.js"
+      ]
+    },
+    {
+      "id": "5.0.10",
+      "date": "2026-11-17",
+      "title": "5.0.10: hiter zagon in klik firme; git; zagon 5.0.9.pyw",
+      "log_file": "Davčna blagajna ver 5.0.10.txt",
+      "user_prompt": "kje je DavcnaBlagajna_5.0.9.pyw in zakaj se tako dolgo nalaga; Vklopi git",
+      "changes": "Klik firme ne kliče _analyze. LOOK ugasne _restore_session_analyze in Chrome warmup. Dodana DavcnaBlagajna_5.0.9.pyw in 5.0.10.pyw. Git init mape 5.0.1.",
+      "files_changed": [
+        "host_webview.py",
+        "DavcnaBlagajna_5.0.9.pyw",
+        "DavcnaBlagajna_5.0.10.pyw",
+        "ui/index.html",
+        "ui/app.js"
+      ]
+    },
+    {
+      "id": "5.0.11",
+      "date": "2026-11-17",
+      "title": "5.0.11: Tk odstranjen iz LOOK — HTML paneli",
+      "log_file": "Davčna blagajna ver 5.0.11.txt",
+      "user_prompt": "Tk odstrani iz APP, to je bilo že rečeno in Veja master, še brez commita naredi",
+      "changes": "LOOK nima Tk oken. Zgodovina, OAuth, ZIP in kontiranje so HTML. Filedialog je Windows native. AppV21 ostane skriti motor. Prvi git commit (brez gesel).",
+      "files_changed": [
+        "host_webview.py",
+        "ui/index.html",
+        "ui/app.js",
+        "ui/app.css"
+      ]
+    }
+  ]
+}

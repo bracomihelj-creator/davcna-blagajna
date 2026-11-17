@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.1.77
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Okno «Minimax knjižba — KPR» se obesi («Se ne odziva») med «Nalagam podatke iz Minimax API …».
+
+=== SPREMEMBE ===
+
+1. Ozadnja nit za Minimax API
+   - Nalaganje konteksta (_load_kirkpr_minimax_knjizba_context) ne blokira več Tkinter glavne niti
+   - Pošiljanje v API (_send_api) enako v ozadju
+   - Okno ostane odzivno; kurzor watch in status med čakanjem
+
+2. Varnost ob zaprtju
+   - _load_token: če zaprete okno med nalaganjem, se pozni odziv API ne prikaže več
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/kirkpr_editor.py

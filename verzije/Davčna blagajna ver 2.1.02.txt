@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.02
+Datum: 2026-05-30
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Ob preklopu zavihkov v 2.1 pride do napake can't put labelframe inside...
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Namesto reparentanja Labelframe med zavihki: en stack pod notebookom, zavihki samo prikažejo/skrijejo strani in obnovijo snapshot analize. Odpravljena Tcl napaka ob menjavi pogleda.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/app_v21.py
+  • v2/ui_build_v21.py
+
+=== OPOMBA ===
+Dnevnik za sledenje napredku. Za povrnitev kode uporabite git ali primerjavo datotek.

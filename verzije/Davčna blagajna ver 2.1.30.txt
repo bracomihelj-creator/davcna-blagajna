@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.1.30
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+napolni drevo tudi pri KPR, ista logika kot pri KIR, tu so pa prejeti racuni
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+KPR: kpr_entry_to_sum_cols mapira P8/P11/P10+P18 (osnova), P18 (davek), P10 (neob.); _kpr_entry_ymd (P2/P4/P5); drevo z dnevi in prejetimi racuni ter zneski. Popravek vrstice KIR/KPR pasu (row=2).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/app_v21.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

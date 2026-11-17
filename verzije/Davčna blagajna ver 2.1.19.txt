@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.1.19
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Aktivni zavihek mora biti BOLD RED
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Zamenjan ttk.Notebook z lastno vrstico TabBar (tk.Label): aktivni zavihek je krepko rdeč (#dc2626) z rdečo črto spodaj. Velja za glavne zavihke, KIR/KPR in eDavki/Minimax.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/tab_bar.py
+  • v2/ui_build_v21.py
+  • v2/app_v21.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

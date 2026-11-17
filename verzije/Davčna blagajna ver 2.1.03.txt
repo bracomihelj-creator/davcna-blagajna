@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.03
+Datum: 2026-05-31
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Premakni gumbe Analiziraj in FURS na ustrezen zavihek (ne v skupno orodno vrstico). KIR/KPR naj ima svoje gumbe.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Analiziraj + FURS Blagajna na zavihku Davčna blagajna. Na KIR/KPR: Analiziraj KIR/KPR, Prenos eDavki, Izvoz eDavki, Izvoz Minimax. Orodna vrstica brez teh gumbov (include_analyze=False, include_furs=False).
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/ui_build_v21.py
+  • v2/app_v21.py
+
+=== OPOMBA ===
+Dnevnik za sledenje napredku. Za povrnitev kode uporabite git ali primerjavo datotek.

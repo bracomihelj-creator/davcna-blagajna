@@ -1,0 +1,14 @@
+Davčna Blagajna — verzija 2.2.07
+Datum: 2026-09-08
+
+=== VAŠ ZAHTEVEK (prompt) ===
+err, uredi to....ni dodatnih zagonov....glej kako je narejen vtičnik in CDP!!!
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+FURS Blagajna vpiše Od/do prek Minimax podjetja (localhost sprožilec + chrome.scripting MAIN), enako kot MRN. Brez ZAZENI_CHROME bat in brez zahteve po debug 9222. CDP ostane tihi fallback. Vtičnik 1.4.36: fursFillPakrPeriod na že odprtem DPR_PakR.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • Chrome_add/Minimax_Odpiranje_Podjetij/content_automation.js
+  • Chrome_add/Minimax_Odpiranje_Podjetij/background.js
+  • Chrome_add/Minimax_Odpiranje_Podjetij/manifest.json

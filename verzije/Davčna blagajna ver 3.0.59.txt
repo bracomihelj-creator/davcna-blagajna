@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 3.0.59
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+to je bil primer, in ne tlači plač v KIRKPR ali Davčno blagajno — uredi bistvo pristopka
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Popravek 3.0.58: plače so bile samo primer. Odstranjen gumb/SQL uvoz plač iz Davčne Blagajne. v2/portal_bridge.py ostane bistvo — tanki klic QUICK_eNDM PortalRouter (aktivni Chrome portal, sicer trajni WebView2 profil). Brez playbookov plač/KIRKPR v tej app. Ob zagonu samo log motorja za minimax.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/portal_bridge.py
+  • v2/ui_build.py
+  • v2/ui_hints.py
+  • DavcnaBlagajna.py
+  • v2/browser_inapp.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

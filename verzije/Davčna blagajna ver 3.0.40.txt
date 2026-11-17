@@ -1,0 +1,21 @@
+Davčna Blagajna — verzija 3.0.40
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+spremeni > glej kvadrata > v panela +/- da ju lahko skrčim ali raziširim
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Panela rezultatov (rdeča kvadrata na Blagajna):
+  • 2. Drevo — zložljiv panel (+/−)
+  • Podrobnosti izbire — ločen zložljiv panel (+/−)
+Namigi na gumbih. Naslov drevesa še vedno menja Blagajna ↔ KIR/KPR.
+FURS PakR nespremenjen.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/ui_build.py
+  • v2/collapsible.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

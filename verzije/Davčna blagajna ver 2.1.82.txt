@@ -1,0 +1,11 @@
+Davčna blagajna ver 2.1.82 — 2026-06-01
+========================================
+
+Primerjaj datoteke — raztegnjen panel, 3 prednastavitve
+
+- Zavihek «Primerjaj datoteke»: rezultati primerjave zapolnijo spodnji del (brez praznega prostora).
+- Checkboxi «Primerjaj»:
+  1) Davčna blagajna (Blagajna): Evidenca eDavki KIRKPR ↔ YYYY-MM.zip
+  2) KIR eDavki ↔ Minimax (DDV): eDavki ZIP ↔ Minimax XML
+  3) KPR eDavki ↔ Minimax (DDV): eDavki ZIP ↔ Minimax XML (samo KPR vrstice)
+- Gumb «Primerjaj» za izbrane prednastavitve; «Primerjaj datoteki (ročno)» ostane za ročni izbor.

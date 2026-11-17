@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.49
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Dodaj gumb v aplikaciji «Odpri eDavki Chrome» in samodejni zagon ob Prenosu.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Nastavitve → Odpri eDavki Chrome… — zažene ločen profil BlagajnaFURS\ChromeEdavki (port 9222).
+- Ob Prenosu KIR/KPR eDavki in FURS blagajni: če Chrome še ne teče, ga program sam zažene (~45 s).
+- Bat datoteka ZAZENI_CHROME_EDAVKI_DEBUG.bat ni več obvezna (ostane kot rezerva).
+
+=== DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/settings_menu.py
+  • _start_chrome_edavki_debug.py

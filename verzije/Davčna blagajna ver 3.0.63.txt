@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.63
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+uporabi prijavljeno sejo v minimaxu za pregled Knjiženje izdanih računov in iztržkov
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Po API pregled Knjiženja v že prijavljeni Minimax seji: najprej CDP :9223 (reuse zavihka; HARD firma samo če treba), nato Portal aktivni Chrome / trajni WebView2 profil, sicer --new-tab. WebView2 KN uvoz host nespremenjen.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/browser_inapp.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

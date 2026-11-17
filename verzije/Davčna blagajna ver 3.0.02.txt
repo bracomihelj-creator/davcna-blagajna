@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 3.0.02
+Datum: 2026-10-08
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ok, naj bo Zagon_davcnaBlagajna_V3.bat!!! Iz tega seznama pridobi podatek ali je zavezanec oz . ali ni!!
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Glavni zagon: Zagon_davcnaBlagajna_V3.bat. Stari ZAZENI_* klicajo V3. DDV checkbox ob izbiri firme iz SQL OddajaDdv (isti seznam firm).
+
+=== SPREMENJENE DATOTEKE ===
+  • Zagon_davcnaBlagajna_V3.bat
+  • ZAZENI_DavcnaBlagajna_V2_1.bat
+  • ZAZENI_DavcnaBlagajna_PYW.bat
+  • v2/ui_build.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

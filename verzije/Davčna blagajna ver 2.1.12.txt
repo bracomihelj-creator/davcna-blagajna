@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.1.12
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+tudi ta panel (rdece) vstavi drsnike in resize tako kot levi..ko dvignem srednjo crto se avtomaticky resiza tako levi
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Desni panel v2.1: horizontalni Panedwindow med Firmami in Rezultati (rocno sirina). Popravljena veriga row/column weight za vertikalni resize ob premiku srednje crte. Rezultati grid_column=0 v zavihku. Primerjava/Minimax z drsnikoma. Drevo rezultatov ohranja V/H drsnika.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/ui_build_v21.py
+  • v2/ui_build.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

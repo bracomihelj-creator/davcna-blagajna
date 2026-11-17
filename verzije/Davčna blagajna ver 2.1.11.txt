@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.11
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Traceback ob zagonu v2.1: IndentationError v version_switch.py vrstica 53 (unindent does not match).
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Popravljen pokvarjen odmik v v2/version_switch.py (ostanek po delni ureditvi switch_ui_version). Datoteka prepisana s cistimi 4-presledki; funkcije _open_versions_folder in switch_ui_version na pravem nivoju.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/version_switch.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

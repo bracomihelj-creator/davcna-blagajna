@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.1.24
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+circular import ob zagonu
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Odpravljen krožni uvoz: v2/__init__.py ne uvozi več AppV2 ob nalaganju paketa; DavcnaBlagajna uporablja v2.access_settings brez zagona app.py.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/__init__.py
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

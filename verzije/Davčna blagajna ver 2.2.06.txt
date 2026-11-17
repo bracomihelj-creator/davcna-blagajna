@@ -1,0 +1,14 @@
+Davčna blagajna ver 2.2.06 — 2026-09-08
+========================================
+
+FURS Blagajna — samo CDP, brez novega zavihka
+
+- FURS Blagajna ne odpira nove spletne strani.
+- Selenium se ne zažene.
+- Vpis Od dne / do dne gre samo prek CDP na že odprt zavihek DPR_PakR (Chrome debug 9222).
+- Nastavitev `edavki_blagajna.direct_link` privzeto izklopljena.
+
+Spremenjene datoteke:
+- `DavcnaBlagajna.py`
+- `blagajna_v2_access.json`
+- `v2/access_settings.py`

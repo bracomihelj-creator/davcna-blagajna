@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 3.0.49
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+spet si malo pomešal, če ni API uporabi direkt "Minimax spletni uvoz", ostalo navlago opusti
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Poenostavitev dnevnega gumba:
+• če je API token → API
+• sicer direkt isti klic kot gumb «Minimax spletni uvoz»
+Odstranjene ovojnice (OAuth-možnost, confirm=False, priprava Excela posebej).
+Stari Chrome CDP fallback ob napaki API → isti WebView2 spletni uvoz.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+  • v2/ui_build.py

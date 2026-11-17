@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.2.27
+Datum: 2026-10-04
+
+=== VAŠ ZAHTEVEK (prompt) ===
+crome je ze odprt, dodaj nov zavihek in link! Tako enostavno, na eDavke sem pa ze prijavljen.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+FURS Blagajna ne zaganja vec novega Chrome. V ze odprtem Chrome (CDP, prednost 9222 kjer je eDavki) doda nov zavihek z DPR_PakR linkom (Target.createTarget) in vpiše Od/do. Fallback: chrome --new-tab.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

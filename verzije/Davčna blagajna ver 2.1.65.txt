@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 2.1.65
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ali je možno kreirati vizualni «drag & drop» designer in seveda povleci-in-spusti razpored, v strankah tudi dodaj combo iz API strranke!!! Lahko dodaš še gumb Dodaj nov zapis kjer ročno dodam nov zapis v API knjižbo
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Nastavitve → Minimax knjižba: vizualni designer (povleci polja na mrežo, dvojni klik = vidno/skrito).
+- Stranka (KIR) in dobavitelj (KPR): combobox iz Minimax API customers.
+- Gumb «Dodaj nov zapis» pri drevesu rezultatov — ročna knjižba brez obstoječe vrstice.
+- Izberi dan v drevesu (ali mesec po uvozu), nato Dodaj nov zapis.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/knjizba_form_designer.py
+  • v2/kirkpr_knjizba_form_layout.py
+  • v2/kirkpr_editor.py
+  • v2/settings_menu.py
+  • v2/ui_build.py
+  • DavcnaBlagajna.py

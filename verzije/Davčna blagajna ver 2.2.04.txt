@@ -1,0 +1,13 @@
+Davčna blagajna ver 2.2.04 — 2026-06-29
+========================================
+
+Prazna analiza — uvoz 0 in jasen vzrok
+
+- `2026-07.zip` za ZAVOD ISKRENI ima samo glavo CSV (0 računov) — to ni napaka stolpca.
+- Popravljen sniffer: FURS `;` ima prednost pred `,` (9,5% v glavi).
+- ZIP, vklopljen za izbrano obdobje, se pred branjem ne izklopi več.
+- Prazen CSV (glava brez vrstic) → jasno sporočilo «uvoz: 0».
+- Dialog: Info namesto Opozorilo; brez zavajajočega «Zahtevan stolpec z datumom».
+
+Spremenjene datoteke:
+- `DavcnaBlagajna.py`

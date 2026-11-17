@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.56
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ampak Minimax v Chrome je ze aktiven, logiran, zakaj ponovno???
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Po syncu iz Chrome ne kaze vec takoj Cakam prijavo. Osvezi Zacetek + Vstopite; ponovna prijava samo ce WebUI res ni. Jasnejse sporocilo ce Chrome tece brez debug.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/chrome_session_sync.py
+  • v2/minimax_webview2_host.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

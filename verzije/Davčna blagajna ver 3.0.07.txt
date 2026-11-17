@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.07
+Datum: 2026-10-08
+
+=== VAŠ ZAHTEVEK (prompt) ===
+tu je zaceten zajem - Zacetek -> ALFA GYM -> Uvoz
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Pred uvozom: odpri Moje organizacije, #F_Search + klik tr.prijava[data-organizacijaid], pocakaj ZacetekOrganizacije, nato UvozPodatkov. Org ID npr. ALFA GYM=134748.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.1.39
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+spet pri minimaxu ne dela — on_done is not defined
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Popravljen _prenos_minimax_kirkpr: on_done=on_fill_done (NameError).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.
+

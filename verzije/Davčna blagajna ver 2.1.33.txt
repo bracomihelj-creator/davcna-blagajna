@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.1.33
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+premik gumba Minimax spletni uvoz - ali je za uvoz excela
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Minimax spletni uvoz prestavljen iz vrstice Org ID v zavihek Excel in knjizbe (po Knjizbe DDV). Odpre Minimax uvoz KnjizbeInDDV Excela - korak po izvozu knjizeb, ne uvoz v aplikacijo.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/ui_build.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.1.23
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Napaka Minimax; eDavki link; nastavitve dostopa
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Popravljen _prenos_minimax_kirkpr (org_id + organisations). eDavki KIR/KPR: najprej odpri povezavo DDV_Evidenci_Oddane z RepresentedTaxPayerProfileId. Nov zavihek Nastavitve → Dostop eDavki, Minimax (chkbox: povezava, odložišče, Selenium, ročno ob napaki). Shranjeno v blagajna_v2_access.json.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/access_settings.py
+  • v2/settings_menu.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

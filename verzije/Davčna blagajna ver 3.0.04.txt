@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.04
+Datum: 2026-10-08
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ok, kreiraj da stestiram — popravi izvoz Excel na novo Minimax KnjizbeInDDV.xlsx
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Globalna predloga D:\Trops\MiniMax\KnjizbeInDDV.xlsx zamenjana z novo strukturo (VrsticeTemeljnice +UvozPodatkov.VrsticaTemeljniceKnjizba; DDV +UvozPodatkov.DDVGlavaStevilkaKnjizbe pred Storno). Stara predloga arhivirana kot KnjizbeInDDV_OLD_*.xlsx. DDV_HEADERS in ddv_fields v DavcnaBlagajna.py usklajeni; nova stolpca ostaneta prazna ob izvozu.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • D:\Trops\MiniMax\KnjizbeInDDV.xlsx
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.44
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Selenium?? Spremeni,
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Prenos KIR/KPR eDavki: odstranjen Selenium.
+Vedno CDP v že odprtem Chrome: Obdobje od/do + Išči (kot MRN/FURS).
+Selenium ostane samo za morebitno Minimax KIR/KPR avtomatiko.
+
+FURS PakR in Minimax WebView2 3.0.42 nespremenjena.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/access_settings.py

@@ -1,0 +1,21 @@
+Davčna Blagajna — verzija 2.1.44
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Ne odpiraš novo sejo, dodaš zavihek v chromu kot FURS blagajna, pravila v Nastavitvah
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Prenos KIR/KPR: samo nov zavihek v obstoječem Chrome (debug 9222), brez zaganjanja nove seje.
+Selenium priklop na isti Chrome kot FURS blagajna.
+Pravila po viru: Nastavitve → Dostop eDavki, Minimax (edavki_kirkpr / minimax_kirkpr).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/access_settings.py
+  • v2/settings_menu.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.
+

@@ -1,0 +1,14 @@
+Davčna Blagajna — verzija 5.0.1
+Datum: 2026-11-17
+
+=== VAŠ ZAHTEVEK (prompt) ===
+DA — 5.0.1 iz 3.0.68, LOOK QUICK WebView2, 5 pogledov levo, en proces AppV21
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Kopija 3.0.68 v mapo 5.0.1. HTML LOOK; stanje = isti AppV21. Brez 4.0 Motor/tk_actions.
+
+=== SPREMENJENE DATOTEKE ===
+  • host_webview.py
+  • tree_view.py
+  • ui/index.html, ui/app.css, ui/app.js
+  • DavcnaBlagajna.pyw, INSTALL.pyw, ZAZENI_5.0.1.bat

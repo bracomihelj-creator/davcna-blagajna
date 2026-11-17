@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.15
+Datum: 2026-10-09
+
+=== VAŠ ZAHTEVEK (prompt) ===
+nic ni drugace — preveri delujoco kodo mogoce 3.0.04
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Vzrok open_only/chrome_default: brez CDP se Podatki-KN ne izpolni. Vrnjen Arhiv 2.2.29 tok: najprej Minimax debug 9223 (restart profila ce treba), CDP nov zavihek UvozPodatkov, nato KN+IR+Excel+Uvozi. Brez chrome_default.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

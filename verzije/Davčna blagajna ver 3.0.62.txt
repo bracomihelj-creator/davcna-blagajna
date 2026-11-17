@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 3.0.62
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+nisi izbral firme, glej okno (Poišči organizacijo)
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Po API: najprej HARD izbor firme na Moje org (Poišči organizacijo + klik naziva, ne zvezda) prek Minimax Chrome CDP :9223, nato Knjiženje in Od/Do+Najdi. Iskalnik počaka filter. WebView2 KN uvoz nespremenjen.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

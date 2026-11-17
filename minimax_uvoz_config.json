@@ -1,0 +1,11 @@
+{
+  "engine": "webview2",
+  "click_import": true,
+  "open_temeljnica": true,
+  "vrsta_temeljnice_id": "2",
+  "vrsta_temeljnice_label": "IR - Izdani račun",
+  "tip_prometa": "KN",
+  "remote_debugging_port": 9333,
+  "organisation_id": null,
+  "notes": "ZAKLENJENO 3.0.42 (2026-10-11: deluje). Uskladitev dokumentacije 3.0.45. Privzeto engine=webview2: Moje org klik naziva → KN potrdi → radio → IR/datum(zadnji dan) → Excel CDP ena WS :9333 (+allow-origins) → Uvozi. chrome_cdp samo izrecno. Ne menjaj motorja/poteka brez DA."
+}

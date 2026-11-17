@@ -1,0 +1,20 @@
+Davčna Blagajna — verzija 2.1.22
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Nastavitve obrobe zavihkov, panelov, črt
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Nov zavihek Nastavitve → Obrobe: debelina in barva za zavihke, panele (TLabelframe) in ločilne črte. Shranjeno v blagajna_v2_theme.json (borders). TabBar in ttk se osvežita ob Shrani.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/theme.py
+  • v2/settings_menu.py
+  • v2/tab_bar.py
+  • v2/app.py
+  • v2/ui_build.py
+  • v2/ui_build_v21.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

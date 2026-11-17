@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.1.37
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Ali lahko dobiš povratno informacijo glede stanja Pripravljen ali V pripravi (več poslovnih prostorov)
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+DPR-PakR: branje statusa iz Angular data.InvoicePacket (Status 0/1). Povratna informacija v statusni vrstici med čakanjem (LJ: V pripravi | PO: Pripravljen). Čaka na vse prostore; prenese ločene ZIP po prostoru.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.
+

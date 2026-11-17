@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.1.05
+Datum: 2026-05-31
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Ob vsakem gumbu naj bo rumen namig ob miški (tooltip).
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Dodana v2/tooltip.py in v2/ui_hints.py s slovenskimi opisi. Vsi pomembni gumbi v v2/v2.1 imajo bind za prikaz namiga.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/tooltip.py
+  • v2/ui_hints.py
+  • v2/ui_build.py
+  • v2/ui_build_v21.py
+
+=== OPOMBA ===
+Dnevnik za sledenje napredku. Za povrnitev kode uporabite git ali primerjavo datotek.

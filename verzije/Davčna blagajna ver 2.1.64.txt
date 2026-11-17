@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 2.1.64
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+popravki: datum naj bo DTpicker, da lahko spreminjam dan, mesec, leto...Tip dokumenta in Status naj bo combobox.....Forma za KIR je valjda drugačna od forme za KPR, preveri polja za izdane in prejete računa!!!
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Datumi: izbirnik dan / mesec / leto (dd.mm.yyyy).
+- KIR: combobox tip dokumenta (IZT, IRI, IRS, AVA) in status (Osnutek, Potrjen).
+- KPR: combobox status (Osnutek, Potrjen, Zavrnjen); polja P2, P4, P8–P21; dobavitelj; konto stroškov.
+- Nastavitve → Minimax knjižba: ločena postavitev za KIR in KPR.
+- KPR pošiljanje: Minimax API receivedinvoices (ne issuedinvoicepostings).
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/date_picker.py
+  • v2/kirkpr_knjizba_form_layout.py
+  • v2/kirkpr_editor.py
+  • v2/settings_menu.py
+  • DavcnaBlagajna.py

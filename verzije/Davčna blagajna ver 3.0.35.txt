@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 3.0.35
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ni ok, zakaj na novo prijava v minimax??
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+WebView2 Minimax: ob neprijavljenem stanju ne aborta z messagebox — odpre/ohrani okno, status »Čakam prijavo v tem oknu…«, poll ~210 s (Vstopite soft-pass), nato isti uvoz nadaljuje (HARD firma → Uvoz → KN/IR). Profil data/webview2/minimax_uvoz_profile ni brisan (_clear_ipc samo IPC). Opcijski soft auto-fill iz nastavitev. Dialog/hints pojasnijo ločen profil od Chrome.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/minimax_webview2_host.py
+  • v2/minimax_webview2.py
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+  • minimax_uvoz_config.json
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

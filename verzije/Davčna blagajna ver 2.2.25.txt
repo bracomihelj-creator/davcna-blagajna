@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.2.25
+Datum: 2026-09-14
+
+=== VAŠ ZAHTEVEK (prompt) ===
+DOGOVOR: ni v APP vec kombiniranje z vticniki — direkt link kot eDavki, NE VTICNIKE
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+FURS in Minimax: odstranjena pot prek vticnika/localhost. Samo neposredni URL (DPR_PakR / UvozPodatkov?OrganisationId) + CDP vpis ce debug Chrome ze tece. Brez Reload extension sporocil.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • .cursor/rules/edavki-furs-pakr-fast.mdc
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

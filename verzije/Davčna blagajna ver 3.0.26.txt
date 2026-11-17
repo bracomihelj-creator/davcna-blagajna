@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.26
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Zadnji test: peach Vstopite v program — uskladi potek
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Screenshot: nov zavihek je ostal na Vstopite v program. 3.0.26: preferira zavihek ze odprte firme, navigira na UvozPodatkovCSV, obvezno klikne Vstopite v program (tudi v fill zanki). Ne odpira slepo novega zavihka.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

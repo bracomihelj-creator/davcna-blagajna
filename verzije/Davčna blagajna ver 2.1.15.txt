@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.15
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+drevesna struktura in oznake racunov manjkajo v oznacenem zip
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Pod vsak ZIP v drevesu: dnevi in oznake racunov (iz analize ali predogled iz datoteke). Ce ZIP ni vkljucen: predogled iz CSV v ZIP. Normalizacija meseca 05 pri filtriranju. Sekcija Dnevi (skupaj) ostane za cel mesec.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

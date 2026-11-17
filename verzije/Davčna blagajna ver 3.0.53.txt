@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 3.0.53
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+WebView2 naj pridobi od chroma kukije in ostalo da lahko obdeluje Minimax
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+WebView2 ob zagonu uvoza/knjiženja vzame piškotke + local/sessionStorage iz Minimax Chrome CDP (:9223) in jih vstavi v WebView2 (:9333). Po API: Knjiženje odpre v WebView2 (HARD firma + Najdi), ne v FURS/napačnem Chrome. Potek uvoza KN/IR/Excel 3.0.42 nespremenjen.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/minimax_webview2_host.py
+  • v2/minimax_webview2.py
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

@@ -1,0 +1,101 @@
+{
+  "version": 2,
+  "definitions": [
+    {
+      "name": "Blagajna KIR ↔ Blagajna ZIP",
+      "enabled": true,
+      "selected": true,
+      "book": "KIR",
+      "label_a": "Blagajna KIR",
+      "label_b": "Blagajna ZIP",
+      "left": {
+        "source": "blagajna",
+        "kind": "edavki_kirkpr_zip",
+        "format": "zip",
+        "path": "",
+        "sheet": "",
+        "excel_mode": "auto"
+      },
+      "right": {
+        "source": "blagajna",
+        "kind": "month_zip",
+        "format": "zip",
+        "path": "",
+        "sheet": "",
+        "excel_mode": "auto"
+      }
+    },
+    {
+      "name": "Blagajna Excel ↔ eDavki ZIP",
+      "enabled": true,
+      "selected": false,
+      "book": "KIR",
+      "label_a": "Blagajna Excel",
+      "label_b": "eDavki ZIP",
+      "left": {
+        "source": "blagajna",
+        "kind": "analysis_xlsx",
+        "format": "excel",
+        "path": "",
+        "sheet": "",
+        "excel_mode": "analysis"
+      },
+      "right": {
+        "source": "blagajna",
+        "kind": "edavki_kirkpr_zip",
+        "format": "zip",
+        "path": "",
+        "sheet": "",
+        "excel_mode": "auto"
+      }
+    },
+    {
+      "name": "KIR Blagajna ↔ DDV",
+      "enabled": true,
+      "selected": false,
+      "book": "KIR",
+      "label_a": "Blagajna KIR",
+      "label_b": "DDV KIR",
+      "left": {
+        "source": "blagajna",
+        "kind": "edavki_kirkpr_zip",
+        "format": "zip",
+        "path": "",
+        "sheet": "",
+        "excel_mode": "auto"
+      },
+      "right": {
+        "source": "ddv",
+        "kind": "minimax_kirkpr_xml",
+        "format": "xml",
+        "path": "",
+        "sheet": "",
+        "excel_mode": "auto"
+      }
+    },
+    {
+      "name": "KPR Blagajna ↔ DDV",
+      "enabled": true,
+      "selected": false,
+      "book": "KPR",
+      "label_a": "Blagajna KPR",
+      "label_b": "DDV KPR",
+      "left": {
+        "source": "blagajna",
+        "kind": "edavki_kirkpr_zip",
+        "format": "zip",
+        "path": "",
+        "sheet": "",
+        "excel_mode": "auto"
+      },
+      "right": {
+        "source": "ddv",
+        "kind": "minimax_kirkpr_xml",
+        "format": "xml",
+        "path": "",
+        "sheet": "",
+        "excel_mode": "auto"
+      }
+    }
+  ]
+}

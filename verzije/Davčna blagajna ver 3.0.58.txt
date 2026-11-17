@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 3.0.58
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Portal most (vzorec QUICK_eNDM) — implementacija plana
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Tanki adapter v2/portal_bridge.py na QUICK_eNDM PortalRouter (aktivni Chrome portal sicer trajni WebView2 profil). UI gumb Plače iz Minimax + namig + status motorja. Playbook: resolve minimax → HARD firma → ObracunPlac Excel → parse → eNDM SQL _Place. browser_inapp status. FURS PakR in Minimax KN uvoz nespremenjena.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/portal_bridge.py
+  • v2/ui_build.py
+  • v2/ui_hints.py
+  • DavcnaBlagajna.py
+  • v2/browser_inapp.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

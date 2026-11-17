@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 3.0.66
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ker ti manjka zaključna faza poglej video OdpriKnjiženjeIRinIztržkov.mp4
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Video zaključek: po HARD firmi odpri Knjiženje IR/iztržkov in klikni Najdi (Od/Do). Bridge action knjizenje_najdi; po API pot Bridge HARD → navigate → Najdi, brez CDP.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/chrome_bridge_client.py
+  • v2/browser_inapp.py
+  • D:/PISARNA/Python/QUICK_eNDM/Chrome_Bridge_Extension/background.js
+  • D:/PISARNA/Python/QUICK_eNDM/quick_chrome_bridge.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

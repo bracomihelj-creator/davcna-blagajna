@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.1.59
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Panel «Izvoz — Excel · knjižbe · Minimax API» v zavihkih Blagajna in KIR/KPR.
+Dvojni klik na KIR/KPR dokument odpre Minimax API knjižbo (ne eDavki XML v ZIP).
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Dvojni klik na dokument v drevesu KIR/KPR vedno odpre Minimax API knjižbo (eDavki in Minimax vir).
+- Odstranjeno urejanje eDavki XML v ZIP — popravki samo prek Minimax API pred oddajo.
+- Dialog knjižbe poenostavljen: samo API polja (datum, opis, konto, zneski).
+- Panel izvoz ostane viden v zavihkih Blagajna in KIR/KPR (že od 2.1.31).
+
+=== DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/kirkpr_editor.py
+  • v2/theme.py

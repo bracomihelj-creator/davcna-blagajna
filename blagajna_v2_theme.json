@@ -1,0 +1,59 @@
+{
+  "preset": "klasicna",
+  "font_family": "Segoe UI",
+  "font_size": 9,
+  "colors": {
+    "WINDOW_BG": "#d4d4d4",
+    "PANEL_BG": "#f0f0f0",
+    "HEADER_BG": "#4a4a4a",
+    "HEADER_FG": "#f1f5f9",
+    "HEADER_MUTED": "#94a3b8",
+    "FOOTER_BG": "#1e293b",
+    "FOOTER_FG": "#94a3b8",
+    "TEXT": "#1e293b",
+    "MUTED": "#64748b",
+    "BORDER": "#cbd5e1",
+    "ACCENT": "#cc0000",
+    "ACCENT_DIM": "#a30000",
+    "ACCENT_FG": "#ffffff",
+    "ACCENT_TEXT": "#1a4a7a",
+    "ENTRY_BG": "#ffff99",
+    "ENTRY_FG": "#1e293b",
+    "ENTRY_DISABLED": "#e2e8f0",
+    "TREE_SEL_FG": "#cc0000",
+    "TREE_SEL_BG": "#fff0f0",
+    "TREE_ZIP_DISABLED": "#94a3b8",
+    "TREE_ACTIVE_TAG": "#cc0000",
+    "BADGE_BG": "#6366f1",
+    "BADGE_FG": "#ffffff",
+    "HEADER_ACCENT_FG": "#7dd3fc"
+  },
+  "layout": {
+    "root_width": 28,
+    "out_dir_width": 28,
+    "document_type_width": 6,
+    "payment_method_width": 45,
+    "vrsta_prodaje_width": 45,
+    "template_width": 45,
+    "out_file_width": 14,
+    "sheet_width": 8,
+    "csv_width": 8,
+    "help_wraplength": 480
+  },
+  "borders": {
+    "tab_inactive_bg": "#e2e8f0",
+    "tab_active_bg": "#f8fafc",
+    "tab_active_fg": "#dc2626",
+    "tab_active_underline_px": 3,
+    "tab_border_px": 0,
+    "tab_border_color": "#cbd5e1",
+    "panel_border_px": 1,
+    "panel_border_color": "#cbd5e1",
+    "separator_px": 1,
+    "separator_color": "#cbd5e1"
+  },
+  "ui": {
+    "double_click_open_folder": true,
+    "double_click_kirkpr_open_editor": true
+  }
+}

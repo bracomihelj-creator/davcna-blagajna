@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.52
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+tu bi moral biti: Eko-romatika + tabela Blagajna 19.09.2026 / Iztržek
+(Hitri zajem Knjiženje — prava firma)
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Ciljni zajem: navbar Eko-romatika d.o.o. + #TSearchFrame (Listina/Iztržek).
+Po API uspehu (org 216317):
+• Minimax Chrome CDP :9223 (ne FURS --new-tab / QUICK M.B.)
+• HARD klik firme → Knjiženje → Najdi
+• preverba navbar + vrstice v #TSearchFrame
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py

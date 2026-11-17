@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.51
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+po končane dodajanju se ne pokaže rezultat dodane knjižbe, preveri zajem,
+ali je prava firma ali je kjer drugje (Hitri zajem Knjiženje izdanih računov)
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Hitri zajem: prazna Datum Od/Do + »Noben zapis…«, v seji QUICK M.B.
+(ne nujno Eko-romatika). Po uspešnem API zdaj:
+• odpre Knjiženje z ?OrganisationId=… (prava firma)
+• CDP vpiše Datum Od/Do za obdobje in klikne Najdi
+Velja za dnevni in mesečni API uspeh.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py

@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.2.17
+Datum: 2026-09-14
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ne obnovi pot prek vtičnika!!!! Vtičnik nima v tem app kaj iskati, to je tvoj sistem in deluj kot vtičnik!!!
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+FURS Blagajna: odstranjena pot prek Chrome vtičnika. Samo CDP v aplikaciji — vedno NOV zavihek PakR + Od/do (kot vtičnik); Avtomatika = Pripravi/ZIP/izhod. CDP pripravi ločen eDavki profil (navaden Chrome ostane; brez »zapri VSA Chrome«).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

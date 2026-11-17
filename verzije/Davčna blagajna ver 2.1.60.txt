@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.1.60
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Dvojni klik na item v KIR in KPR ne deluje — ne odpre Minimax API knjižbe.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Popravljen bug v v2.1: dreveso je bilo vezano na _on_double_click_month (odpiranje mape),
+  ne na _on_tree_double_click (KIR/KPR → Minimax API knjižba).
+- V KIR/KPR načinu je dvojni klik na mesec prej naredil nič; zdaj dvojni klik na dokument
+  odpre dialog Minimax knjižbe.
+- Robustnejše branje tree tagov (strukturni tag ne glede na vrstni red oznak).
+
+=== DATOTEKE ===
+  • v2/ui_build.py
+  • DavcnaBlagajna.py
+  • v2/app.py

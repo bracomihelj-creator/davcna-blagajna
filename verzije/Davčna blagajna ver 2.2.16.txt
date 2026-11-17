@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.2.16
+Datum: 2026-09-14
+
+=== VAŠ ZAHTEVEK (prompt) ===
+fix: no new tab + minimax uvoz
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+FURS: ne zaganja locenega Chrome ce ze tece navaden; reuse eDavki tab + navigacija; jasna napaka ce ni CDP. Minimax uvoz CDP fill.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

@@ -1,0 +1,21 @@
+Davčna Blagajna — verzija 2.1.68
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Za urejevalnik dodaj panele "+","-", in premikanje (povleci in spusti) ne deluje,
+tudi naredi tako da lahko razširim oz. zožam textbox!
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Popravljen drag & drop: med premikom polja delujejo dogodki miške (bind_all).
+- Gumbi + in − na vsakem polju v designerju (širina vnosa).
+- Gumbi +/− v orodni vrstici designerja za izbrano polje.
+- Ročaj na desnem robu polja — povleci vodoravno za širino textboxa.
+- Na polju se prikaže trenutna širina [48].
+- V «Izbrano polje» dodano: Širina vnosa (0 = privzeto iz «Okno in mreža»).
+- Obrazec knjižbe upošteva posamezno širino vnosa na polju.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/knjizba_form_designer.py
+  • v2/kirkpr_knjizba_form_layout.py
+  • v2/kirkpr_editor.py
+  • v2/settings_menu.py

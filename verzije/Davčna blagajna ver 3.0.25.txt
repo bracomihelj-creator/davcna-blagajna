@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 3.0.25
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ok, kreiraj da testiram — video + Hitri zajem bundle
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Hitri zajem 11 strani + video: ze v firmi -> UvozPodatkovCSV. Odstranjen klic Moje organizacije (CDP) iz hitrega uvoza. KN->uvoz->IR->datum/opis blagajna MM.YYYY->Excel->Uvozi->Prikazi temeljnico. ChromeMinimax :9223.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+  • minimax_uvoz_config.json
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

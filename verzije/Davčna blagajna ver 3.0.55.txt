@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 3.0.55
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+naj bo avtomatizem, odvisno kje je minimax, edavki, eVem, ajpes, ce je to aktivni chrome naj dobi podatke od chroma
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Nov v2/chrome_session_sync.py: Minimax/eDavki/eVEM/AJPES — poišče že odprt Chrome CDP z aktivno storitvijo in izvozi piškotke + local/sessionStorage. Minimax WebView2 uvoz: če ni prijavljen, mehko vstavi sejo iz aktivnega Minimax Chrome; če Chrome ni, lastni profil + prijava (potek 3.0.42 nespremenjen). Ne zaganja Chrome, brez vtičnikov.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/chrome_session_sync.py
+  • v2/minimax_webview2_host.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

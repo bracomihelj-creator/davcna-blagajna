@@ -1,0 +1,26 @@
+Davčna Blagajna — verzija 2.1.74
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Obrazec daj v nastavitve (širina/višina), dodaj drsnik spodaj, popravi Osnutek in prazen datum zapadlosti.
+
+=== SPREMEMBE ===
+
+1. Nastavitve → Minimax knjižba → «Okno in mreža — širina / višina obrazca»
+   - Širina okna (px), višina okna (px) — privzeto odprto na vrhu zavihka
+   - Velja za dialog ob dvojnem kliku KIR/KPR
+
+2. Obrazec knjižbe
+   - Navpični in vodoravni drsnik (Shift + kolesce miške = vodoravno)
+
+3. Status in datum zapadlosti (KPR)
+   - Iskanje prejetega računa po datumu prejema (P2), ne P5
+   - Dnevni seznam receivedinvoices iz API
+   - Povezava prek temeljnice (ReceivedInvoiceId)
+   - Če je knjiženje v temeljnici: status Potrjen, ne Osnutek
+   - Datum zapadlosti: Minimax API, P5/P6 iz evidence, ali temeljnica
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/kirkpr_editor.py
+  • v2/settings_menu.py

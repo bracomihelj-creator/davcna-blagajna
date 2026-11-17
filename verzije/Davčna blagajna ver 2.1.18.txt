@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.1.18
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Aktivni zavihek bold red; gumba v eDavki/Minimax zavihke
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Popravljen stil aktivnega zavihka (V2.ActiveTab.TNotebook.Tab + layout copy). Gumbi Uvozi in Prenos premaknjeni v podzavihka eDavki oziroma Minimax pri KIR in KPR.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/theme.py
+  • v2/ui_build_v21.py
+  • v2/ui_build.py
+  • v2/app_v21.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

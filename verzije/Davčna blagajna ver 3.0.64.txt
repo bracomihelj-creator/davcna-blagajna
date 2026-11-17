@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 3.0.64
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+vse seje so vedno prijavljene — to upoštevaj in ne odpiraj novih
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Po API pregled Knjiženja samo v obstoječi Minimax seji (CDP). Brez --new-tab, webbrowser, novih profilov. HARD firma z allow_new_tab=False. Predpostavka: seje minimax/edavki/ajpes/eVEM so vedno prijavljene.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/portal_bridge.py
+  • v2/browser_inapp.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.32
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+tako zgleda KPR...kreiraj samo stolpce ki niso 0
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+KPR dreveso: stolpci P8-P21 po uradni eDavki shemi (blago, pridobitev blaga, DDV 22% ...). V drevesu samo polja z zneskom razlicnim od 0; brez praznih KIR stolpcev.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

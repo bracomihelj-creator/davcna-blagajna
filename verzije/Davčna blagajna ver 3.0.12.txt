@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.12
+Datum: 2026-10-09
+
+=== VAŠ ZAHTEVEK (prompt) ===
+to je pa dovolj, predhodne verzije so normalno izpeljale — preveri zgodovino in popravi
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Vrnjen delujoci tok Minimax uvoz kot 3.0.06/3.0.08: brez obveznega Zacetek klika firme. Reuse/odpri UvozPodatkov?OrganisationId + IR=2 + opis + Excel + Uvozi/porocilo. Ohranjen CDP restart ce profil tece brez debug.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

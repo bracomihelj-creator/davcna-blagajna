@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.2.21
+Datum: 2026-09-14
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ok deluje — zapomni hitro vpisovanje eDavki; kreiraj pyw in bat
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Zapomnjen vzorec hitrega FURS PakR (skill + .cursor rule). Dodana DavcnaBlagajna.pyw in ZAZENI_DavcnaBlagajna_PYW.bat (zagon brez konzole).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.pyw
+  • ZAZENI_DavcnaBlagajna_PYW.bat
+  • ZAZENI_DavcnaBlagajna_PY.bat
+  • .cursor/rules/edavki-furs-pakr-fast.mdc
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

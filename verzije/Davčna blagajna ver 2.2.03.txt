@@ -1,0 +1,13 @@
+Davčna blagajna ver 2.2.03 — 2026-06-29
+========================================
+
+KPR Minimax — pravilen opis in konto iz prejetega računa
+
+- Opis: `2026-264;260327;` (številka prejetega računa v Minimaxu + P3 št. listine).
+- Vezni dokument: `Year-InvoiceNumber` iz API ReceivedInvoice, ne ID temeljnice (2026271).
+- Konto stroškov: iz odhodkov prejetega računa (npr. 4190), z ujemanjem po osnovi P8.
+- Temeljnica ostane rezerva za konto, če API odhodkov ne vrne.
+
+Spremenjene datoteke:
+- `DavcnaBlagajna.py`
+- `v2/kirkpr_knjizba_form_layout.py`

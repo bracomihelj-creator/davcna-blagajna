@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.2.14
+Datum: 2026-09-14
+
+=== VAŠ ZAHTEVEK (prompt) ===
+chrome vticnik Minimax podjetja 1.4.42 pretvori v kodo za v sistem da bo app neodvisen!!!! To velja za vse vticnike!!!!
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+FURS Blagajna: avtomatika PRESTAVLJENA v aplikacijo (CDP Runtime.evaluate + Page.setDownloadBehavior; Selenium attach kot rezervni). Vtičnik Minimax podjetja NI več potreben za PakR. Nov v2/browser_inapp.py — register migracije vseh vtičnikov (Place Oddaje, CDP Snemalnik, KIR PR … še TODO). Nastavitve Dostop: posodobljena legenda.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/browser_inapp.py
+  • v2/access_settings.py
+  • v2/settings_menu.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

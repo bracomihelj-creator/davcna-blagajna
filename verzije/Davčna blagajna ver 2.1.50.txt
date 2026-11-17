@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 2.1.50
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+V nastavitve nov zavihek Povezave — combo eDavki kot v Evidence podjetij (SQL list internet).
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Nastavitve → Videz → zavihek «Povezave»: 15 privzetih vrstic (kot Excel list internet).
+- Uvoz iz SQL dbo.RefInternetLink (EvidencaFirm/config.json).
+- Combo «eDavki» v levem panelu (Firme) + gumb Odpri → nov zavihek Chrome.
+- e-pošta (strEmail / strNabiralnik) → kopira Email firme v odložišče.
+- Datoteka: blagajna_edavki_links.json
+
+=== DATOTEKE ===
+  • v2/edavki_links_settings.py
+  • v2/settings_menu.py
+  • v2/ui_build.py
+  • DavcnaBlagajna.py
+  • blagajna_edavki_links.json

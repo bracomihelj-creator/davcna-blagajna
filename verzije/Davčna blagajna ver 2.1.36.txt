@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.1.36
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Prenos KIR/KPR naj odpre nov zavihek v Chromu (ne Edge)
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Minimax KIR/KPR: Selenium preklop na Chrome profil MinimaxBlagajna\ChromeMinimax (debug port 9223). Vedno nov zavihek za obračun DDV. ZAZENI_CHROME_MINIMAX_DEBUG.bat in _start_chrome_minimax_debug.py.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • _start_chrome_minimax_debug.py
+  • ZAZENI_CHROME_MINIMAX_DEBUG.bat
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.
+

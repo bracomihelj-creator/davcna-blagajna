@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 3.0.54
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+spet groza, sploh ne razumes bistva, popravi kodo, ker je ze delovalo
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Odstranjena pokvarjena avtomatika 3.0.51-3.0.53: Chrome piškotki v WebView2, odpiranje knjiženja po API (napačen Chrome / WebView2). Minimax spletni uvoz spet kot 3.0.42: lasten WebView2 profil, HARD firma, KN/IR/Excel. Dnevni gumb: API če mogoč, sicer WebView2 (3.0.50). Po API ni več avtomatskega brskalnika.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/minimax_webview2_host.py
+  • v2/minimax_webview2.py
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.35
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Uvozi podatke uvozil 2026-04 namesto 05; Minimax KIR ne odpiraj novega Edge
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Uvoz blagajne: filtrira na izbrano Leto/Mesec, vklopi ZIP za ta mesec. Minimax KIR/KPR: brez open_url_in_edge pred Selenium; priklop na obstojeci Edge (debug port 9223), ne nov profil ce je Edge ze odprt.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

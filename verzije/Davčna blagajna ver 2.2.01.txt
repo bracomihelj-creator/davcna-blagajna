@@ -1,0 +1,20 @@
+Davčna blagajna ver 2.2.01 — 2026-06-29
+========================================
+
+Nastavljive primerjave datotek + Excel parser
+
+- Novi zavihek v Nastavitvah: «Primerjave datotek».
+- Primerjave datotek se shranjujejo v `blagajna_v2_file_compare.json`.
+- Zavihek «Primerjaj datoteke» dinamično bere shranjene definicije primerjav.
+- Dodan skupni runner za primerjave po definiciji (ime, knjiga, leva/desna datoteka, format, oznake).
+- Dodan parser za Excel `.xlsx` / `.xlsm`:
+  - prebere mesečne seštevke iz lista,
+  - podpira primerjave z ZIP/XML/CSV datotekami,
+  - dnevni nivo pri Excel datotekah ostane prazen, mesečna primerjava pa deluje.
+
+Spremenjene datoteke:
+- `DavcnaBlagajna.py`
+- `v2/app_v21.py`
+- `v2/ui_build_v21.py`
+- `v2/settings_menu.py`
+- `v2/file_compare_settings.py`

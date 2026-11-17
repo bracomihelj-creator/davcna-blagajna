@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 3.0.28
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ok, koncaj app da testiram zeljeno
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+3.0.28: ze prijavljen ChromeMinimax :9223, nov zavihek. Ce je firma ze v seji (navbar) → goli UvozPodatkovCSV.aspx (kot video). Sicer URL z OrganisationId namig. Fill KN/IR/Excel. Brez Moje org, brez restarta Chrome.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+  • minimax_uvoz_config.json
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.2.12
+Datum: 2026-09-08
+
+=== VAŠ ZAHTEVEK (prompt) ===
+potrebujem pojasnilo Direkt link in Avtomatika , a ta Silenium zamenjamo s CDP ?
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Nastavitve Dostop: pojasnjena legenda Direct link vs Avtomatika; Selenium odstranjen iz oznake (zdaj: Avtomatika — vtičnik / Chrome). CDP omenjen kot mozna podpora, ne kot zamenjava za vse.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/access_settings.py
+  • v2/settings_menu.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

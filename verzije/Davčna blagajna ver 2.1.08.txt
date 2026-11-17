@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.1.08
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Dodaj Nastavitve → Videz in postavitev z zavihkoma Barve/fonti in Širine polj; shranjevanje v JSON.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+V2SettingsDialog v v2/settings_menu.py. Tema v blagajna_v2_theme.json. V2Layout, register_layout_widget, apply_v2_layout v app.py. Gumbi Uporabi, Shrani, Shrani in zapri.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/settings_menu.py
+  • v2/theme.py
+  • v2/app.py
+  • v2/menubar.py
+  • blagajna_v2_theme.json
+
+=== OPOMBA ===
+Dnevnik za sledenje napredku. Za povrnitev kode uporabite git ali primerjavo datotek.

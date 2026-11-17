@@ -1,0 +1,24 @@
+Davčna Blagajna — verzija 2.1.70
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+1) Filter v comboboxu (npr. qui za dobavitelja).
+2) Konto stroškov iz temeljnice/knjižbe + filter (npr. 41).
+3) Status iz API; polja Opis, vezni dokument, Št. listine (npr. 2026-186;TS1-2-26041209608).
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Dobavitelj / konto: live filter med tipkanjem v comboboxu.
+- Konto stroškov: branje iz Minimax journal-entries (knjiženje) po datumu in P3.
+- Nova polja KPR: Št. listine (P3), Vezni dokument, Opis (P3;vezni).
+- Dobavitelj: ujemanje po P1 (davčna št.) in delnem imenu ob pošiljanju.
+- Status: iz obstoječega receivedinvoice (P = potrjen), ne predloga O.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/kirkpr_editor.py
+  • v2/kirkpr_knjizba_form_layout.py
+  • v2/filtered_combobox.py
+
+=== OPOMBA ===
+V Nastavitve → Minimax knjižba → KPR omogoči/vidi nova polja (št. listine, vezni dokument)
+ali ponastavi postavitev knjige, če jih ne vidiš na obrazcu.

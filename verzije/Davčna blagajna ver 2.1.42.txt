@@ -1,0 +1,20 @@
+Davčna Blagajna — verzija 2.1.42
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ob kliku gre na ObracunDDV, ZIP v Blagajna (eDavki) ali DDV (Minimax)
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Oba gumba Prenos KIR/KPR odpreta Minimax ObracunDDV.aspx.
+eDavki → Evidenca eDavki KIRKPR_YYYYMM.zip v mapo Blagajna.
+Minimax → Evidenca minimax KIRKPR_YYYYMM.zip ali .xml v mapo DDV.
+Popravljeno čakanje na prenos (prej samo ZIP, zdaj tudi XML).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.
+

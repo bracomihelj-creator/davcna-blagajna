@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.2.20
+Datum: 2026-09-14
+
+=== VAŠ ZAHTEVEK (prompt) ===
+za odpiranje si potreboval nekaj sekund + datumov se ni vpisalo — glej zajem/sliko
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+FURS: odstranjen počasen CDP/WMIC pri odpiranju. Nov zavihek DPR_PakR + vpis Od/do (tfoot selektorji iz zajema) takoj v uporabnikovem Chrome. Brez 25s čakanja na debug port.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

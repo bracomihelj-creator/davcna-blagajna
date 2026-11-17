@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 3.0.32
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ne, če bo ta app namenjen tudi drugim ki imajo minimax in poleg chroma lahko uporablja še edge ali firefox mora biti samostojen brez vtičnikov, tako kot pooblastila.pyw, preveri logiko in uporabi webview2
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Minimax spletni uvoz privzeto standalone WebView2 (app profil) — enkratna prijava v oknu app-a; ni potreben Chrome debug / Edge / Firefox. Host: Vstopite → HARD firma (tr[data-organizacijaid]) → počakaj navbar → UvozPodatkov → KN/IR/Excel/Uvozi. chrome_cdp samo če engine=chrome_cdp.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/minimax_webview2_host.py
+  • v2/minimax_uvoz_config.py
+  • v2/ui_hints.py
+  • minimax_uvoz_config.json
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

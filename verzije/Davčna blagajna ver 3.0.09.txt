@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.09
+Datum: 2026-10-09
+
+=== VAŠ ZAHTEVEK (prompt) ===
+tole je ponudil! Groza, reši problem, glej zgodovino
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Minimax uvoz: izbira firme z delujočim __doPostBack (minimax_pr_browser) na že odprtem zavihku — brez ročnega »odpri firmo« in brez OrganisationId-only. Nato isti zavihek → UvozPodatkov IR=2. Posodobljen tooltip.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

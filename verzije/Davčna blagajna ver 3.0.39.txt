@@ -1,0 +1,24 @@
+Davčna Blagajna — verzija 3.0.39
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ko si izbral Knjižbe in DDV ga potrdiš in greš na radio button....izbereš po oknih..
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+WebView2 import_knjizbe po korakih (Hitri zajem / video):
+  1) Podatki → Knjižbe in DDV + potrdi (Enter/blur)
+  2) Radio »Podatki naj se uvozijo«
+  3) IR → Datum → Opis (ločeni koraki)
+  4) Excel: CDP DOM.setFileInputFiles z retry/več selektorjev;
+     ob neuspehu klik Izberite datoteko + Windows Open dialog (Ctrl+V Enter)
+
+Popravljena napaka: Priponka Excela ni uspela (WebView2 CDP …).
+FURS PakR nespremenjen.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/minimax_webview2_host.py
+  • minimax_uvoz_config.json
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

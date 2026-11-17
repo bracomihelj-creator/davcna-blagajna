@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 3.0.65
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+DA, testirajva, glej zajem… najprej vse firme, potem MJ23, potem spet vse firme
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Chrome Bridge klient (v2/chrome_bridge_client): status, HARD select_company (#F_Search+OrgID), go_org_list, navigate. Po API Knjiženje: najprej Bridge v istem Chromu, sicer CDP :9223 reuse-only. QUICK_eNDM vtičnik: F_Search + go_org_list + navigate.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/chrome_bridge_client.py
+  • DavcnaBlagajna.py
+  • v2/browser_inapp.py
+  • D:/PISARNA/Python/QUICK_eNDM/quick_chrome_bridge.py
+  • D:/PISARNA/Python/QUICK_eNDM/Chrome_Bridge_Extension/background.js
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

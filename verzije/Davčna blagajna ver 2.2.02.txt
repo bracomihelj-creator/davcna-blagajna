@@ -1,0 +1,18 @@
+Davčna blagajna ver 2.2.02 — 2026-06-29
+========================================
+
+Polna Excel podpora v primerjavah datotek
+
+- Excel parser (.xlsx / .xlsm):
+  - načini: auto, analiza (Mesečno + Dnevno), mesečno, dnevno,
+  - branje vseh SUM_COLS in KPR polj,
+  - list «Dokumenti» za dnevno primerjavo po dokumentih (način analiza).
+- Nastavitve → Primerjave datotek:
+  - polja Excel način + list za levo in desno stran,
+  - gumb «…» (Prebrskaj Excel) in «Osveži liste»,
+  - gumb «Podvoji izbrano» in ⧉ na posamezni primerjavi.
+
+Spremenjene datoteke:
+- `DavcnaBlagajna.py`
+- `v2/settings_menu.py`
+- `v2/file_compare_settings.py`

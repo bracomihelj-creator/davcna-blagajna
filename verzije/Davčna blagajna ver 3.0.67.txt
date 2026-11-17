@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 3.0.67
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+nič, po oddanem API se ni nič zgodilo??? Izklopi vtičnik ker bo samostojen program, vklopi WebView2 in upoštevaj video
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Po API Knjiženje samo še WebView2 (video): Moje org → HARD naziv → Knjiženje IR/iztržkov → Najdi. Chrome Bridge/vtičnik izklopljen iz te poti. KN uvoz 3.0.42 nespremenjen.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/minimax_webview2.py
+  • v2/minimax_webview2_host.py
+  • v2/browser_inapp.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

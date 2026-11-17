@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 2.1.46
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+open_url = samo link, selenium_auto = avtomatika; velja eDavki in Minimax
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Popravljena logika Prenos KIR/KPR: brez Selenium samo odprt zavihek (ne ročni dialog).
+Z obema kljukicama najprej link, nato avtomatika. Jasnejši opisi v Nastavitvah.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/access_settings.py
+  • v2/settings_menu.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.
+

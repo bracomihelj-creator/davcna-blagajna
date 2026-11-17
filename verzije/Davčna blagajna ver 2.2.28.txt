@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.2.28
+Datum: 2026-10-04
+
+=== VAŠ ZAHTEVEK (prompt) ===
+dovolj! Ni ok, preveri prejsnje verzije ki je takoj odprl nov zavihek v chromu, vnesel datume ...vse skupaj v 2 sekundah. NAJDI TO
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+FURS Blagajna spet kot 2.2.20 (uporabnik: ok deluje): chrome --new-tab v ze odprtem Chrome + vpis Od/do v ~2 s (fursFillPakrPeriod). Odstranjen pocasen CDP/WMIC/nov profil.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+  • .cursor/rules/edavki-furs-pakr-fast.mdc
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

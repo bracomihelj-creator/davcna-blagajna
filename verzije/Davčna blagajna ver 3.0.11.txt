@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 3.0.11
+Datum: 2026-10-09
+
+=== VAŠ ZAHTEVEK (prompt) ===
+napaka.mp4 — Firma ni izbrana CDP / Vstopite v program; glej kjer je ze delovalo
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Minimax uvoz: pred firmo pocakaj stabilen debug 9223 (restart profila ce tece brez debug); retry odpiranja Zacetek; klik Vstopite v program na vhodni strani. Odpravi ConnectionRefused iz napaka.mp4.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

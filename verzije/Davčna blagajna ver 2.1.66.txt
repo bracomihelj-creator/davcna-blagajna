@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.66
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+za datum sem mislik DT picker (koledar s padajočim izborom, kot na priloženi sliki)
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Polje datuma: dd.mm.yyyy + gumb ▼ (padajoči koledar).
+- Koledar: mesec/leto, puščici ◀ ▶, številke tednov, dnevi Pon–Ned.
+- Izbran dan modro označen; današnji dan sivo.
+- Gumb × počisti datum.
+- Datum lahko še vedno vpišeš ročno v polje.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/date_picker.py

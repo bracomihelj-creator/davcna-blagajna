@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.1.38
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+KPR uvoz: Vrednost računa OK, stolpci P8/P10/P17/P18 v drevesu vsi 0
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Popravljena agregacija KPR: sums_from_compare_docs in monthly_sums_from_docs_map vključita P8–P21 pri KPR dokumentih. Dreveso mesec/dan prikaže pravilne seštevke po eDavki shemi.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.
+

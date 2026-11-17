@@ -1,0 +1,15 @@
+Davčna blagajna ver 2.2.05 — 2026-09-08
+========================================
+
+FURS Blagajna — CDP vpis Od/do po mesecu
+
+- Ob kliku »FURS Blagajna« (ko selenium_auto ni vklopljen):
+  - odpre DPR_PakR,
+  - prek CDP (`Runtime.evaluate`) vpiše **Od dne** / **do dne**
+    iz comboboxov Leto/Mesec (npr. 01.08.2026 – 31.08.2026),
+  - po potrebi izbere poslovni prostor **P1**.
+- Gumb »Pripravi nov paket« ostane ročen.
+- Potreben je Chrome z debug portom (ZAZENI_CHROME_EDAVKI_DEBUG.bat).
+
+Spremenjene datoteke:
+- `DavcnaBlagajna.py`

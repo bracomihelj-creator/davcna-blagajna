@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.1.21
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Prenos eDavki/minimax imena datotek in poti
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+eDavki ZIP: Evidenca eDavki KIRKPR_YYYYMM v Blagajna (DDV_Evidenci_Oddane). Minimax XML: Evidenca minimax KIRKPR_YYYYMM v mapo DDV. Iskanje podpira tudi starejša imena.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

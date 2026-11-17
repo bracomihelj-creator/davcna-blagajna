@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.29
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ok ...potem daj info msg ...da pred izvedbo odpres firmo v minimaxu ...ALfa
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Pred Minimax spletni uvoz: askokcancel — odpri firmo v ChromeMinimax (npr. ALFA GYM), nato V redu. Prikaze naziv izbrane firme iz programa.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

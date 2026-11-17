@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.24
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+kaj ti ni jasno???? CDP??? video uvoz — Moje organizacije blokira
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Video: ze si v firmi (ALFA GYM) → Uvoz iz Excela. Odstranjen trd fail na CDP izbiri firme (Moje organizacije). Org select samo mehak 8s; nato vedno UvozPodatkov + KN/IR/Excel (kot 3.0.08 / Pooblastila).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

@@ -1,0 +1,22 @@
+Davčna Blagajna — verzija 2.1.81
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Manjkajo pridobljeni podatki: KPR dobavitelj in konto stroškov, KIR kupec/stranka.
+
+=== SPREMEMBE ===
+
+1. Stranka / dobavitelj
+   - P1 (davčna) + iskanje customers API
+   - GET customers/{id} če ni v seznamu
+   - KIR: ista logika za polje Stranka
+
+2. Konto stroškov / prihodkov
+   - Konto iz temeljnice: merge v seznam kont (GET accounts)
+   - Vedno v comboboxu, tudi če ni v filtriranem seznamu
+
+3. Combobox
+   - Izbrani dobavitelj/konto/stranka vedno v values
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py

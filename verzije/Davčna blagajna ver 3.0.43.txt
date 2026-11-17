@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.43
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+tako kot pri MRN tudi tu dodaj datum
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Prenos KIR/KPR eDavki: po odprtju zavihka DDV_Evidenci_Oddane
+vpiše Obdobje od/do (prvi–zadnji dan meseca iz programa) + Išči
+prek CDP v že odprtem Chrome — enako kot MRN/FURS Od/do.
+
+FURS PakR 2.2.28 in Minimax WebView2 3.0.42 nespremenjena.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py

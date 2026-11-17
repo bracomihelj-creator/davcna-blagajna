@@ -1,0 +1,19 @@
+Davčna Blagajna — verzija 2.1.67
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Pridobi pravilne podatke npr. Status verjetno ni "O" ker je bil račun potrjen in v DDV zaključen,
+in v KPR ne more biti konto stroškov v combu so vrnjeni prihodki — pridobi pravilno poknjižen konto,
+pravilno stranko itd.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Ob dvojnem kliku na vrstico KIR/KPR obrazec išče obstoječi zapis v Minimax API.
+- KIR: naloži issuedinvoiceposting (status, zneski, konto 7*, stranka).
+- KPR: naloži receivedinvoice (status, zneski, stroškovno konto 4*/6*, dobavitelj).
+- Če zapis ni najden, ostane predloga; status vrstica to sporoči.
+- Combobox kont: KIR samo 7*, KPR samo 4* in 6* (ne prihodkov).
+- Ujemanje stranke tudi po davčni št. (P1) iz KIR/KPR XML.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/kirkpr_editor.py

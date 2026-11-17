@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 3.0.03
+Datum: 2026-10-08
+
+=== VAŠ ZAHTEVEK (prompt) ===
+zdej ko je narejen arhiv odstrani vse kar ne potrebuješ iz mape
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Odstranjeni odvečni zagonski bat (V2/V2_1/PYW), DavcnaBlagajna_v2.py, logi, __pycache__, build. Glavni zagon ostane Zagon_davcnaBlagajna_V3.bat; konzola ZAZENI_DavcnaBlagajna_PY.bat; arhiv 2.2.29 v Arhiv/. Meni Verzija poenostavljen.
+
+=== SPREMENJENE DATOTEKE ===
+  • ZAZENI_DavcnaBlagajna_PY.bat
+  • v2/version_switch.py
+  • (removed stubs/logs/build)
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 3.0.21
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ok, ne odpre zadnje seje, zadnje stanje
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Ob zagonu obnovi firmo, obdobje, zavihke, poti in tiho požene analizo (drevo/Skupaj vse). Brez CDP. Dialogi med obnovo so utišani.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

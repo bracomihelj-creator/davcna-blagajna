@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.25
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+podvojen meni Nastavitve
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Odstranjen podvojen meni Barve, ozadje in fonti — ostane samo Videz in postavitev (isti dialog).
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/settings_menu.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

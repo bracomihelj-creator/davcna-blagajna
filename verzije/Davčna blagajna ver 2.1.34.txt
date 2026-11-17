@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.34
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+uvoz KPR???, popravi...
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Popravljeno: KPR stolpci P8-P21 niso vec v SUM_COLS za Blagajna.csv — uvoz blagajne ne zahteva vec KPR polj. KPR uvoz ostane na zavihku KIR/KPR.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

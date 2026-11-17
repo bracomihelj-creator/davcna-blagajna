@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.2.18
+Datum: 2026-09-14
+
+=== VAŠ ZAHTEVEK (prompt) ===
+zakaj odpiraš PageA.aspx??? odpreš DPR_PakR in vpišeš v okečka datume
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+FURS: ne odpira več OpenPortal/PageA ob zagonu — startup URL = DPR_PakR. Ob redirectu PageA: piškotki iz navadnega Chrome + ponovna navigacija. Čaka na tfoot Od/do (selektorji iz zajema) + PE01, šele nato vpis datumov.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

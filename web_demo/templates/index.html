@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ app_title }} — Web demo</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>{{ app_title }}</h1>
+      <p class="subtitle">Interna spletna demo verzija — analiza CSV in prikaz drevesa</p>
+    </div>
+    <span class="badge">DEMO v0.1</span>
+  </header>
+
+  <main class="layout">
+    <section class="panel panel-left">
+      <h2>Firme (DURS)</h2>
+      <div class="row">
+        <label>DURS Excel</label>
+        <input id="dursPath" type="text" class="field-yellow" value="{{ durs_default }}">
+      </div>
+      <div class="row row-inline">
+        <input id="companySearch" type="text" class="field-yellow flex" placeholder="Išči firmo…">
+        <button type="button" id="btnLoadCompanies" class="btn">Naloži</button>
+      </div>
+      <div class="table-wrap">
+        <table id="companyTable">
+          <thead>
+            <tr>
+              <th>Zšt</th>
+              <th>NAZIV</th>
+              <th>DAVČNA</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p id="companyStatus" class="status">Klikni Naloži za seznam firm.</p>
+    </section>
+
+    <section class="panel panel-right">
+      <h2>Analiza blagajne</h2>
+      <div class="row">
+        <label>Root mapa (firma / Blagajna)</label>
+        <input id="rootPath" type="text" class="field-yellow" placeholder="npr. D:\Trops\...\Blagajna">
+      </div>
+      <div class="row row-inline">
+        <label class="inline-label">CSV</label>
+        <input id="csvName" type="text" class="field-yellow small" value="blagajne.csv">
+        <label class="check"><input id="includeZips" type="checkbox" checked> ZIP meseci</label>
+        <button type="button" id="btnAnalyze" class="btn btn-accent">Analiziraj</button>
+      </div>
+
+      <div class="toolbar">
+        <span id="analyzeMessage" class="status">Pripravljeno.</span>
+      </div>
+
+      <div class="tree-toolbar">
+        <button type="button" id="btnExpandAll" class="btn btn-sm">Raztegni</button>
+        <button type="button" id="btnCollapseAll" class="btn btn-sm">Skrči</button>
+      </div>
+
+      <div class="table-wrap tree-wrap">
+        <table id="resultTree">
+          <thead id="treeHead"></thead>
+          <tbody id="treeBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Zaženi lokalno: <code>py web_demo\app.py</code> → odpri <a href="http://127.0.0.1:8765">http://127.0.0.1:8765</a>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

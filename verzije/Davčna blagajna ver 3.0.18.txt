@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.18
+Datum: 2026-10-09
+
+=== VAŠ ZAHTEVEK (prompt) ===
+tu je ustavljeno (Moje organizacije) — kaj potrebujes: video/jpg/zajem?
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+CDP uvoz: pred UvozPodatkov kliče _minimax_cdp_select_organisation (klik firme na Zacetek). OrganisationId v URL ne zadošča — zato se je ustavilo na seznamu firm.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

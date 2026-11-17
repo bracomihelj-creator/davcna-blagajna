@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.log
+data/
+.venv/
+venv/
+dist/
+build/
+*.spec
+.DS_Store
+Thumbs.db
+blagajna_error.log
+blagajna_minimax_settings.json
+blagajna_ui_settings.json
+blagajna_v2_access.json
+DavcnaBlagajna_evidenca.json

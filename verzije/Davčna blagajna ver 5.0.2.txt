@@ -1,0 +1,8 @@
+Davčna Blagajna — verzija 5.0.2
+Datum: 2026-11-17
+
+=== VAŠ ZAHTEVEK ===
+sorry, ne QUICK levi meni, tu to ni OK, popravi
+
+=== SPREMEMBE ===
+Zavihki pogleda zgoraj desno kot 3.0.68. Levi panel = firme. Ni QUICK .nav.

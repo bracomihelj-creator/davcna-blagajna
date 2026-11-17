@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.1.40
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+gumb ne izvede naloge, ne gre na minimax, dodatni zavihek ne NOV
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Prenos KIR/KPR minimax vedno takoj odpre nov zavihek (CDP /json/new). Selenium ponovno uporabi zavihek če je že odprt. Ločen Chrome profil MinimaxBlagajna.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.
+

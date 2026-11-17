@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.2.24
+Datum: 2026-09-14
+
+=== VAŠ ZAHTEVEK (prompt) ===
+za minimax...od kje ti ta link 127.0.0.1
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Minimax uvoz: najprej odpre pravi moj.minimax.si UvozPodatkov URL; 127.0.0.1 je samo kratek sprožilec za vtičnik (z redirect rezervnim). Vtičnik 1.4.44 reuse že odprtega uvoz zavihka.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • Chrome_add/Minimax_Odpiranje_Podjetij/background.js
+  • Chrome_add/Minimax_Odpiranje_Podjetij/manifest.json
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

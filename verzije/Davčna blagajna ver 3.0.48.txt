@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 3.0.48
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+če je možno API pošiljanje potem to odpade, to samo v primeru če ni možnost posredovati preko API
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Dnevni gumb: če je API mogoč (token ali OAuth) → samo API; WebView2 dialog odpade.
+WebView2 samo kot rezerva (brez potrditve), ko API ni mogoč.
+Gumb «Minimax spletni uvoz» še vedno vpraša za potrditev.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+  • v2/ui_build.py

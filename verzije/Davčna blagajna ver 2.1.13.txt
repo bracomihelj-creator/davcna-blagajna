@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.13
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ne pise cele verzij...
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+V modrem znacki v glavi se zdaj prikaze celotna verzija (npr. 2.1.12) namesto odrezanega 1.12.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/ui_build_v21.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

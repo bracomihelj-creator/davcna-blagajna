@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.1.09
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+1) vsak kombo ima svojo nastavitev, 2) dodaj drsnik ker ne vidim konca forme, 3) KJE JE GUMB SHRANI? dodaj ga na obeh zavihkih in takoj po shranjevanju refresh forme.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Razširjen DEFAULT_LAYOUT (root, out_dir, document_type, payment_method, vrsta_prodaje, template, out_file, sheet, csv, help_wraplength). Drsnik na obeh zavihkih nastavitev. Shrani/Uporabi na vsakem zavihku + fiksna spodnja vrstica. Po shranjevanju apply_v2_theme + update_idletasks. Migracija starih ključev combo_width/path_width.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/theme.py
+  • v2/settings_menu.py
+  • v2/ui_build.py
+
+=== OPOMBA ===
+Dnevnik za sledenje napredku. Za povrnitev kode uporabite git ali primerjavo datotek.

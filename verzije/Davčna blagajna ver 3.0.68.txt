@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 3.0.68
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+uporabi pywebview + WebView2 ali Playwright namesto vtičnika QUICK Chrome Bridge
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Potrjeno: po API Knjiženje = pywebview+WebView2 (ne Bridge, ne Playwright). Odstranjen v2/chrome_bridge_client in test Bridge. Portal most: chrome_bridge_enabled=False.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/chrome_bridge_client.py (removed)
+  • _test_bridge_mj23.py (removed)
+  • v2/portal_bridge.py
+  • v2/browser_inapp.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

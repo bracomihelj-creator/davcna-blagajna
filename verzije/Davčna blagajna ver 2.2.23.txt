@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.2.23
+Datum: 2026-09-14
+
+=== VAŠ ZAHTEVEK (prompt) ===
+pyw si napačno izbral — ver 2.2* = DavcnaBlagajna_v2_1.py
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+DavcnaBlagajna.pyw in ZAZENI_DavcnaBlagajna_PYW.bat zdaj zaganjata DavcnaBlagajna_v2_1.py (UI serije 2.2*).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.pyw
+  • ZAZENI_DavcnaBlagajna_PYW.bat
+  • ZAZENI_DavcnaBlagajna_PY.bat
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

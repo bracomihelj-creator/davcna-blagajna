@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.1.14
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+1) FURS blagajna prvo mesto; 2) Analiziraj -> Uvozi podatke drugo; 3) FURS odpre stran + clipboard ZIP; 4) stolpec Datum in cas posiljanja v drevesu
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Gumbi na zavihku Davcna blagajna: FURS Blagajna (1.), Uvozi podatke (2., prej Analiziraj). FURS: takoj webbrowser + clipboard polne poti ZIP + _furs_blagajna_save_path. V drevesu nov stolpec Datum in cas posiljanja iz CSV (in P2 pri KIR) na vrsticah racunov.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_build.py
+  • v2/ui_hints.py
+  • v2/app_v21.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

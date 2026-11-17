@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.1.26
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+zavihek aktiven barva ozadja
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Nastavitve → Obrobe: nov ključ Zavihek aktiven — ozadje (tab_active_bg). TabBar in ttk Notebook uporabljata barvo namesto PANEL_BG.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/theme.py
+  • v2/tab_bar.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

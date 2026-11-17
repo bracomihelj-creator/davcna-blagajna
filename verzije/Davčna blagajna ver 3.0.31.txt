@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 3.0.31
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+zakaj je to?? (moj.minimax.si Vstopite v program peach/gate)
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+3.0.31: Vstopite gate — reuse ze prijavljen zavihek na :9223 (Moje org/firma), zanesljiv klik »Vstopite v program« + cakanje do WebUI; uvoz ne odpira novih zavihkov prek any_debug_port/FURS; po org kliku pass gate na novem zavihku in HARD firm.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+  • minimax_uvoz_config.json
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

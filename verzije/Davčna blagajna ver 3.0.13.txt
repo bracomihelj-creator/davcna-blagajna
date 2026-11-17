@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.13
+Datum: 2026-10-09
+
+=== VAŠ ZAHTEVEK (prompt) ===
+davcna blagajna ne deluje — vrni se v verzije ko je hitro odprl Minimax Uvoz
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Minimax uvoz: vrnjen hitri tok 2.2.22/2.2.25 — TAKOJ odpri UvozPodatkov?OrganisationId (brez CDP restarta/cakanja). CDP fill samo ce debug ze tece. Ne ubija ze prijavljenega Minimax Chrome profila.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

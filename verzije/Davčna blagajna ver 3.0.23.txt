@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 3.0.23
+Datum: 2026-10-10
+
+=== VAŠ ZAHTEVEK (prompt) ===
+spet mi ne sledis!! Prijavljen sem ze v minimaxu!!! Glej pooblastila.pyw
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+WebView2 ima locen profil → prijava. Privzeto spet chrome_cdp: hitri uvoz v ze prijavljenem ChromeMinimax :9223 (kot Pooblastila 3.0.08). WebView2 samo ce engine=webview2.
+
+=== SPREMENJENE DATOTEKE ===
+  • minimax_uvoz_config.json
+  • v2/minimax_uvoz_config.py
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

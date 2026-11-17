@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.20
+Datum: 2026-10-09
+
+=== VAŠ ZAHTEVEK (prompt) ===
+oo...neeee,,,,,zmrzuje....vrni / najdi napako
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Popravek zmrzovanja: odstranjen CDP iz vsakega save UI, odstranjen auto-_analyze ob zagonu, odstranjen auto-odpiranje temeljnice ob izboru firme, poti se ne obnovijo z diska (firma nastavi pot). Shramba firme/obdobja/uvoza ob izhodu ostane.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

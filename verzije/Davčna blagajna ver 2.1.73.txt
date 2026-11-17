@@ -1,0 +1,20 @@
+Davčna Blagajna — verzija 2.1.73
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Ko uvozim xml iz eDavkov ali Minimaxa napolni oba lista KIR in KPR — kako poenostaviti?
+
+=== PROBLEM ===
+Datoteka DDV_KIR_KPR vsebuje obe knjigi (Lista_KIR in Lista_KPR).
+Prej je bilo treba uvoziti dvakrat (enkrat na zavihku KIR, enkrat na KPR)
+ali so bili podvojeni gumbi pod vsako knjigo.
+
+=== REŠITEV ===
+1. En skupen panel eDavki / Minimax (ne več ločen pod KIR in pod KPR).
+2. Gumb «Uvozi podatke» iz iste ZIP/XML naloži obe knjigi v enem koraku.
+3. Zavihek KIR / KPR samo preklopi pogled drevesa (vsaka knjiga ima svoj posnetek).
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/app_v21.py
+  • v2/ui_build_v21.py
+  • v2/ui_hints.py

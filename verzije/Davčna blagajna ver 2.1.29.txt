@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.1.29
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+puščice layout spodnji panel +/-
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Obdobje (Leto/Mesec) v levi plošči Firme. Minimax (Org ID, OAuth, uvoz) nad zavihki pogleda desno. Spodnji panel Pot/Minimax/Excel: vrstica z − in + za skrčitev — več prostora za drevo.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/ui_build.py
+  • v2/ui_build_v21.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

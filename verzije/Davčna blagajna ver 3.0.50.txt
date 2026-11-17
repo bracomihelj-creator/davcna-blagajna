@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 3.0.50
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+spet tvoja površnost!!!! Eko romatika lahko odda preko API minimaxa, zakaj potem WebView????
+ČE ni mogoč API potem je WebView2
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Dnevni gumb: API če obstaja token ALI popolni OAuth v nastavitvah
+(status »token=ni tokena« ne pomeni, da API ni mogoč — token se pridobi ob pošiljanju).
+WebView2 / Minimax spletni uvoz samo, če API res ni mogoč.
+Primer: Eko-romatika z OAuth → API, ne WebView2.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+  • v2/ui_build.py

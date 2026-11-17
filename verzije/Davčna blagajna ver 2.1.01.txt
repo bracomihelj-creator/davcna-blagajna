@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.1.01
+Datum: 2026-05-30
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Ustvari verzijo 2.1 z zavihki za Davčno blagajno, KIR/KPR, Primerjavo in Minimax; orodna vrstica naj ostane kot v 2.0.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Dodani v2/app_v21.py, v2/ui_build_v21.py, DavcnaBlagajna_v2_1.py in ZAZENI_DavcnaBlagajna_V2_1.bat. Zavihki preklapljajo pogled rezultatov (drevo, primerjava, Minimax) ob ohranjeni skupni orodni vrstici in spodnjem panelu nastavitev.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/app_v21.py
+  • v2/ui_build_v21.py
+  • DavcnaBlagajna_v2_1.py
+  • ZAZENI_DavcnaBlagajna_V2_1.bat
+  • v2/version_switch.py
+
+=== OPOMBA ===
+Dnevnik za sledenje napredku. Za povrnitev kode uporabite git ali primerjavo datotek.

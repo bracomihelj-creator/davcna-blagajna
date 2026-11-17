@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.14
+Datum: 2026-10-09
+
+=== VAŠ ZAHTEVEK (prompt) ===
+tu si se ustavil (Podatki prazno) — najdi logiko celotnega postopka
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Minimax uvoz: korak 1 izberi Podatki=Knjizbe in DDV (KN) da se razsiri obrazec; nato IR/datum/opis/Excel/Uvozi kot Hitri zajem. Nov _minimax_uvoz_select_podatki_kn_js + dvo-fazni CDP fill.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

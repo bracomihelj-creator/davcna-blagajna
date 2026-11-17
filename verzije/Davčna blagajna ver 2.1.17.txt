@@ -1,0 +1,20 @@
+Davčna Blagajna — verzija 2.1.17
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Aktivni zavihek bold rdeč; KIR/KPR eDavki+Minimax podzavihki; Uvozi podatke
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Aktivni zavihek: krepko rdeče. KIR in KPR imata podzavihka eDavki in Minimax. Gumb Uvozi podatke nalozi glede na izbrano knjigo in vir; 4 ločeni posnetki drevesa.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/theme.py
+  • v2/app_v21.py
+  • v2/ui_build_v21.py
+  • v2/ui_build.py
+  • v2/ui_hints.py
+  • DavcnaBlagajna.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

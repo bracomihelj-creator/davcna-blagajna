@@ -1,0 +1,25 @@
+Davčna Blagajna — verzija 3.0.42
+Datum: 2026-10-11
+
+=== VAŠ ZAHTEVEK (prompt) ===
+naslednji korak je Izberite datoteko:
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Napaka CDP »Could not find node with given id«: vsak ukaz je
+odprl nov WebSocket, zato nodeId ni veljal.
+
+Zdaj: DOM.enable → getDocument → querySelector → setFileInputFiles
+v ISTI WebSocket seji.
+
+Korak Izberite datoteko: najprej CDP priponka Excela, rezervno
+klik gumba + Windows Open dialog, nato Uvozi podatke.
+
+Zapri staro WebView2 okno pred ponovitvijo.
+FURS PakR nespremenjen.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/minimax_webview2_host.py
+  • minimax_uvoz_config.json
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku.

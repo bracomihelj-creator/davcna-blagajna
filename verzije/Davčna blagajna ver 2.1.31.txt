@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.1.31
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+kam si skril ostale zavihke; Excel in API zavihka gor v zgornji panel (uvoz-drevo-izvoz)
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Zavihki pogleda: oznaka Pogled analize, krajša imena (Blagajna, Primerjaj KIRKPR, …). Excel in Izvoz API prestavljena iz spodnjega panela v zgornji del (korak 3 pred drevesom). Spodaj ostanejo Pot in Minimax nastavitve. KIR/KPR uvoz označen kot korak 1, drevo kot korak 2.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/ui_build.py
+  • v2/ui_build_v21.py
+  • v2/app_v21.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

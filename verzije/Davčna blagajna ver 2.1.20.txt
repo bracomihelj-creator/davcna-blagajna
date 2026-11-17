@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.20
+Datum: 2026-06-28
+
+=== VAŠ ZAHTEVEK (prompt) ===
+uvozi podatke je drugi gumb
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+V zavihkih eDavki in Minimax (KIR/KPR): najprej Prenos, nato Uvozi podatke.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/ui_build_v21.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

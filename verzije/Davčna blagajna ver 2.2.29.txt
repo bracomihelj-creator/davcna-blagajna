@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 2.2.29
+Datum: 2026-10-08
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Davcna blagajna: ce je zavezanec je na chk kljukica, ce ni zavezanec ni kljukice, naj bo avtomatika
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Ob izbiri firme checkbox Podjetje je zavezanec za DDV samodejno iz stolpca oddaja DDV (Ni zavezanec = brez kljukice, mesečna/tromesečna = kljukica).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_build.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

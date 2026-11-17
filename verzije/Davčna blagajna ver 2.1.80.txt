@@ -1,0 +1,24 @@
+Davčna Blagajna — verzija 2.1.80
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Opis, vezni dokument in sklic napačni; konto stroškov je že v temeljnici — preberi ga od tam.
+
+=== SPREMEMBE ===
+
+1. P6 = ime in naslov dobavitelja (eDavki)
+   - Ne gre več v vezni, sklic niti opis
+
+2. Vezni dokument + opis (P3;vezni)
+   - Iz knjiženja (temeljnica): PaymentReference npr. TS1-2-26041209608
+   - Opis: 260327;TS1-2-… (št. listine P3 + vezni)
+
+3. Sklic plačila
+   - Ločen od veznega; ne kopira več naslova dobavitelja
+
+4. Konto stroškov
+   - Branje iz journal-entries
+   - Ujemanje zneska tudi po osnovi (P8 177,50), ne le po celotnem računu (216,55)
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py

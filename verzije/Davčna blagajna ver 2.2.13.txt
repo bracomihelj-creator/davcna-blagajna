@@ -1,0 +1,17 @@
+Davčna Blagajna — verzija 2.2.13
+Datum: 2026-09-13
+
+=== VAŠ ZAHTEVEK (prompt) ===
+davcna blagajna: ne odpre edavkov!!!! in moral bi vnesti datume v textboxe, je ze pred kratkim delovalo, poglej kaj si pokvaril??
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Popravek 2.2.11: FURS Blagajna znova VEDNO odpre eDavke + vpiše Od/do prek vtičnika. Kljukica Avtomatika = še Pripravi/Shrani/izhod (ne več pogoj za odprtje). Posodobljena legenda v Nastavitve → Dostop.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/access_settings.py
+  • v2/settings_menu.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

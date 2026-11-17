@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.04
+Datum: 2026-05-31
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Dodaj izvoz KIR/KPR (eDavki, Minimax) in primerjavo med viri.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+V DavcnaBlagajna.py: resolve_minimax_kirkpr_xml_path, _export_edavki_kirkpr, _export_minimax_kirkpr, _compare_kirkpr_edavki_minimax. load_aggregates_from_file podpira .xml. open_file_compare_results_window sprejme label_a/label_b.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/app_v21.py
+
+=== OPOMBA ===
+Dnevnik za sledenje napredku. Za povrnitev kode uporabite git ali primerjavo datotek.

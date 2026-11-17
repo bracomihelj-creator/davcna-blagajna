@@ -1,0 +1,23 @@
+Davčna Blagajna — verzija 2.1.78
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Nalaganje okna Minimax knjižba — KPR dolgo traja.
+
+=== SPREMEMBE ===
+
+1. Takojšen obrazec (KPR)
+   - Polja iz evidence (P2, P3, zneski …) se prikažejo takoj
+   - Minimax API se naloži v ozadju in posodobi obrazec
+
+2. Hitrejši API
+   - Konta in stranke: vzporedno + cache med odpiranji dialogov
+   - Temeljnica: največ 2 iskalna pojma, zgodnji izhod ob najdenem ID
+   - Prejeti računi: ocena kandidatov brez GET, nato največ 3 podrobni klici + en enrich
+
+3. Status v dialogu
+   - «Nalagam konta in stranke …», «Preverjam knjiženje …», «Iskanje prejetega računa …»
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/kirkpr_editor.py

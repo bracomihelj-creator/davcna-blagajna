@@ -1,0 +1,20 @@
+Davčna Blagajna — verzija 2.1.47
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+drži se nastavitve. Preveri nastavitve, če ni odkljukana tretja opcija Selenium, potem je direct link in ročni vnos. Enako velja za e-davke. Prav tako to velja za FURS blagajno. V nastavitve dodaj še en checkbox pri odpiranju "direct link" v novi zavihek.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+- Nastavitve → Dostop: ključ open_url zamenjan z direct_link (Direct link — nov zavihek Chrome).
+- Logika za vse tri storitve (FURS blagajna, eDavki KIR/KPR, Minimax KIR/KPR):
+  1) direct_link ✓ → odpri URL v novem zavihku obstoječega Chrome (CDP 9222 ali chrome --new-tab)
+  2) clipboard_path ✓ → kopiraj ciljno pot
+  3) selenium_auto ✓ → Selenium avtomatika
+  4) selenium_auto ✗ → direct_link (če ✓) + ročni vnos
+- Stare nastavitve z open_url se samodejno preslikajo v direct_link.
+
+=== DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/access_settings.py
+  • v2/settings_menu.py
+  • blagajna_v2_access.json

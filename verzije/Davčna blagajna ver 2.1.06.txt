@@ -1,0 +1,15 @@
+Davčna Blagajna — verzija 2.1.06
+Datum: 2026-06-01
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Zožaj polja v spodnjem panelu (poti, combo, predloga) — ne naj se raztegnejo čez celoten prostor.
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Odstranjen fill=expand na rumenih poljih. Začetne širine: poti 28, combo 45, predloga 45 znakov.
+
+=== SPREMENJENE DATOTEKE ===
+  • v2/ui_build.py
+  • v2/theme.py
+
+=== OPOMBA ===
+Dnevnik za sledenje napredku. Za povrnitev kode uporabite git ali primerjavo datotek.

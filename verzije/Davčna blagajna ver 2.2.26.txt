@@ -1,0 +1,18 @@
+Davčna Blagajna — verzija 2.2.26
+Datum: 2026-10-04
+
+=== VAŠ ZAHTEVEK (prompt) ===
+ne ni OK...link se odpre takoj, in naredi pyw (ZAZENI_DavcnaBlagajna_V2_1.bat)
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+FURS Blagajna ne odpira vec navadnega Chrome (--new-tab), kjer vpis ni mogoc. PakR se odpre takoj v eDavki debug Chrome (CDP /json/new) in program pocaka na Od/do polja v tem istem zavihku, nato vpis. ZAZENI_DavcnaBlagajna_V2_1.bat in PYW.bat zaganjata DavcnaBlagajna.pyw (pythonw).
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • ZAZENI_DavcnaBlagajna_V2_1.bat
+  • ZAZENI_DavcnaBlagajna_PYW.bat
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

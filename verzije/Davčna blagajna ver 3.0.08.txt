@@ -1,0 +1,16 @@
+Davčna Blagajna — verzija 3.0.08
+Datum: 2026-10-09
+
+=== VAŠ ZAHTEVEK (prompt) ===
+spet po svoje...glej dosezek WebView2 v pooblastila.pyw....vrni se na prejsnjo delujoce kodo
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+Odstranjen obvezen klik firme na Zacetek.aspx (blokiral tok). Spet: reuse ze odprtega Minimax Chrome zavihka (_minimax_ensure_uvoz_tab_cdp) + UvozPodatkov z OrgId, IR=2, opis, Excel, porocilo — kot pred 3.0.07 / vzorec Pooblastila.
+
+=== SPREMENJENE DATOTEKE ===
+  • DavcnaBlagajna.py
+  • v2/ui_hints.py
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.
