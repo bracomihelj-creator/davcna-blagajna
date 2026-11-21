@@ -21,7 +21,7 @@ APP_TITLE = f"Davčna Blagajna {APP_VERSION}"
 UI = ROOT / "ui"
 PROFILE = ROOT / "data" / "webview2_profile"
 APPEARANCE_FILE = ROOT / "data" / "appearance.json"
-DEFAULT_APPEARANCE = {"theme": "light", "accent": "#5968e8", "radius": 11, "font_size": 13}
+DEFAULT_APPEARANCE = {"theme": "light", "accent": "#5968e8", "radius": 11, "font_size": 13, "density": "normal"}
 # Rollback (iz 4.0 »Odpri legacy 3.0.68«): nespremenjena Tk 3.0.68 v sosednji mapi — samo zaganjalnik.
 LEGACY_TK_ROOT = Path(os.environ.get("DAVCNA_BLAGAJNA_LEGACY_ROOT") or r"D:\PISARNA\Python\DavčnaBlagajna")
 

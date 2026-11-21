@@ -179,6 +179,10 @@
     if (a.radius != null) root.style.setProperty("--radius", a.radius + "px");
     if (a.font_size) root.style.setProperty("--font-size", a.font_size + "px");
     document.body.classList.toggle("theme-dark", a.theme === "dark");
+    var dens = a.density === "compact" || a.density === "comfortable" ? a.density : "normal";
+    document.body.classList.toggle("density-compact", dens === "compact");
+    document.body.classList.toggle("density-comfortable", dens === "comfortable");
+    if ($("densitySel")) $("densitySel").value = dens;
     if ($("themeSel")) $("themeSel").value = a.theme === "dark" ? "dark" : "light";
     if ($("accentIn")) $("accentIn").value = a.accent || "#5968e8";
     if ($("radiusIn")) $("radiusIn").value = a.radius != null ? a.radius : 11;
@@ -851,14 +855,15 @@
       if (e.key === "Delete" && state.selectedTreeId) act("_tree_clear_selected_result_row");
     });
     $("btnResetTheme").onclick = function () {
-      applyAppearance({ theme: "light", accent: "#5968e8", radius: 11, font_size: 13 });
+      applyAppearance({ theme: "light", accent: "#5968e8", radius: 11, font_size: 13, density: "normal" });
     };
     $("btnSaveTheme").onclick = function () {
       var a = {
         theme: $("themeSel").value,
         accent: $("accentIn").value,
         radius: parseInt($("radiusIn").value, 10) || 11,
-        font_size: parseInt($("fontIn").value, 10) || 13
+        font_size: parseInt($("fontIn").value, 10) || 13,
+        density: $("densitySel") ? $("densitySel").value : "normal"
       };
       applyAppearance(a);
       call("appearance", [a]).then(function () { $("dlgVidez").hidden = true; setStatus("Videz shranjen", true); });

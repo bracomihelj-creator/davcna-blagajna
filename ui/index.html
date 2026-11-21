@@ -29,7 +29,7 @@
       <div class="menuDrop">
         <button type="button" data-act="reload" data-tip="Osveži firme iz SQL Evidence firm.">Osveži firme</button>
         <button type="button" data-act="history" data-tip="Zgodovina sprememb verzij.">Zgodovina verzij …</button>
-        <button type="button" data-act="legacy_tk" data-tip="Rollback: odpre nespremenjeno Davčno Blagajno 3.0.68 (Tk) iz mape D:\PISARNA\Python\DavčnaBlagajna. Ta okno ostane odprto; stanje ni skupno.">Odpri Tk 3.0.68 …</button>
+        <button type="button" data-act="legacy_tk" data-tip="Rollback: odpre nespremenjeno Davčno Blagajno 3.0.68 (Tk) iz mape D:\PISARNA\Python\DavčnaBlagajna. To okno ostane odprto; stanje ni skupno.">Odpri Tk 3.0.68 …</button>
         <hr>
         <button type="button" data-act="close" data-tip="Zapre okno.">Izhod</button>
       </div>
@@ -258,6 +258,9 @@
     <label class="fld">Accent <input id="accentIn" type="color" value="#5968e8"></label>
     <label class="fld">Radius <input id="radiusIn" type="number" min="0" max="24" value="11"></label>
     <label class="fld">Pisava <input id="fontIn" type="number" min="11" max="18" value="13"></label>
+    <label class="fld" data-tip="Višina gumbov in polj: kompaktno (več vrstic na zaslonu), normalno ali prostorno.">Gostota
+      <select id="densitySel"><option value="compact">Kompaktno</option><option value="normal">Normalno</option><option value="comfortable">Prostorno</option></select>
+    </label>
     <div class="controls">
       <button class="btn" id="btnResetTheme" data-tip="Ponastavi QUICK (accent #5968e8, radius 11, svetla).">Ponastavi QUICK</button>
       <button class="btn primary" id="btnSaveTheme" data-tip="Shrani videz (ločeno od SQL/poslovnih podatkov).">Shrani</button>
