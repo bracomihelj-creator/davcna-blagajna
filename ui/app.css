@@ -201,3 +201,60 @@ body.density-comfortable .btn{padding:9px 14px}
   --card:var(--surface);
 }
 [data-look=t4] body{font-size:12.5px}
+
+
+/* Trops v5 lupina: temen stranski meni, orodna vrstica, vsebina */
+.shell{display:grid;grid-template-columns:236px minmax(0,1fr);height:100%;background:var(--bg)}
+.sidebar{background:var(--side);color:var(--side-text);display:flex;flex-direction:column;padding:14px 10px;gap:6px;overflow:auto}
+.logo{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:17px;color:#fff;background:linear-gradient(135deg,#6366f1,#22d3ee);box-shadow:0 6px 18px -6px #6366f1;flex:none}
+.sidebar .brand{display:flex;align-items:center;gap:10px;padding:4px 8px 14px}
+.brandText{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.brandText b{color:#fff;font-size:14.5px}
+.brandText span{font-size:11px;color:var(--side-muted)}
+.navLbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--side-muted);padding:12px 10px 4px;font-weight:700}
+.nav{display:flex;flex-direction:column;gap:1px}
+.navItem{display:flex;align-items:center;gap:10px;width:100%;border:0;background:transparent;color:var(--side-text);padding:8px 10px;border-radius:8px;text-align:left;font-weight:550}
+.navItem:hover{background:var(--side-2);color:#fff}
+.navItem.active{background:linear-gradient(90deg,rgba(99,102,241,.28),rgba(99,102,241,.08));color:#fff;box-shadow:inset 2px 0 0 #818cf8}
+.sideTools{margin-top:auto;display:flex;flex-direction:column;gap:1px;padding-top:8px}
+.menuGroup{position:relative}
+.flyout{display:none;position:absolute;left:calc(100% + 6px);bottom:0;min-width:280px;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);padding:6px;z-index:80}
+.menuGroup.open>.flyout{display:block}
+.flyout button{display:block;width:100%;text-align:left;background:transparent;border:0;padding:8px 10px;border-radius:8px;font-size:12.5px;font-weight:650;color:var(--text-2)}
+.flyout button:hover{background:var(--accent-soft);color:var(--text)}
+.flyout hr{border:0;border-top:1px solid var(--line);margin:4px 6px}
+.main{display:flex;flex-direction:column;height:100%;min-width:0;overflow:hidden;background:var(--bg)}
+.topbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 14px;background:var(--surface);border-bottom:1px solid var(--line);flex:none}
+.titleBlock{display:flex;flex-direction:column;line-height:1.15;min-width:140px;margin-right:8px}
+.titleBlock h1{margin:0;font-size:16px;font-weight:800}
+.crumbs{font-size:11px;color:var(--muted)}
+.periodCtl{display:flex;align-items:center;gap:8px}
+.periodCtl label{display:flex;gap:6px;align-items:center;font-size:12px;font-weight:700}
+.content{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.content>.workspace{flex:1 1 auto;min-height:0}
+.content>.bottomPane{flex:none}
+.statusbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 14px;background:var(--surface);border-top:1px solid var(--line);font-size:11px;color:var(--muted);flex:none}
+
+/* Trops 4: znamka in meni zgoraj, pogledi v svetlem levem stolpcu */
+[data-look=t4] .shell{grid-template-columns:var(--t4-left,248px) minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr)}
+[data-look=t4] .sidebar{display:contents}
+[data-look=t4] .brand{grid-column:1/-1;grid-row:1;background:var(--surface);border-bottom:1px solid var(--line);padding:8px 14px;margin:0;gap:11px}
+[data-look=t4] .logo{background:linear-gradient(145deg,#596dec,#926cea);box-shadow:none;border-radius:12px}
+[data-look=t4] .brandText b{color:var(--text);font-size:14px;font-weight:800}
+[data-look=t4] .brandText span{color:var(--muted)}
+[data-look=t4] .sideTools{grid-column:1/-1;grid-row:2;flex-direction:row;align-items:stretch;gap:2px;margin:0;padding:0 10px;background:var(--surface);border-bottom:1px solid var(--line);z-index:20}
+[data-look=t4] .sideTools>.navLbl{display:none}
+[data-look=t4] .sideTools .navItem{color:var(--text-2);border-radius:0;padding:7px 12px;min-height:32px;font-size:12px;font-weight:700;width:auto}
+[data-look=t4] .sideTools .navItem:hover,[data-look=t4] .menuGroup.open>.navItem{background:var(--surface-3);color:var(--text)}
+[data-look=t4] .flyout{left:0;bottom:auto;top:100%;border-radius:10px}
+[data-look=t4] .nav{grid-column:1;grid-row:3;background:var(--surface);border-right:1px solid var(--line);padding:10px;overflow:auto;gap:2px;min-height:0}
+[data-look=t4] .nav .navLbl{color:#8591a7}
+[data-look=t4] .nav .navItem{color:var(--text-2);border-radius:10px;padding:7px 10px;font-size:12px;font-weight:700}
+[data-look=t4] .nav .navItem:hover{background:var(--surface-3);color:var(--text)}
+[data-look=t4] .nav .navItem.active{background:var(--accent-soft);color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
+[data-look=t4] .main{grid-column:2;grid-row:3;min-height:0}
+[data-look=t4] .topbar{background:var(--surface);padding:6px 12px}
+[data-look=t4] .titleBlock h1{font-size:15px}
+[data-look=t4][data-theme=dark] .brand,
+[data-look=t4][data-theme=dark] .sideTools,
+[data-look=t4][data-theme=dark] .nav{background:var(--surface)}

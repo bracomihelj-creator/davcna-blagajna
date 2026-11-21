@@ -246,6 +246,12 @@
         setLook(btn.getAttribute("data-look-btn") || btn.getAttribute("data-look-act") || "t5");
       });
     });
+    document.querySelectorAll("[data-theme-act]").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        setTheme(btn.getAttribute("data-theme-act") || "light");
+      });
+    });
     var themeBtn = $("themeBtn");
     if (themeBtn) {
       themeBtn.addEventListener("click", function () {
@@ -253,6 +259,11 @@
         setTheme(next);
       });
     }
+    document.querySelectorAll("#viewNav [data-view-idx]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        showView(Number(btn.getAttribute("data-view-idx")) || 0);
+      });
+    });
   }
 
   var VIEW_TIPS = {
@@ -282,6 +293,11 @@
     state.viewIdx = idx;
     var labels = (state.boot && state.boot.views) || ["Blagajna", "KIR/KPR", "Primerjaj KIRKPR", "Primerjaj datoteke", "Minimax"];
     renderTabs("viewTabs", labels, idx, function (i) { showView(i); });
+    document.querySelectorAll("#viewNav [data-view-idx]").forEach(function (btn) {
+      var on = Number(btn.getAttribute("data-view-idx")) === idx;
+      btn.classList.toggle("active", on);
+    });
+    if ($("pageTitle")) $("pageTitle").textContent = labels[idx] || "Davčna Blagajna";
     $("panelBlagajnaActions").classList.toggle("hidden", idx !== 0 && idx !== 4);
     $("panelKirkpr").classList.toggle("hidden", idx !== 1);
     $("panelCompareKirkpr").classList.toggle("hidden", idx !== 2);
@@ -779,17 +795,22 @@
   }
 
   function setupMenus() {
-    document.querySelectorAll(".menu").forEach(function (menu) {
+    function closeMenus() {
+      document.querySelectorAll(".menu, .menuGroup").forEach(function (m) { m.classList.remove("open"); });
+    }
+    document.querySelectorAll(".menu, .menuGroup").forEach(function (menu) {
       var btn = menu.querySelector(":scope > button");
       if (!btn) return;
       btn.addEventListener("click", function (e) {
         e.stopPropagation();
-        document.querySelectorAll(".menu").forEach(function (m) { m.classList.remove("open"); });
-        menu.classList.add("open");
+        var open = menu.classList.contains("open");
+        closeMenus();
+        if (!open) menu.classList.add("open");
       });
     });
-    document.addEventListener("click", function () {
-      document.querySelectorAll(".menu").forEach(function (m) { m.classList.remove("open"); });
+    document.addEventListener("click", closeMenus);
+    document.querySelectorAll(".flyout, .menuDrop").forEach(function (el) {
+      el.addEventListener("click", function (e) { e.stopPropagation(); });
     });
     document.querySelectorAll("[data-act]").forEach(function (el) {
       el.addEventListener("click", function () {

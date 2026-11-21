@@ -7,56 +7,78 @@
   <link rel="stylesheet" href="app.css">
 </head>
 <body>
-<div class="app" id="app">
-  <header class="appbar">
+<div class="shell" id="app">
+  <aside class="sidebar" id="sidebar">
     <div class="brand">
-      <div class="brandlogo">D</div>
-      <div>
-        <div class="brandtitle">Davčna Blagajna</div>
-        <div class="branddesc" id="brandVer">WebView2 · 5.1.00 · isti AppV21</div>
+      <div class="logo">D</div>
+      <div class="brandText">
+        <b>Davčna Blagajna</b>
+        <span id="brandVer">WebView2 · 5.1.00 · isti AppV21</span>
       </div>
     </div>
-    <div class="appbarMeta">
+    <nav class="nav" id="viewNav">
+      <div class="navLbl">Pogledi</div>
+      <button class="navItem active" type="button" data-view-idx="0" data-tip="Davčna blagajna: uvoz CSV/ZIP, FURS PakR, drevo.">Blagajna</button>
+      <button class="navItem" type="button" data-view-idx="1" data-tip="KIR/KPR eDavki ali Minimax — prenos in uvoz.">KIR/KPR</button>
+      <button class="navItem" type="button" data-view-idx="2" data-tip="Primerjava eDavki KIR/KPR ↔ Minimax.">Primerjaj KIRKPR</button>
+      <button class="navItem" type="button" data-view-idx="3" data-tip="Prednastavljene in ročne primerjave datotek.">Primerjaj datoteke</button>
+      <button class="navItem" type="button" data-view-idx="4" data-tip="Minimax spletni uvoz in API.">Minimax</button>
+    </nav>
+    <div class="sideTools">
+      <div class="navLbl">Orodja</div>
+      <div class="menuGroup">
+        <button class="navItem" type="button" data-menu="file" data-tip="Datoteka">Datoteka</button>
+        <div class="flyout">
+          <button type="button" data-act="reload" data-tip="Osveži firme iz SQL Evidence firm.">Osveži firme</button>
+          <button type="button" data-act="history" data-tip="Zgodovina sprememb verzij.">Zgodovina verzij …</button>
+          <button type="button" data-act="legacy_tk" data-tip="Rollback: odpre nespremenjeno Davčno Blagajno 3.0.68 (Tk) iz mape D:\PISARNA\Python\DavčnaBlagajna. To okno ostane odprto; stanje ni skupno.">Odpri Tk 3.0.68 …</button>
+          <hr>
+          <button type="button" data-act="close" data-tip="Zapre okno.">Izhod</button>
+        </div>
+      </div>
+      <div class="menuGroup">
+        <button class="navItem" type="button" data-menu="view" data-tip="Videz">Videz</button>
+        <div class="flyout">
+          <button type="button" data-look-act="t5">Videz: Trops 5 (nov)</button>
+          <button type="button" data-look-act="t4">Videz: Trops 4 (klasičen)</button>
+          <hr>
+          <button type="button" data-theme-act="light">Svetla tema</button>
+          <button type="button" data-theme-act="dark">Temna tema</button>
+          <hr>
+          <button type="button" data-act="settings" data-tip="LOOK videz (tema, gostota). Tk dialog je odstranjen.">Videz in postavitev …</button>
+          <button type="button" data-act="videz" data-tip="Hitri videz WebView2 (tema, Trops 4/5, gostota).">Hitri videz WebView2 …</button>
+          <button type="button" data-act="oauth" data-tip="OAuth / Minimax poverilnice.">OAuth / Minimax …</button>
+        </div>
+      </div>
+      <div class="menuGroup">
+        <button class="navItem" type="button" data-menu="help" data-tip="Pomoč in zgodovina verzij">Pomoč</button>
+        <div class="flyout">
+          <button type="button" data-act="history" data-tip="Dnevnik verzij.">Zgodovina sprememb …</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div class="titleBlock">
+        <h1 id="pageTitle">Blagajna</h1>
+        <div class="crumbs" id="pageCrumbs">pogled · uvoz · izvoz</div>
+      </div>
+      <div class="periodCtl">
+        <label>Leto <select id="yearIn" class="field-yellow" data-tip="Leto obdobja analize in FURS Od/do."></select></label>
+        <label>Mesec <input id="monthIn" type="number" min="1" max="12" class="field-yellow" data-tip="Mesec (1–12) za analizo, FURS in knjižbe."></label>
+      </div>
+      <span class="pill" id="companyPill">Firma —</span>
+      <span class="pill" id="mmPill">Minimax: —</span>
       <div class="lookSwitch" id="lookSwitch" role="group" aria-label="Videz" title="Videz programa: Trops 4 (klasičen) ali Trops 5 (nov). Spremeni samo izgled — podatki in funkcije ostanejo enaki.">
         <span class="lookLbl">Videz</span>
         <button type="button" data-look-btn="t4" aria-pressed="false">Trops 4</button>
         <button type="button" data-look-btn="t5" aria-pressed="true" class="on">Trops 5</button>
       </div>
-      <button class="iconBtn" type="button" id="themeBtn" title="Svetla / temna tema" data-tip="Preklop svetle in temne teme. Izbira se shrani.">Tema</button>
-      <span class="pill" id="companyPill">Firma —</span>
-      <span class="pill" id="mmPill">Minimax: —</span>
+      <button class="iconBtn" type="button" id="themeBtn" title="Svetla / temna tema" data-tip="Preklop svetle in temne teme. Izbira se shrani.">Temna</button>
       <span class="badge">5.1.00</span>
     </div>
-  </header>
-
-  <nav class="menubar">
-    <div class="menu">
-      <button type="button" data-tip="Datoteka">Datoteka</button>
-      <div class="menuDrop">
-        <button type="button" data-act="reload" data-tip="Osveži firme iz SQL Evidence firm.">Osveži firme</button>
-        <button type="button" data-act="history" data-tip="Zgodovina sprememb verzij.">Zgodovina verzij …</button>
-        <button type="button" data-act="legacy_tk" data-tip="Rollback: odpre nespremenjeno Davčno Blagajno 3.0.68 (Tk) iz mape D:\PISARNA\Python\DavčnaBlagajna. To okno ostane odprto; stanje ni skupno.">Odpri Tk 3.0.68 …</button>
-        <hr>
-        <button type="button" data-act="close" data-tip="Zapre okno.">Izhod</button>
-      </div>
-    </div>
-    <div class="menu">
-      <button type="button" data-tip="Verzija 5.1">Verzija</button>
-      <div class="menuDrop">
-        <button type="button" data-act="history" data-tip="Dnevnik verzij.">Zgodovina sprememb …</button>
-      </div>
-    </div>
-    <div class="menu">
-      <button type="button" data-tip="Nastavitve — vsebina 3.0.68">Nastavitve</button>
-      <div class="menuDrop">
-        <button type="button" data-act="settings" data-tip="LOOK videz (accent, tema). Tk dialog je odstranjen.">Videz in postavitev …</button>
-        <button type="button" data-act="videz" data-tip="Hitri WebView2 videz (accent/tema).">Hitri videz WebView2 …</button>
-        <button type="button" data-act="oauth" data-tip="OAuth / Minimax poverilnice.">OAuth / Minimax …</button>
-      </div>
-    </div>
-  </nav>
-
-  <div class="workspace">
+    <div class="content">  <div class="workspace">
     <aside class="leftPane">
       <div class="paneHead">
         <div>
@@ -64,10 +86,6 @@
           <div class="panelDesc" id="countLabel">Seznam se nalaga …</div>
         </div>
         <button class="btn" id="btnReload" data-tip="Osveži seznam firm iz SQL Evidence firm (dbo.Clients).">Osveži</button>
-      </div>
-      <div class="periodRow">
-        <label>Leto <select id="yearIn" class="field-yellow" data-tip="Leto obdobja analize in FURS Od/do."></select></label>
-        <label>Mesec <input id="monthIn" type="number" min="1" max="12" class="field-yellow" data-tip="Mesec (1–12) za analizo, FURS in knjižbe."></label>
       </div>
       <div class="searchRow">
         <input id="searchIn" class="search field-yellow" placeholder="Išči firmo…" data-tip="Filter firm po Zšt, nazivu, davčni, DURS.">
@@ -104,11 +122,7 @@
         </div>
       </div>
 
-      <div class="viewHdr">
-        <span class="muted">Pogled analize:</span>
-        <div class="tabs" id="viewTabs" role="tablist"></div>
-      </div>
-
+      <div class="tabs hidden" id="viewTabs" hidden></div>
       <div class="panelBlock" id="panelBlagajnaActions">
         <div class="actionBar">
           <button class="btn primary" id="btnAnalyze" data-tip="Isti gumb kot 3.0.68 Analiziraj: uvozi CSV/ZIP iz mape Blagajna in napolni drevo. Če podatki v mapi že so, se uvozijo tudi ob izboru firme.">Analiziraj</button>
@@ -247,11 +261,12 @@
       </div>
     </div>
   </div>
-
-  <footer class="footer">
-    Davčna Blagajna <span id="footVer">5.1.00</span> · LOOK WebView2 · stanje = AppV21 · 3.0.68 ločena ·
-    <span id="footHint">pogled · uvoz · izvoz</span>
-  </footer>
+    </div>
+    <footer class="statusbar footer">
+        Davčna Blagajna <span id="footVer">5.1.00</span> · LOOK WebView2 · stanje = AppV21 · 3.0.68 ločena ·
+        <span id="footHint">pogled · uvoz · izvoz</span>
+      </footer>
+  </main>
 </div>
 
 <div class="dlg" id="dlgVidez" hidden>
