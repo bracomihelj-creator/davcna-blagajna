@@ -1,6 +1,6 @@
 {
-  "series": "5.0",
-  "current": "5.0.14",
+  "series": "5.1",
+  "current": "5.1.00",
   "versions": [
     {
       "id": "2.1.01",
@@ -2484,6 +2484,32 @@
         "host_webview.py",
         "ui/index.html",
         "ui/app.js"
+      ]
+    },
+    {
+      "id": "5.1.00",
+      "date": "2026-11-21",
+      "title": "5.1.00: ena mapa 5.1 — uskladitev 3.0.68 + 4.0.7 + 5.0.14",
+      "log_file": "Davčna blagajna ver 5.1.00.txt",
+      "user_prompt": "Zajemi vse znanje, logiko in procedure iz starih verzij (3.0.68 in 4.0.1) in jih združi v DavčnaBlagajna_5.1. Kar ni potrebno, odstrani. Vsak korak v svojem commitu.",
+      "changes": "Uskladitev v eno mapo DavčnaBlagajna_5.1 (prej _5.0.1). Dokumentacija v docs/ (5.0, zgodovina 4.0 in 3.0 s patchem necommitanega dela 3.0.14–3.0.68). Cursor pravila iz 3.0 (FURS PakR, ne-spreminjaj, WebView2 motor, namigi) in novo pravilo 5.1. Zaganjalniki ZAZENI_5.1.bat / DavcnaBlagajna_5.1.pyw, bližnjica DavcnaBlagajna_5.1.lnk. web_demo in stari bat (EXE, V3) v tools/legacy. Lastna Minimax WebView2 seja v data/webview2 (kopija iz 3.0.68, brez trde poti). Iz 4.0: meni Datoteka → Odpri Tk 3.0.68 (rollback) in nastavitev gostote v Videzu. Poslovna logika (DavcnaBlagajna.py) nespremenjena.",
+      "files_changed": [
+        "host_webview.py",
+        "INSTALL.pyw",
+        "ui/index.html",
+        "ui/app.js",
+        "ui/app.css",
+        "v2/app_v21.py",
+        "v2/version_journal.py",
+        "v2/minimax_webview2.py",
+        "ZAZENI_5.1.bat",
+        "DavcnaBlagajna_5.1.pyw",
+        ".cursor/rules/",
+        "docs/",
+        "tools/legacy/",
+        "README.md",
+        ".gitignore",
+        "POROCILO.md"
       ]
     }
   ]

@@ -37,7 +37,7 @@ V21_KIRKPR_SRC_MINIMAX = 1
 
 
 class AppV21(AppV2):
-    UI_VERSION = "5.0"
+    UI_VERSION = "5.1"
 
     def __init__(self) -> None:
         self._v21_snap_blagajna: Optional[AnalysisSnapshot] = None

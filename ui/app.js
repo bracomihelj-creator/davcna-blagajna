@@ -1,4 +1,4 @@
-/* Davčna Blagajna 5.0.14 — LOOK HTML; drevo/✓ v WebView2, ni Tk oken */
+/* Davčna Blagajna 5.1.00 — LOOK HTML; drevo/✓ v WebView2, ni Tk oken */
 (function () {
   function $(id) { return document.getElementById(id); }
   var state = {
@@ -515,7 +515,7 @@
     dlg.hidden = false;
     btns.innerHTML = "";
     if (panel === "history") {
-      title.textContent = "Zgodovina verzij — " + (res.current || "5.0.14");
+      title.textContent = "Zgodovina verzij — " + (res.current || "5.1.00");
       var html = '<p class="note">Tk okno zgodovine je odstranjeno. Pregled je v LOOK.</p>';
       (res.versions || []).forEach(function (v) {
         html += "<div class='preset'><div><strong>" + esc(v.id) + "</strong> · " + esc(v.date) +
@@ -895,8 +895,8 @@
         return;
       }
       state.boot = res;
-      $("brandVer").textContent = "WebView2 · " + (res.version || "5.0.14") + " · isti AppV21";
-      $("footVer").textContent = res.version || "5.0.14";
+      $("brandVer").textContent = "WebView2 · " + (res.version || "5.1.00") + " · isti AppV21";
+      $("footVer").textContent = res.version || "5.1.00";
       fillSelect("yearIn", res.years && res.years.length ? res.years : [String(new Date().getFullYear())], res.year);
       fillSelect("docTypeIn", res.doc_types || [], res.doc_type);
       fillSelect("vrstaIn", res.vrsta_labels || [], res.vrsta_prodaje);

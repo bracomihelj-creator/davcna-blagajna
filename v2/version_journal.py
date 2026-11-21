@@ -1,4 +1,4 @@
-"""Vodenje popravnih verzij — dnevnik promptov in sprememb (serija 3.0.xx)."""
+"""Vodenje popravnih verzij — dnevnik promptov in sprememb (serija 5.1.xx)."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ APP_ROOT = Path(__file__).resolve().parent.parent
 VERSIONS_DIR = APP_ROOT / "verzije"
 VERSIONS_INDEX = VERSIONS_DIR / "davcna_blagajna_verzije.json"
 
-SERIES = "5.0"
+SERIES = "5.1"
 INITIAL_PATCH = 1
 
 
