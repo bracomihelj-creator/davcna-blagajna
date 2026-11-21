@@ -1,17 +1,33 @@
+/* Davčna Blagajna LOOK — žetoni po Trops Studio 5 (svetla/temna). Postavitev v tem koraku ostane. */
 :root{
-  --accent:#5968e8;--accent-soft:#e9ecff;--text:#18233a;--muted:#6c7993;
-  --bg:#f4f7fc;--card:#ffffff;--line:#e2e8f3;--radius:11px;--ctl-h:34px;
-  --font-size:13px;--yellow:#ffff99;--tip-bg:#ffffe0;--left-px:420px;
-  font-family:"Segoe UI",Inter,Arial,sans-serif;color-scheme:light;
+  --font:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --mono:"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;
+  --bg:#f3f5f9; --surface:#ffffff; --surface-2:#f8fafc; --surface-3:#eef2f7;
+  --text:#0f172a; --text-2:#475569; --muted:#64748b; --line:#e2e8f0; --line-2:#cbd5e1;
+  --accent:#4f46e5; --accent-2:#6366f1; --accent-soft:#eef2ff; --accent-text:#3730a3;
+  --good:#059669; --good-soft:#ecfdf5; --warn:#b45309; --warn-soft:#fffbeb; --bad:#dc2626; --bad-soft:#fef2f2; --info:#0369a1; --info-soft:#f0f9ff;
+  --side:#0f172a; --side-2:#1e293b; --side-text:#cbd5e1; --side-muted:#64748b;
+  --radius:12px; --radius-sm:8px; --shadow:0 1px 2px rgba(15,23,42,.06),0 1px 3px rgba(15,23,42,.08);
+  --shadow-lg:0 20px 50px -12px rgba(15,23,42,.35);
+  --row-h:34px;
+  --card:var(--surface); --ctl-h:var(--row-h); --font-size:13px;
+  --yellow:#ffff99; --tip-bg:#ffffe0; --left-px:420px;
+  color-scheme:light;
 }
-html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-size:var(--font-size);overflow:hidden}
+[data-theme=dark]{
+  --bg:#0b1120; --surface:#111827; --surface-2:#0f172a; --surface-3:#1f2937;
+  --text:#e5e7eb; --text-2:#cbd5e1; --muted:#94a3b8; --line:#1f2937; --line-2:#334155;
+  --accent:#818cf8; --accent-2:#6366f1; --accent-soft:#1e1b4b; --accent-text:#c7d2fe;
+  --good:#34d399; --good-soft:#052e24; --warn:#fbbf24; --warn-soft:#2a1d05; --bad:#f87171; --bad-soft:#2b0c0c; --info:#38bdf8; --info-soft:#082033;
+  --side:#020617; --side-2:#0f172a; --shadow:0 1px 2px rgba(0,0,0,.4); --shadow-lg:0 20px 50px -12px rgba(0,0,0,.7);
+  --yellow:#5c5a2e; --tip-bg:#3f3b1a;
+  color-scheme:dark;
+}
+html,body{height:100%;margin:0}
+body{font:13px/1.45 var(--font);background:var(--bg);color:var(--text);font-size:var(--font-size);overflow:hidden;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
-button,input,select{font:inherit}button{cursor:pointer}
+button,input,select{font:inherit;color:inherit}button{cursor:pointer}
 [hidden]{display:none!important}
-body.theme-dark{
-  --bg:#121826;--card:#1b2333;--text:#e8eefc;--muted:#9aa8c3;--line:#2a3548;
-  --accent-soft:#2a3350;--yellow:#5c5a2e;color-scheme:dark
-}
 
 .app{height:100%;display:grid;grid-template-rows:auto auto minmax(0,1fr) auto auto;overflow:hidden}
 .hidden{display:none!important}
@@ -69,8 +85,8 @@ th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;font-s
 thead th{position:sticky;top:0;background:var(--accent-soft);font-weight:800}
 tbody tr{cursor:pointer}
 tbody tr:hover{background:var(--accent-soft)}
-tbody tr.selected{background:#dbeafe}
-body.theme-dark tbody tr.selected{background:#243456}
+tbody tr.selected{background:var(--accent-soft)}
+[data-theme=dark] tbody tr.selected{background:var(--accent-soft)}
 
 .rightPane{min-width:0;display:flex;flex-direction:column;padding:8px 12px;gap:6px;overflow:hidden}
 .tab{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;font-weight:750;font-size:12px}
@@ -82,7 +98,7 @@ body.theme-dark tbody tr.selected{background:#243456}
 .btn.sm{min-height:28px;padding:4px 10px;font-size:11px}
 .check{display:flex;gap:6px;align-items:center;font-size:12px;font-weight:700}
 .statusLine{font-size:12px;font-weight:700;color:#24324f;min-height:18px}
-body.theme-dark .statusLine{color:#d5defl}
+[data-theme=dark] .statusLine{color:var(--text)}
 .rootLine{font-size:11px;color:var(--muted)}
 .rootLine code{color:var(--text)}
 .muted{color:var(--muted)}

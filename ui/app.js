@@ -178,7 +178,9 @@
     if (a.accent) root.style.setProperty("--accent", a.accent);
     if (a.radius != null) root.style.setProperty("--radius", a.radius + "px");
     if (a.font_size) root.style.setProperty("--font-size", a.font_size + "px");
-    document.body.classList.toggle("theme-dark", a.theme === "dark");
+    var theme = a.theme === "dark" ? "dark" : "light";
+    root.setAttribute("data-theme", theme);
+    document.body.classList.remove("theme-dark");
     var dens = a.density === "compact" || a.density === "comfortable" ? a.density : "normal";
     document.body.classList.toggle("density-compact", dens === "compact");
     document.body.classList.toggle("density-comfortable", dens === "comfortable");
