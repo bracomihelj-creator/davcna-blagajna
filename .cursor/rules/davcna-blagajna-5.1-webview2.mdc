@@ -1,0 +1,35 @@
+---
+description: Davčna Blagajna 5.1 — LOOK WebView2, eno stanje (AppV21), vedenje 1:1 s 3.0.68
+alwaysApply: true
+---
+
+# Davčna Blagajna 5.1 — LOOK WebView2
+
+- **Delovna mapa:** `D:\PISARNA\Python\DavčnaBlagajna_5.1` (preimenovana iz `_5.0.1`, 2026-11-21).
+- **Zagon:** `ZAZENI_5.1.bat` / `DavcnaBlagajna.pyw` / `DavcnaBlagajna_5.1.pyw`. Namestitev: `INSTALL.pyw`.
+- **3.0.68** (`D:\PISARNA\Python\DavčnaBlagajna`) = samo kontrola in rollback (meni Datoteka → Odpri Tk 3.0.68). **Ne spreminjaj.**
+- **4.0.x** (`DavčnaBlagajna_4.0.1`) = opuščen hibrid; dokumenti v `docs/zgodovina/4.0/`. Ne uporabljaj kot osnovo.
+
+## Arhitektura
+
+- En proces: `host_webview.py` (pywebview + Edge WebView2, js_api `Bridge`) kliče **isto** AppV21 (`v2/app_v21.py`), ki teče skrita na Tk niti.
+- Nove akcije v LOOK: dodaj metodo v `ALLOWED_INVOKE` in v JS pokliči `invoke` — **isto metodo** kot gumb v `v2/ui_build_v21.py` / `ui_build.py` (vedenje 1:1 s 3.0.68, LOOK je lahko drugačen).
+- Prepovedano: skrajšani stubi, ki kličejo jedro brez polnih argumentov; drugi proces za Tk akcije (kot 4.0 `tk_actions`).
+- Odložišče = Win32 (`CF_UNICODETEXT`), ne začasni `tk.Tk()`.
+- FURS/eDavki = uporabnikov Chrome (:9222); WebView2 = LOOK + Minimax (:9333). Ključ `selenium_auto` = UI »Avtomatika Pripravi+ZIP« (ime ohranjeno zaradi JSON).
+- Minimax WebView2 seja: `data\webview2\minimax_uvoz_profile` v **tej** mapi (od 5.1 ne več iz 3.0.68).
+
+## Poslovna logika
+
+`DavcnaBlagajna.py` (izračuni DDV/seštevkov, KIR/KPR XML, FURS PakR, Minimax API/knjiženje, kontiranje) je **zaklenjena** — ne spreminjaj brez izrecnega DA.
+
+## Vedenje LOOK
+
+- **Analiziraj** = `_analyze`. Če so v mapi Blagajna YYYY-MM mape ali ZIP, se uvozijo sami ob izboru firme / zagonu / menjavi obdobja.
+- **Pasica Potek opravila** ob vsaki akciji; če prenos ni API → »Oddaja Excel«.
+- Še Tk dialogi (skrita AppV21): OAuth, ZIP paketi, kontiranje plačil/prihodkov, nov zapis KIR/KPR.
+
+## Delo
+
+- Vsaka sprememba = svoj git commit; zgodovine ne prepisuj.
+- Ob nadgradnji: dvigni verzijo (`host_webview.APP_VERSION`, `INSTALL.VERSION`, `ui/index.html`, `verzije/`).

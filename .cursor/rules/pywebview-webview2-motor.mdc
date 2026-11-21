@@ -1,0 +1,37 @@
+---
+description: Motor pywebview + Edge WebView2 (3.0.68) — pridobivanje podatkov / UI avtomatika
+alwaysApply: true
+---
+
+# Motor: pywebview + Edge WebView2
+
+**ZAKLENJENO 2026-10-11** — uporabnik: **»verzija 3.0.68 deluje in ta motor si zapomni«**.
+Velja za Davčno Blagajno in **druge app** v tem okolju, ko uporabnik napiše
+**»motor je pywebview + Edge WebView2«** ali ko gre za spletni UI zajem/uvoz/pregled
+(Minimax, portali) brez Chrome vtičnika.
+
+## Obvezno
+
+- Motor = **pywebview** + **Edge WebView2** (trajni profil na disku).
+- **Ne** QUICK Chrome Bridge / chrome-extension.
+- **Ne** Playwright / Selenium / nov Chrome profil — razen izrecnega **DA**.
+- CDP (`:9333`, `--remote-allow-origins=*`) samo **znotraj iste** WebView2 seje
+  (npr. `DOM.setFileInputFiles`) — to **ni** drugi Chrome.
+
+## Postopki pri pridobivanju podatkov
+
+1. Zaženi WebView2 host s **trajnim** profilom (ne briši cookies med teki).
+2. Če ni prijave → čakaj v oknu / status; nadaljuj **isti tek** po prijavi.
+3. Soft-pass peach »Vstopite v program« (če landing).
+4. Moje org → **HARD** klik **naziva** firme (`data-organizacijaid`) — ne zvezda, ne zobnik.
+5. Počakaj navbar s firmo, nato navigacija na cilj (uvoz / Knjiženje / …).
+6. Obrazci: `evaluate_js` v WebView2; priponke prek CDP v **eni** WS seji.
+7. Po API pregled Knjiženja (video): HARD firma → Knjiženje IR/iztržkov → **Najdi**.
+
+## Reference (Davčna Blagajna)
+
+- Uvoz KN: zaklenjeno **3.0.42** (`v2/minimax_webview2_host.py` · `import_knjizbe`).
+- Po API Knjiženje: **3.0.68** (`open_knjizenje` / `open_minimax_knjizenje_after_api`).
+- Skill: `minimax-hitri-uvoz` + `pywebview-webview2-motor`.
+
+FURS PakR 2.2.28 in eDavki KIR/KPR (Chrome :9222) ostaneta ločeni — ne seliti v WebView2 brez DA.

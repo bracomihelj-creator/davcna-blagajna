@@ -1,0 +1,15 @@
+---
+description: FURS PakR — hiter vpis 2.2.20/2.2.28 (zaklenjeno dokler uporabnik ne reče DA)
+globs: DavcnaBlagajna.py
+alwaysApply: true
+---
+
+# FURS PakR — trdna pot (2.2.20 / 2.2.28)
+
+Uporabnik 2026-10-04: **»to izvajanje je zdaj ok«**. Ostalo preverja sam. **Ne menjaj brez vprašanja.**
+
+Ob kliku FURS Blagajna:
+1. `chrome --new-tab` v že odprtem Chrome
+2. vpis Od/do na DPR_PakR (~2 s) — `_furs_pakrt_fill_in_user_chrome` + `fursFillPakrPeriod`
+
+Ne vračaj na počasen CDP / nov profil / WMIC, razen če uporabnik izrecno dovoli.

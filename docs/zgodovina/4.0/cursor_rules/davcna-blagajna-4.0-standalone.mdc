@@ -1,0 +1,24 @@
+# Davčna Blagajna — 3.0.68 vs 4.0 (samostojna)
+
+**Velja od:** 2026-11-16 (potrjeno: 3.0.68 ostane; 4.0 100 % samostojna)
+
+## 3.0.68 (Tk) — NEDOTAKNJENA
+
+- Mapa: `D:\PISARNA\Python\DavčnaBlagajna`
+- Zagon: `ZAZENI_DavcnaBlagajna_PY.bat` / `DavcnaBlagajna.pyw`
+- **Ne spreminjaj** brez izrecnega DA.
+
+## 4.0 (WebView2) — SAMOSTOJNA
+
+- Mapa: `D:\PISARNA\Python\DavčnaBlagajna_4.0.1`
+- Lastna kopija `DavcnaBlagajna.py` + `v2/*` + `ui/` + `host.py` + `motor.py`
+- **Ne uvažaj produkcijske kode iz mape 3.0.68** ob teku (razen opcijski meni »Odpri legacy 3.0.68«).
+- Zagon: `DavcnaBlagajna.pyw` / bližnjica `DavcnaBlagajna.lnk`
+- Verzija serije: **4.0.x** (trenutno **4.0.5**)
+- **100 % vedenje, samo LOOK drugačen** (DA 2026-11-17) — glej `davcna-blagajna-4.0-100pct-vedenje.mdc`
+- motor pywebview + Edge WebView2; akcije = iste AppV21 / 1:1 FURS PakR
+
+## Podatki
+
+- SQL EvidencaFirm / Trops mape so skupni viri podatkov (ne koda).
+- WebView2 profili in lokalne nastavitve 4.0: v mapi 4.0 (`data/`).

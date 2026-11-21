@@ -1,0 +1,18 @@
+---
+description: Ne spreminjaj dobro delujočih app/vtičnikov brez izrecnega dovoljenja
+alwaysApply: true
+---
+
+# Trdno, dokler uporabnik ne potrdi boljšega
+
+- **Ne spreminjaj** dobro delujoče aplikacije, vtičnika ali poteka **brez vprašanja in dovoljenja**.
+- Ne »izboljšuj«, ne preklapljaj arhitekture (CDP ↔ vtičnik ↔ nov Chrome), ne prepisuj hitrega FURS/Minimax vpisa na lastno pest.
+- Če uporabnik **potrdi, da je bolje**, si to zapomni in tisto postane nova trdna osnova.
+- Velja za **vse app in vtičnike** v tem okolju (Davčna Blagajna, Chrome vtičniki, PDFweapon, eSLOG, …), ne samo za trenutni chat.
+- Pred posegom v delujočo pot: opiši predlog v 1–3 stavkih in **počakaj na DA**.
+
+Zaklenjeno (potrjeno deluje, ne menjaj brez DA):
+- **FURS Blagajna 2.2.28** — uporabnik 2026-10-04: **»to izvajanje je zdaj ok«**. Nov zavihek v že odprtem Chrome + vpis Od/do ~2 s (pot 2.2.20/2.2.21). Ostalo preverja sam.
+- **Minimax spletni uvoz WebView2 3.0.42** — uporabnik 2026-10-11: **»ok, deluje, to si zapomni!!«**. Pot: WebView2 profil → Moje org klik **naziva** (ne zvezda) → KN potrdi → radio uvoz → IR/datum/opis → Excel (CDP `setFileInputFiles` v **eni** WS seji na :9333 + `--remote-allow-origins=*`) → Uvozi. Datum = zadnji dan meseca iz programa. Ne menjaj na Chrome vtičnik / drug motor brez DA. Dokumentacija usklajena v **3.0.45**. **3.0.57**: ob zagonu app sync Minimax/eDavki/eVEM/AJPES iz aktivnega Chrome → cache; WebView2 uporabi Chrome ali cache; ob zagonu Chrome debug se po potrebi odpre DavcnaBlagajna.pyw.
+- **Motor pywebview + Edge WebView2 3.0.68** — uporabnik 2026-10-11: **»verzija 3.0.68 deluje in ta motor si zapomni«** (tudi za druge app). Ko uporabnik vpiše **»motor je pywebview + Edge WebView2«** → ti postopki pri pridobivanju podatkov: trajni WebView2 profil, HARD naziv firme, `evaluate_js`, CDP samo znotraj iste WebView2 (:9333). Po API: Knjiženje IR/iztržkov → Najdi. **Ne** Chrome Bridge / Playwright / nov Chrome brez DA. Glej `.cursor/rules/pywebview-webview2-motor.mdc`.
+- **KIR/KPR eDavki Od/do 3.0.44** — CDP v Chrome :9222 (brez Selenium). eDavki **ne** seliti v WebView2 (Halcom) brez DA.

@@ -1,0 +1,18 @@
+# Davčna Blagajna 4.0.x — WebView2 generacija
+
+**Velja od:** 2026-11-16  
+**MASTER:** `D:\PISARNA\Python\Navodila_PROMPT\MASTER_PROMPT_QUICK_WEBVIEW2.md`  
+**100 % vedenje:** glej `davcna-blagajna-4.0-100pct-vedenje.mdc` (DA 2026-11-17).
+
+## Verzije
+
+- **Stabilna Tk:** `D:\PISARNA\Python\DavčnaBlagajna` → **3.0.68** (ne spreminjaj brez DA).
+- **WebView2:** `D:\PISARNA\Python\DavčnaBlagajna_4.0.1` → **4.0.5**.
+- Zagon: `DavcnaBlagajna.pyw` / `ZAZENI_4.0.1.bat`.
+- **4.0.5:** FURS/KIR/akcije = isto vedenje kot 3.0.68; samo LOOK je HTML.
+
+## Motor
+
+- Prikaz: **pywebview + Edge WebView2**.
+- Backend: samostojna kopija v mapi 4.0.
+- FURS PakR / Minimax / eDavki: zaklenjene poti — ne menjaj brez DA.

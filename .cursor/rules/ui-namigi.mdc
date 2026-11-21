@@ -1,0 +1,15 @@
+---
+description: Pri vsakem vmesniku dodaj info, namig in lebdajočo pasico
+alwaysApply: true
+---
+
+# Namigi v vseh aplikacijah
+
+Pri vsakem oknu (Tk, splet, desktop) naj ima gumb, potrditev in pomembno vnosno polje:
+
+- kratek info, če namen ni očiten iz napisa
+- lebdajočo pasico ob miški (1–3 stavki: kaj naredi in kaj je rezultat)
+
+Tk: `attach_tooltip` / `ToolTip`. Davčna Blagajna: `v2/tooltip.py`. PDFweapon in eSLOG: ista logika v datoteki. Pasica je rumena (`#ffffe0`), pisava Segoe UI 9, ovijanje okoli 380 px.
+
+Nov kontrolnik dobi namig v istem koraku. Ob nadgradnji dvigni verzijo v naslovu okna.
