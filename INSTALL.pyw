@@ -15,6 +15,8 @@ UI = ROOT / "ui" / "index.html"
 VERSION = "5.0.14"
 SHORTCUT_NAME = "DavcnaBlagajna_5.1.lnk"
 LEGACY = Path(r"D:\PISARNA\Python\DavčnaBlagajna")
+MINIMAX_PROFILE = ROOT / "data" / "webview2" / "minimax_uvoz_profile"
+LEGACY_MINIMAX_PROFILE = LEGACY / "data" / "webview2" / "minimax_uvoz_profile"
 
 
 def _run(args: list) -> tuple[int, str]:
@@ -72,6 +74,22 @@ def check_standalone() -> str:
     return f"samostojna 5.1: {ROOT}"
 
 
+def ensure_minimax_session() -> str:
+    """5.1 ima lastno Minimax WebView2 sejo v data/webview2 (ni v gitu).
+
+    Če je še ni, jo enkrat kopira iz 3.0.68 (vir se samo bere), da ponovna prijava ni potrebna.
+    """
+    import shutil
+
+    if MINIMAX_PROFILE.is_dir() and any(MINIMAX_PROFILE.iterdir()):
+        return f"Minimax seja (5.1): {MINIMAX_PROFILE}"
+    if LEGACY_MINIMAX_PROFILE.is_dir():
+        MINIMAX_PROFILE.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copytree(LEGACY_MINIMAX_PROFILE, MINIMAX_PROFILE, dirs_exist_ok=True)
+        return f"Minimax seja kopirana iz 3.0.68 v {MINIMAX_PROFILE}"
+    return "Minimax seja še ne obstaja — ob prvem spletnem uvozu se prijavi v oknu Minimax."
+
+
 def _desktop_dir() -> Path:
     desktop = Path.home() / "Desktop"
     if not desktop.is_dir():
@@ -101,6 +119,7 @@ def main() -> None:
     print(check_webview())
     print(check_webview2_runtime())
     print(check_standalone())
+    print(ensure_minimax_session())
     if LEGACY.is_dir():
         print("Legacy 3.0.68 (nedotaknjena):", LEGACY)
     if not BAT.is_file():

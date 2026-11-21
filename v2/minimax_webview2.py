@@ -22,19 +22,10 @@ class MinimaxUvozWebView2Controller:
     def __init__(self, root_dir: Path):
         self.root_dir = Path(root_dir)
         self.helper = self.root_dir / "v2" / "minimax_webview2_host.py"
-        # 1:1 z 3.0.68: ista trajna seja (piškotki), ne prazna kopija v mapi 5.0.
-        legacy_profile = (
-            Path(r"D:\PISARNA\Python\DavčnaBlagajna") / "data" / "webview2" / "minimax_uvoz_profile"
-        )
-        local_profile = self.root_dir / "data" / "webview2" / "minimax_uvoz_profile"
-        if legacy_profile.is_dir() and legacy_profile.resolve() != local_profile.resolve():
-            self.profile_dir = legacy_profile
-            self.ipc_dir = (
-                Path(r"D:\PISARNA\Python\DavčnaBlagajna") / "data" / "webview2" / "ipc_uvoz"
-            )
-        else:
-            self.profile_dir = local_profile
-            self.ipc_dir = self.root_dir / "data" / "webview2" / "ipc_uvoz"
+        # 5.1: lastna trajna seja v mapi aplikacije (relativno na skript), ne več iz mape 3.0.68.
+        # Sejo 3.0.68 kopira INSTALL.pyw (enkratno, samo branje iz 3.0.68), da ponovna prijava ni potrebna.
+        self.profile_dir = self.root_dir / "data" / "webview2" / "minimax_uvoz_profile"
+        self.ipc_dir = self.root_dir / "data" / "webview2" / "ipc_uvoz"
         self.download_dir = self.root_dir / "data" / "webview2" / "downloads"
         self.commands_dir = self.ipc_dir / "commands"
         self.responses_dir = self.ipc_dir / "responses"
