@@ -14,3 +14,19 @@ blagajna_minimax_settings.json
 blagajna_ui_settings.json
 blagajna_v2_access.json
 DavcnaBlagajna_evidenca.json
+
+# 5.1 (2026-11-21): dodatno — arhivi, bližnjice, varnostne kopije, skrivnosti
+Arhiv/
+BACKUP_*/
+*.lnk
+*.zip
+*.bak
+*.tmp
+.env
+*.pfx
+*.p12
+*settings.local.json
+blagajna_minimax_settings*.json
+!blagajna_minimax_settings.example.json
+data/_napaka_frames/
+tools/legacy/**/dist/
