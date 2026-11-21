@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
-"""Namestitev Davčna Blagajna 5.0.2 — WebView2 LOOK (ne spreminja 3.0.68)."""
+"""Namestitev Davčna Blagajna 5.1 — WebView2 LOOK (ne spreminja 3.0.68)."""
 from __future__ import annotations
 
 import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-BAT = ROOT / "ZAZENI_5.0.1.bat"
+BAT = ROOT / "ZAZENI_5.1.bat"
 APP = ROOT / "DavcnaBlagajna.pyw"
-APP_COPY = ROOT / "DavcnaBlagajna_5.0.1.pyw"
+APP_COPY = ROOT / "DavcnaBlagajna_5.1.pyw"
 CORE = ROOT / "DavcnaBlagajna.py"
 HOST = ROOT / "host_webview.py"
 UI = ROOT / "ui" / "index.html"
 VERSION = "5.0.14"
-SHORTCUT_NAME = "DavcnaBlagajna_5.0.1.lnk"
+SHORTCUT_NAME = "DavcnaBlagajna_5.1.lnk"
 LEGACY = Path(r"D:\PISARNA\Python\DavčnaBlagajna")
 
 
@@ -66,10 +66,10 @@ def check_webview2_runtime() -> str:
 def check_standalone() -> str:
     missing = [str(p) for p in (CORE, HOST, UI, APP) if not p.is_file()]
     if missing:
-        raise SystemExit("Manjkajo datoteke 5.0.1:\n" + "\n".join(missing))
+        raise SystemExit("Manjkajo datoteke 5.1:\n" + "\n".join(missing))
     if not (ROOT / "v2" / "app_v21.py").is_file():
-        raise SystemExit("Manjka v2/app_v21.py v mapi 5.0.1.")
-    return f"samostojna 5.0.1: {ROOT}"
+        raise SystemExit("Manjka v2/app_v21.py v mapi 5.1.")
+    return f"samostojna 5.1: {ROOT}"
 
 
 def _desktop_dir() -> Path:
@@ -104,12 +104,12 @@ def main() -> None:
     if LEGACY.is_dir():
         print("Legacy 3.0.68 (nedotaknjena):", LEGACY)
     if not BAT.is_file():
-        raise SystemExit("Manjka ZAZENI_5.0.1.bat.")
+        raise SystemExit("Manjka ZAZENI_5.1.bat.")
     if not APP_COPY.is_file():
         APP_COPY.write_text(APP.read_text(encoding="utf-8"), encoding="utf-8")
     lnk = desktop_shortcut()
     print("Bližnjica:", lnk)
-    print("Zagon: DavcnaBlagajna.pyw  ali  ZAZENI_5.0.1.bat")
+    print("Zagon: DavcnaBlagajna.pyw  ali  ZAZENI_5.1.bat")
     print("Povrnitev: ZAZENI_DavcnaBlagajna_PY.bat v mapi 3.0.68")
     try:
         input("Enter za izhod …")

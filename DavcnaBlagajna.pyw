@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Zagon Davčna Blagajna 5.0.2 — pywebview + Edge WebView2, isti AppV21."""
+"""Zagon Davčna Blagajna 5.1 — pywebview + Edge WebView2, isti AppV21."""
 from __future__ import annotations
 
 import os
