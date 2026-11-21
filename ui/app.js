@@ -24,6 +24,7 @@
     appearance: "Videz",
     open_history: "Zgodovina verzij",
     open_settings: "Nastavitve",
+    open_legacy_tk: "Odpri Tk 3.0.68",
     look_save: "Shrani LOOK",
     compare_presets: "Prednastavitve primerjave",
     _analyze: "Analiziraj",
@@ -728,6 +729,10 @@
         if (a === "videz") { $("dlgVidez").hidden = false; return; }
         if (a === "history") { call("open_history").then(applySnap); return; }
         if (a === "settings") { call("open_settings").then(applySnap); return; }
+        if (a === "legacy_tk") {
+          call("open_legacy_tk").then(function (r) { setStatus((r && r.msg) || "", !!(r && r.ok)); });
+          return;
+        }
         if (a === "oauth") { act("_open_oauth_settings_dialog"); return; }
       });
     });

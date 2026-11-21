@@ -22,6 +22,8 @@ UI = ROOT / "ui"
 PROFILE = ROOT / "data" / "webview2_profile"
 APPEARANCE_FILE = ROOT / "data" / "appearance.json"
 DEFAULT_APPEARANCE = {"theme": "light", "accent": "#5968e8", "radius": 11, "font_size": 13}
+# Rollback (iz 4.0 »Odpri legacy 3.0.68«): nespremenjena Tk 3.0.68 v sosednji mapi — samo zaganjalnik.
+LEGACY_TK_ROOT = Path(os.environ.get("DAVCNA_BLAGAJNA_LEGACY_ROOT") or r"D:\PISARNA\Python\DavčnaBlagajna")
 
 VIEWS = ("Blagajna", "KIR/KPR", "Primerjaj KIRKPR", "Primerjaj datoteke", "Minimax")
 
@@ -1409,6 +1411,34 @@ class Bridge:
 
     def open_settings(self) -> Dict[str, Any]:
         return {"ok": True, "look_panel": "videz", "msg": "Videz LOOK — Tk dialog je odstranjen."}
+
+    def open_legacy_tk(self) -> Dict[str, Any]:
+        """Rollback: zažene NESPREMENJENO Tk 3.0.68 iz mape 3.0.68 (samo zaganjalnik, ne deli stanja)."""
+        import shutil
+        import subprocess
+
+        root = LEGACY_TK_ROOT
+        target = root / "DavcnaBlagajna.pyw"
+        if not target.is_file():
+            target = root / "DavcnaBlagajna_v2_1.py"
+        if not target.is_file():
+            return {"ok": False, "msg": f"Tk 3.0.68 ni najdena: {root}"}
+        pyw = shutil.which("pyw")
+        if pyw:
+            args = [pyw, "-3.10", str(target)]
+        else:
+            pythonw = Path(sys.executable).with_name("pythonw.exe")
+            args = [str(pythonw if pythonw.is_file() else sys.executable), str(target)]
+        try:
+            subprocess.Popen(
+                args,
+                cwd=str(root),
+                close_fds=True,
+                creationflags=getattr(subprocess, "DETACHED_PROCESS", 0),
+            )
+            return {"ok": True, "msg": f"Zagon Tk 3.0.68: {target}"}
+        except Exception as exc:
+            return {"ok": False, "msg": f"Zagon Tk 3.0.68 ni uspel: {exc}"}
 
     def open_history(self) -> Dict[str, Any]:
         from v2.version_journal import get_current_patch_version, list_version_entries
