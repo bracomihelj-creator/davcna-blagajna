@@ -34,7 +34,7 @@ Python 3.10, `pywebview`, `selenium`, `openpyxl`, `pyodbc`, `websocket-client`,
 
 `blagajna_minimax_settings.json` (Minimax OAuth / gesla), `blagajna_ui_settings.json`,
 `blagajna_v2_access.json`, `DavcnaBlagajna_evidenca.json` so lokalne in **niso v gitu**.
-Predloga: `blagajna_minimax_settings.example.json`, `blagajna_v2_access.example.json`.
+Predloga: `blagajna_minimax_settings.example.json` (prazna polja). Ostale datoteke aplikacija ustvari sama.
 
 ## Pravila
 
