@@ -19700,20 +19700,6 @@ class App(tk.Tk):
                     + (", ".join(parts) if parts else "ni aktivnega Chrome CDP")
                     + f" | saved={summary.get('saved', 0)}"
                 )
-                try:
-                    from v2 import portal_bridge
-
-                    if portal_bridge.endm_available():
-                        mx = portal_bridge.resolve_portal(
-                            "minimax",
-                            log=lambda m: log_info(f"portal_bridge | {m}"),
-                        )
-                        log_info(
-                            "portal_bridge | minimax motor="
-                            + portal_bridge.engine_status_text(mx)
-                        )
-                except Exception as pexc:
-                    log_error("session_warmup portal_bridge", pexc)
             except Exception as exc:
                 log_error("_warmup_chrome_sessions_cache", exc)
 

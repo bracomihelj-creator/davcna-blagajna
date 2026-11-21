@@ -63,7 +63,7 @@ Ni preneseno iz 3.0: `Arhiv/` (2.2.29), `data/_napaka_frames` (zaslonske slike),
 
 1. **Minimax API `401 Unauthorized`** (accounts, vatrates, issuedinvoicepostings/pay) v dnevnikih 3.0 in 5.0. Verjetno potekel OAuth/geslo. → Preveri poverilnice v Nastavitve → OAuth; po potrebi nov client secret. (Ne spreminja izračunov.)
 2. **`open_knjizenje` timeout** v WebView2 (3×, »ukaz se v X s ni zaključil«). → Diagnostika `v2/minimax_webview2*.py` (časovna meja, prevzem obstoječega okna); ⚠️ Minimax knjiženje — samo z DA.
-3. **Manjka QUICK_eNDM `browser_bridge`** (`v2/portal_bridge.py` → `D:\PISARNA\Python\QUICK_eNDM`) — najpogostejša napaka v vseh treh dnevnikih. → Namesti/poveži QUICK_eNDM ali gumb Plače iz Minimax tiho onemogoči, če moduli manjkajo.
+3. ~~Manjka QUICK_eNDM `browser_bridge`~~ **Popravljeno:** Davčna blagajna 5.1 je neodvisna od QUICK_eNDM. Ob zagonu se `v2/portal_bridge` ne kliče več; datoteka ostane v mapi, vendar se ne uporablja. Napaka `No module named 'browser_bridge'` se v dnevniku ne bo več pojavila.
 4. **Tk dialogi še ostajajo** (skrita AppV21): OAuth, ZIP paketi, kontiranje plačil/prihodkov, nov zapis KIR/KPR. → Postopno v HTML.
 5. **Ni avtomatskih testov.** → pytest: uvoz modulov, `tree_view.build_*` na vzorčnih podatkih, `version_journal`, Bridge allow-list (samo branje).
 6. **Gesla Minimax v navadnem JSON** (`blagajna_minimax_settings.json`, tudi kopija v `dist/`). V gitu niso. → Prenos v Windows Credential Manager (keyring); kopijo v `dist/` po potrditvi pobrisati.
