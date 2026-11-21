@@ -1,0 +1,21 @@
+Davčna Blagajna — verzija 5.1.01
+Datum: 2026-11-22
+
+=== VAŠ ZAHTEVEK (prompt) ===
+Prenovi videz Davčne blagajne 5.1 tako kot v Trops v5 in dej oba looka (svetla/temna, Trops 4/5).
+
+=== SPREMEMBE / IZBOLJŠAVE ===
+LOOK WebView2 usklajen s Trops Studio 5: CSS žetoni, data-theme, temen stranski meni s petimi pogledi, firma in obdobje v orodni vrstici, ukazi Datoteka/Videz/Pomoč v stranskem meniju. Preklop Trops 5 / Trops 4 ter svetla/temna tema se shrani v data/appearance.json. Gumbi, tabele in dialogi v slogu Trops. Poslovna logika, FURS, XML in API niso spremenjeni.
+
+=== SPREMENJENE DATOTEKE ===
+  • ui/app.css
+  • ui/app.js
+  • ui/index.html
+  • host_webview.py
+  • INSTALL.pyw
+  • DavcnaBlagajna_5.1.01.pyw
+  • verzije/Davčna blagajna ver 5.1.01.txt
+
+=== OPOMBA ===
+Ta dnevnik služi sledenju napredku. Za povrnitev kode uporabite git ali
+ročno primerjajte datoteke iz navedenega obdobja.

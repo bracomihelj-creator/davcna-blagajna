@@ -1,6 +1,6 @@
 {
   "series": "5.1",
-  "current": "5.1.00",
+  "current": "5.1.01",
   "versions": [
     {
       "id": "2.1.01",
@@ -2510,6 +2510,23 @@
         "README.md",
         ".gitignore",
         "POROCILO.md"
+      ]
+    },
+    {
+      "id": "5.1.01",
+      "date": "2026-11-22",
+      "title": "5.1.01: videz po Trops Studio 5, svetla/temna tema in Trops 4/5",
+      "log_file": "Davčna blagajna ver 5.1.01.txt",
+      "user_prompt": "Prenovi videz Davčne blagajne 5.1 tako kot v Trops v5 in dej oba looka (svetla/temna, Trops 4/5).",
+      "changes": "LOOK WebView2 usklajen s Trops Studio 5: CSS žetoni, data-theme, temen stranski meni s petimi pogledi, firma in obdobje v orodni vrstici, ukazi Datoteka/Videz/Pomoč v stranskem meniju. Preklop Trops 5 / Trops 4 ter svetla/temna tema se shrani v data/appearance.json. Gumbi, tabele in dialogi v slogu Trops. Poslovna logika, FURS, XML in API niso spremenjeni.",
+      "files_changed": [
+        "ui/app.css",
+        "ui/app.js",
+        "ui/index.html",
+        "host_webview.py",
+        "INSTALL.pyw",
+        "DavcnaBlagajna_5.1.01.pyw",
+        "verzije/Davčna blagajna ver 5.1.01.txt"
       ]
     }
   ]

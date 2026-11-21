@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Davčna Blagajna 5.1.00 — LOOK WebView2, stanje = isti AppV21 proces (brez Tk oken)."""
+"""Davčna Blagajna 5.1.01 — LOOK WebView2, stanje = isti AppV21 proces (brez Tk oken)."""
 from __future__ import annotations
 
 import ctypes
@@ -16,7 +16,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 os.chdir(str(ROOT))
 
-APP_VERSION = "5.1.00"
+APP_VERSION = "5.1.01"
 APP_TITLE = f"Davčna Blagajna {APP_VERSION}"
 UI = ROOT / "ui"
 PROFILE = ROOT / "data" / "webview2_profile"
@@ -1557,7 +1557,7 @@ def _start_appv21() -> Any:
 
             import DavcnaBlagajna as core
 
-            core.log_info(f"PROGRAM START 5.1.00 ({get_current_patch_version()}) WebView2 LOOK")
+            core.log_info(f"PROGRAM START {APP_VERSION} ({get_current_patch_version()}) WebView2 LOOK")
             _install_no_tk_dialogs()
             app = AppV21()
             _patch_clipboard(app)
