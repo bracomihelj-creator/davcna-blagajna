@@ -21,7 +21,7 @@ APP_TITLE = f"Davčna Blagajna {APP_VERSION}"
 UI = ROOT / "ui"
 PROFILE = ROOT / "data" / "webview2_profile"
 APPEARANCE_FILE = ROOT / "data" / "appearance.json"
-DEFAULT_APPEARANCE = {"theme": "light", "accent": "#5968e8", "radius": 11, "font_size": 13, "density": "normal"}
+DEFAULT_APPEARANCE = {"theme": "light", "look": "t5", "accent": "#4f46e5", "radius": 12, "font_size": 13, "density": "normal"}
 # Rollback (iz 4.0 »Odpri legacy 3.0.68«): nespremenjena Tk 3.0.68 v sosednji mapi — samo zaganjalnik.
 LEGACY_TK_ROOT = Path(os.environ.get("DAVCNA_BLAGAJNA_LEGACY_ROOT") or r"D:\PISARNA\Python\DavčnaBlagajna")
 
@@ -621,6 +621,16 @@ def _look_detail(app: Any, node_id: str) -> Dict[str, Any]:
     return {"detail_title": title, "detail_rows": rows}
 
 
+def _normalize_appearance(data: Dict[str, Any]) -> Dict[str, Any]:
+    out = dict(DEFAULT_APPEARANCE)
+    out.update(data or {})
+    out["theme"] = "dark" if str(out.get("theme") or "").strip().lower() == "dark" else "light"
+    out["look"] = "t4" if str(out.get("look") or "").strip().lower() == "t4" else "t5"
+    dens = str(out.get("density") or "normal").strip().lower()
+    out["density"] = dens if dens in ("compact", "comfortable") else "normal"
+    return out
+
+
 def _load_appearance() -> Dict[str, Any]:
     data = dict(DEFAULT_APPEARANCE)
     try:
@@ -630,12 +640,11 @@ def _load_appearance() -> Dict[str, Any]:
                 data.update(raw)
     except Exception:
         pass
-    return data
+    return _normalize_appearance(data)
 
 
 def _save_appearance(data: Dict[str, Any]) -> Dict[str, Any]:
-    merged = dict(DEFAULT_APPEARANCE)
-    merged.update(data or {})
+    merged = _normalize_appearance(data or {})
     APPEARANCE_FILE.parent.mkdir(parents=True, exist_ok=True)
     APPEARANCE_FILE.write_text(json.dumps(merged, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return merged

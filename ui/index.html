@@ -17,6 +17,12 @@
       </div>
     </div>
     <div class="appbarMeta">
+      <div class="lookSwitch" id="lookSwitch" role="group" aria-label="Videz" title="Videz programa: Trops 4 (klasičen) ali Trops 5 (nov). Spremeni samo izgled — podatki in funkcije ostanejo enaki.">
+        <span class="lookLbl">Videz</span>
+        <button type="button" data-look-btn="t4" aria-pressed="false">Trops 4</button>
+        <button type="button" data-look-btn="t5" aria-pressed="true" class="on">Trops 5</button>
+      </div>
+      <button class="iconBtn" type="button" id="themeBtn" title="Svetla / temna tema" data-tip="Preklop svetle in temne teme. Izbira se shrani.">Tema</button>
       <span class="pill" id="companyPill">Firma —</span>
       <span class="pill" id="mmPill">Minimax: —</span>
       <span class="badge">5.1.00</span>
@@ -252,6 +258,12 @@
   <div class="dlgCard">
     <h3>Hitri videz WebView2</h3>
     <p class="note">LOOK videz — Tk dialogov ni. Poti in Minimax so v spodnjem panelu.</p>
+    <label class="fld">Videz
+      <select id="lookSel">
+        <option value="t5">Trops 5 (nov)</option>
+        <option value="t4">Trops 4 (klasičen)</option>
+      </select>
+    </label>
     <label class="fld">Tema
       <select id="themeSel"><option value="light">Svetla</option><option value="dark">Temna</option></select>
     </label>
@@ -262,7 +274,7 @@
       <select id="densitySel"><option value="compact">Kompaktno</option><option value="normal">Normalno</option><option value="comfortable">Prostorno</option></select>
     </label>
     <div class="controls">
-      <button class="btn" id="btnResetTheme" data-tip="Ponastavi QUICK (accent #5968e8, radius 11, svetla).">Ponastavi QUICK</button>
+      <button class="btn" id="btnResetTheme" data-tip="Ponastavi videz Trops 5, svetla tema.">Ponastavi videz</button>
       <button class="btn primary" id="btnSaveTheme" data-tip="Shrani videz (ločeno od SQL/poslovnih podatkov).">Shrani</button>
       <button class="btn" id="btnCloseTheme" data-tip="Zapri brez shranjevanja.">Prekliči</button>
     </div>

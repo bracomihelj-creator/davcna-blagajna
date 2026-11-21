@@ -172,23 +172,87 @@
     });
     if (cur) el.value = cur;
   }
+  function normalizeTheme(theme) {
+    return String(theme || "").toLowerCase() === "dark" ? "dark" : "light";
+  }
+  function normalizeLook(look) {
+    return String(look || "").toLowerCase() === "t4" ? "t4" : "t5";
+  }
   function applyAppearance(a) {
     a = a || {};
     var root = document.documentElement;
-    if (a.accent) root.style.setProperty("--accent", a.accent);
-    if (a.radius != null) root.style.setProperty("--radius", a.radius + "px");
-    if (a.font_size) root.style.setProperty("--font-size", a.font_size + "px");
-    var theme = a.theme === "dark" ? "dark" : "light";
+    var theme = normalizeTheme(a.theme);
+    var look = normalizeLook(a.look || root.getAttribute("data-look"));
     root.setAttribute("data-theme", theme);
+    root.setAttribute("data-look", look);
     document.body.classList.remove("theme-dark");
+    root.style.removeProperty("--accent");
+    root.style.removeProperty("--radius");
+    if (a.font_size) root.style.setProperty("--font-size", a.font_size + "px");
     var dens = a.density === "compact" || a.density === "comfortable" ? a.density : "normal";
     document.body.classList.toggle("density-compact", dens === "compact");
     document.body.classList.toggle("density-comfortable", dens === "comfortable");
     if ($("densitySel")) $("densitySel").value = dens;
-    if ($("themeSel")) $("themeSel").value = a.theme === "dark" ? "dark" : "light";
-    if ($("accentIn")) $("accentIn").value = a.accent || "#5968e8";
-    if ($("radiusIn")) $("radiusIn").value = a.radius != null ? a.radius : 11;
+    if ($("themeSel")) $("themeSel").value = theme;
+    if ($("lookSel")) $("lookSel").value = look;
+    if ($("accentIn")) $("accentIn").value = look === "t4" ? "#5968e8" : "#4f46e5";
+    if ($("radiusIn")) $("radiusIn").value = look === "t4" ? 14 : 12;
     if ($("fontIn")) $("fontIn").value = a.font_size || 13;
+    document.querySelectorAll("[data-look-btn]").forEach(function (btn) {
+      var on = btn.getAttribute("data-look-btn") === look;
+      btn.classList.toggle("on", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    var themeBtn = $("themeBtn");
+    if (themeBtn) {
+      themeBtn.textContent = theme === "dark" ? "Svetla" : "Temna";
+      themeBtn.title = theme === "dark" ? "Preklopi na svetlo temo" : "Preklopi na temno temo";
+    }
+  }
+  function appearancePayload(extra) {
+    var root = document.documentElement;
+    var look = normalizeLook(root.getAttribute("data-look"));
+    var a = {
+      theme: normalizeTheme(root.getAttribute("data-theme")),
+      look: look,
+      density: document.body.classList.contains("density-compact") ? "compact" :
+        (document.body.classList.contains("density-comfortable") ? "comfortable" : "normal"),
+      font_size: $("fontIn") && $("fontIn").value ? Number($("fontIn").value) : 13,
+      accent: look === "t4" ? "#5968e8" : "#4f46e5",
+      radius: look === "t4" ? 14 : 12
+    };
+    if (extra) Object.keys(extra).forEach(function (k) { a[k] = extra[k]; });
+    return a;
+  }
+  function persistAppearance(extra) {
+    var a = appearancePayload(extra);
+    applyAppearance(a);
+    return call("appearance", [a]);
+  }
+  function setLook(look) {
+    persistAppearance({ look: normalizeLook(look) }).then(function () {
+      setStatus("Videz: " + (normalizeLook(look) === "t4" ? "Trops 4" : "Trops 5"), true);
+    });
+  }
+  function setTheme(theme) {
+    persistAppearance({ theme: normalizeTheme(theme) }).then(function () {
+      setStatus(normalizeTheme(theme) === "dark" ? "Temna tema" : "Svetla tema", true);
+    });
+  }
+  function setupLookControls() {
+    document.querySelectorAll("[data-look-btn], [data-look-act]").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        setLook(btn.getAttribute("data-look-btn") || btn.getAttribute("data-look-act") || "t5");
+      });
+    });
+    var themeBtn = $("themeBtn");
+    if (themeBtn) {
+      themeBtn.addEventListener("click", function () {
+        var next = normalizeTheme(document.documentElement.getAttribute("data-theme")) === "dark" ? "light" : "dark";
+        setTheme(next);
+      });
+    }
   }
 
   var VIEW_TIPS = {
@@ -857,18 +921,16 @@
       if (e.key === "Delete" && state.selectedTreeId) act("_tree_clear_selected_result_row");
     });
     $("btnResetTheme").onclick = function () {
-      applyAppearance({ theme: "light", accent: "#5968e8", radius: 11, font_size: 13, density: "normal" });
+      applyAppearance({ theme: "light", look: "t5", font_size: 13, density: "normal" });
     };
     $("btnSaveTheme").onclick = function () {
-      var a = {
+      var a = appearancePayload({
         theme: $("themeSel").value,
-        accent: $("accentIn").value,
-        radius: parseInt($("radiusIn").value, 10) || 11,
+        look: $("lookSel") ? $("lookSel").value : "t5",
         font_size: parseInt($("fontIn").value, 10) || 13,
         density: $("densitySel") ? $("densitySel").value : "normal"
-      };
-      applyAppearance(a);
-      call("appearance", [a]).then(function () { $("dlgVidez").hidden = true; setStatus("Videz shranjen", true); });
+      });
+      persistAppearance(a).then(function () { $("dlgVidez").hidden = true; setStatus("Videz shranjen", true); });
     };
     $("btnCloseTheme").onclick = function () { $("dlgVidez").hidden = true; };
   }
@@ -882,6 +944,7 @@
       };
     }
     setupMenus();
+    setupLookControls();
     setupTooltips();
     setupSplitter();
     setupCollapsibles();

@@ -176,3 +176,28 @@ body.density-compact{--ctl-h:28px}
 body.density-compact .btn{padding:4px 10px}
 body.density-comfortable{--ctl-h:40px}
 body.density-comfortable .btn{padding:9px 14px}
+
+
+/* Trops 4/5 preklop in žetoni videza Trops 4 (barve; postavitev pride v koraku 3) */
+.lookSwitch{display:inline-flex;align-items:center;gap:2px;height:36px;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+.lookSwitch .lookLbl{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:0 6px 0 4px}
+.lookSwitch button{height:28px;border:0;border-radius:7px;background:transparent;padding:0 10px;font-size:12px;font-weight:650;color:var(--text-2);white-space:nowrap}
+.lookSwitch button:hover{color:var(--text)}
+.lookSwitch button.on{background:var(--surface);color:var(--accent);box-shadow:var(--shadow)}
+.iconBtn{width:34px;height:34px;display:inline-grid;place-items:center;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
+.iconBtn:hover{background:var(--surface-2);border-color:var(--line-2)}
+
+[data-look=t4]{
+  --font:Inter,"Segoe UI",Arial,sans-serif;
+  --radius:14px; --row-h:27px;
+  --ctl-h:var(--row-h);
+}
+[data-look=t4][data-theme=light]{
+  --bg:#f4f7fc; --surface:#ffffff; --surface-2:#f7f9ff; --surface-3:#eef1fb;
+  --text:#18233a; --text-2:#435575; --muted:#6c7993; --line:#e2e8f3; --line-2:#d7deee;
+  --accent:#5968e8; --accent-2:#596dec; --accent-soft:#e9ecff; --accent-text:#3a46b8;
+  --good:#1b9a72; --warn:#9a6b00; --bad:#c84b63;
+  --shadow:none; --shadow-lg:0 12px 28px #263f6c26;
+  --card:var(--surface);
+}
+[data-look=t4] body{font-size:12.5px}
