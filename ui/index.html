@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Davčna Blagajna 5.0.11</title>
+  <title>Davčna Blagajna 5.0.14</title>
   <link rel="stylesheet" href="app.css">
 </head>
 <body>
@@ -13,13 +13,13 @@
       <div class="brandlogo">D</div>
       <div>
         <div class="brandtitle">Davčna Blagajna</div>
-        <div class="branddesc" id="brandVer">WebView2 · 5.0.11 · isti AppV21</div>
+        <div class="branddesc" id="brandVer">WebView2 · 5.0.14 · isti AppV21</div>
       </div>
     </div>
     <div class="appbarMeta">
       <span class="pill" id="companyPill">Firma —</span>
       <span class="pill" id="mmPill">Minimax: —</span>
-      <span class="badge">5.0.11</span>
+      <span class="badge">5.0.14</span>
     </div>
   </header>
 
@@ -104,7 +104,7 @@
 
       <div class="panelBlock" id="panelBlagajnaActions">
         <div class="actionBar">
-          <button class="btn primary" id="btnAnalyze" data-tip="Uvozi podatke davčne blagajne za izbrano leto/mesec. Prebere CSV/ZIP in napolni drevo.">Uvozi podatke</button>
+          <button class="btn primary" id="btnAnalyze" data-tip="Isti gumb kot 3.0.68 Analiziraj: uvozi CSV/ZIP iz mape Blagajna in napolni drevo. Če podatki v mapi že so, se uvozijo tudi ob izboru firme.">Analiziraj</button>
           <button class="btn primary" id="btnFurs" data-tip="V že odprtem Chrome odpre DPR-PakR in v ~2 s vpiše Od/do. ZIP cilj: mapa Blagajna\YYYY-MM.zip. Avtomatika Pripravi+ZIP = kljukica selenium_auto v Nastavitve → Dostop.">FURS Blagajna</button>
           <span class="note" id="fursZipHint"></span>
         </div>
@@ -151,15 +151,15 @@
             <button class="btn" id="btnExportExcel" data-tip="Izvozi analizo v ločen Excel.">Izvoz podatkov v excel</button>
             <button class="btn" id="btnKnjMesec" data-tip="Kopira mesečne knjižbe DDV v predlogo KnjizbeInDDV.xlsx.">Knjižbe DDV po mesecih</button>
             <button class="btn primary" id="btnKnjDan" data-tip="Kopira dnevne knjižbe DDV v predlogo za označene/izbrane dneve.">Knjižbe DDV po dnevih</button>
-            <button class="btn primary" id="btnPrenosMinimax" data-tip="Prenos v Minimax: najprej API (token/OAuth). Če API ni mogoč, pošlje Excel v že odprt Minimax WebView2 (isti profil, ne novo okno).">Prenos v minimax</button>
-            <button class="btn" id="btnMinimaxUvoz" data-tip="Minimax spletni uvoz v samostojnem WebView2 (3.0.42): Moje org → naziv → KN → Excel → Uvozi. Če je Minimax že odprt, uporabi isto okno.">Minimax spletni uvoz</button>
+            <button class="btn primary" id="btnPrenosMinimax" data-tip="Prenos v Minimax: če je API mogoč, gre API in pasica to pove. Če API ni mogoč, oddaja Excel (spletni uvoz) — pasica to izrecno javi.">Prenos v minimax</button>
+            <button class="btn" id="btnMinimaxUvoz" data-tip="Oddaja Excel: spletni uvoz v WebView2 (KN → Excel → Uvozi). Pasica javi, da to ni API.">Minimax spletni uvoz</button>
             <label class="fldInline">Predloga <input id="tplIn" class="field-yellow" data-tip="Pot do predloge knjižb (privzeto D:\Trops\MiniMax\KnjizbeInDDV.xlsx).">
               <button class="btn sm" id="btnPickTpl" data-tip="Izberi Excel predlogo za knjižbe.">…</button>
             </label>
           </div>
           <div id="exportApi" class="actionBar wrap hidden">
-            <button class="btn" id="btnSendMonth" data-tip="Pošlje mesečne podatke v Minimax prek API (IssuedInvoicePosting).">Pošlji mesečne podatke v Minimax API</button>
-            <button class="btn primary" id="btnSendDaily" data-tip="Pošlje dnevne v Minimax API; WebView2 Knjiženje samo če API ni mogoč.">Pošlji dnevne podatke v Minimax API</button>
+            <button class="btn" id="btnSendMonth" data-tip="Mesečni prenos: API če je mogoč, sicer pasica javi Oddaja Excel.">Pošlji mesečne podatke v Minimax API</button>
+            <button class="btn primary" id="btnSendDaily" data-tip="Dnevni prenos: API če je mogoč, sicer pasica javi Oddaja Excel (spletni uvoz).">Pošlji dnevne podatke v Minimax API</button>
           </div>
         </div>
       </div>
@@ -242,7 +242,7 @@
   </div>
 
   <footer class="footer">
-    Davčna Blagajna <span id="footVer">5.0.11</span> · LOOK WebView2 · stanje = AppV21 · 3.0.68 ločena ·
+    Davčna Blagajna <span id="footVer">5.0.14</span> · LOOK WebView2 · stanje = AppV21 · 3.0.68 ločena ·
     <span id="footHint">pogled · uvoz · izvoz</span>
   </footer>
 </div>
@@ -270,6 +270,25 @@
     <h3 id="dlgLookTitle">LOOK</h3>
     <div id="dlgLookBody"></div>
     <div class="controls" id="dlgLookBtns"></div>
+  </div>
+</div>
+
+<div class="actionHud" id="actionHud" role="status" aria-live="polite" aria-atomic="true" hidden>
+  <div class="actionHudTop">
+    <span class="actionHudGlyph" aria-hidden="true">⟳</span>
+    <div class="actionHudCopy">
+      <div class="actionHudTitle">Davčna Blagajna · Potek opravila</div>
+      <div class="actionHudContext" id="actionHudContext">LOOK WebView2</div>
+    </div>
+    <button class="actionHudClose" type="button" id="actionHudClose" data-tip="Skrij pasico poteka. Opravilo v ozadju se ne prekine." aria-label="Skrij pasico">×</button>
+  </div>
+  <div class="actionHudMessage" id="actionHudMessage">Začenjam …</div>
+  <div class="actionHudTrack" role="progressbar" id="actionHudTrack" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Potek opravila">
+    <div class="actionHudFill" id="actionHudFill"></div>
+  </div>
+  <div class="actionHudFoot">
+    <span id="actionHudStage">Opravilo poteka …</span>
+    <span>Potek opravila</span>
   </div>
 </div>
 

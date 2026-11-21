@@ -1,6 +1,6 @@
 {
   "series": "5.0",
-  "current": "5.0.11",
+  "current": "5.0.14",
   "versions": [
     {
       "id": "2.1.01",
@@ -2445,6 +2445,45 @@
         "ui/index.html",
         "ui/app.js",
         "ui/app.css"
+      ]
+    },
+    {
+      "id": "5.0.12",
+      "date": "2026-11-17",
+      "title": "5.0.12: pasica poteka opravila ob vsaki akciji",
+      "log_file": "Davčna blagajna ver 5.0.12.txt",
+      "user_prompt": "vsaka akcija naj ima indikator pasica kot tale",
+      "changes": "LOOK prikaže QUICK pasico Potek opravila ob vsaki akciji (teče / uspeh / napaka). Statusna vrstica ostane. Tk ostane skrit.",
+      "files_changed": [
+        "ui/index.html",
+        "ui/app.js",
+        "ui/app.css"
+      ]
+    },
+    {
+      "id": "5.0.13",
+      "date": "2026-11-17",
+      "title": "5.0.13: če ni API, pasica javi Oddaja Excel",
+      "log_file": "Davčna blagajna ver 5.0.13.txt",
+      "user_prompt": "če oddaja ni prek API javi da se oddaja EXCel",
+      "changes": "Prenos v Minimax: pasica Potek opravila izrecno pove Oddaja Excel (spletni uvoz) — ni prek API, če token/OAuth ni na voljo ali API pade na Excel uvoz.",
+      "files_changed": [
+        "host_webview.py",
+        "ui/index.html",
+        "ui/app.js"
+      ]
+    },
+    {
+      "id": "5.0.14",
+      "date": "2026-11-17",
+      "title": "5.0.14: gumb Analiziraj; samodejni uvoz če mapa že ima CSV/ZIP",
+      "log_file": "Davčna blagajna ver 5.0.14.txt",
+      "user_prompt": "ALI JE ANALIZIRAJ TA GUMB?? In če podatek v mapi obstaja ga avtomatsko uvozi",
+      "changes": "Gumb Uvozi podatke je Analiziraj (_analyze). Ob izboru firme, zagonu in menjavi obdobja se CSV/ZIP iz mape Blagajna uvozijo sami, če obstajajo. Prazna mapa ostane hitra.",
+      "files_changed": [
+        "host_webview.py",
+        "ui/index.html",
+        "ui/app.js"
       ]
     }
   ]

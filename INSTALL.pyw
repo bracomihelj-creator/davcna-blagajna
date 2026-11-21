@@ -12,7 +12,7 @@ APP_COPY = ROOT / "DavcnaBlagajna_5.0.1.pyw"
 CORE = ROOT / "DavcnaBlagajna.py"
 HOST = ROOT / "host_webview.py"
 UI = ROOT / "ui" / "index.html"
-VERSION = "5.0.11"
+VERSION = "5.0.14"
 SHORTCUT_NAME = "DavcnaBlagajna_5.0.1.lnk"
 LEGACY = Path(r"D:\PISARNA\Python\DavčnaBlagajna")
 

@@ -1,30 +1,154 @@
-/* Davčna Blagajna 5.0.11 — LOOK HTML; drevo/✓ v WebView2, ni Tk oken */
+/* Davčna Blagajna 5.0.14 — LOOK HTML; drevo/✓ v WebView2, ni Tk oken */
 (function () {
   function $(id) { return document.getElementById(id); }
   var state = {
     boot: null, companies: [], selectedZst: "", tree: null, selectedTreeId: "",
     viewIdx: 0, kirkprBook: 0, kirkprSource: 0, exportTab: 0, settingsTab: 0
   };
+  var hudPending = 0;
+  var hudTimer = null;
+  var hudEpoch = 0;
+  var hudContext = "LOOK WebView2";
+  var SILENT_CALL = { set_fields: 1, set_period: 1, ping: 1, close_window: 1 };
+  var ACTION_LABEL = {
+    boot: "Zagon",
+    invoke: "Opravilo",
+    select_company: "Izbor firme",
+    load_companies: "Osveži firme",
+    companies: "Seznam firm",
+    toggle_evidenca: "Evidenca firme",
+    tree_toggle: "Drevo",
+    tree_check: "Označitev",
+    tree_reset_selection: "Ponastavi izbor",
+    set_preset: "Prednastavitev",
+    appearance: "Videz",
+    open_history: "Zgodovina verzij",
+    open_settings: "Nastavitve",
+    look_save: "Shrani LOOK",
+    compare_presets: "Prednastavitve primerjave",
+    _analyze: "Analiziraj",
+    import_if_folder_has_data: "Analiziraj",
+    _open_furs_and_optional_month_location: "FURS Blagajna",
+    _open_furs_kir_kpr_and_optional_month_location: "Prenos KIR/KPR eDavki",
+    _prenos_minimax_kirkpr: "Prenos KIR/KPR Minimax",
+    _uvozi_kirkpr: "Uvozi KIR/KPR",
+    _analyze_kirkpr: "Analiza KIR/KPR",
+    _compare_files: "Primerjava datotek",
+    _compare_files_presets: "Primerjava prednastavitev",
+    _open_oauth_settings_dialog: "OAuth / Minimax",
+    _open_kontiranje_placila_editor: "Kontiranje plačil",
+    _open_kontiranje_prihodkov_editor: "Kontiranje prihodkov",
+    _refresh_minimax_payment_methods: "Načini plačila",
+    _save: "Shrani Excel",
+    _export_analysis_to_excel: "Izvoz analize",
+    _copy_to_knjizbe: "Knjižbe mesec",
+    _copy_daily_to_knjizbe: "Knjižbe dan",
+    _open_minimax_web_uvoz_browser: "Oddaja Excel",
+    _send_month_file_to_minimax_api: "Prenos mesec → Minimax",
+    _send_daily_to_minimax_api: "Prenos v Minimax",
+    _pick_template: "Predloga",
+    _pick_root: "Izbor Root",
+    _pick_out: "Izbor mape",
+    _open_zip_packages_dialog: "ZIP paketi",
+    _open_kirkpr_new_record_editor: "Dodaj KIR/KPR zapis",
+    _apply_doc_filter: "Filter dokumentov",
+    _clear_doc_filter: "Počisti filter",
+    _on_show_neobdavcljive_toggle: "Neobdavčljive",
+    _tree_expand_all: "Razširi drevo",
+    _tree_collapse_all: "Skrči drevo",
+    _tree_clear_selected_result_row: "Sprazni vrstico",
+    _load_companies: "Osveži firme",
+    _on_evidenca_filter_toggle: "Filter evidence",
+    _open_edavki_link_combo: "eDavki povezava"
+  };
+
+  function actionLabel(name, args) {
+    if (name === "invoke" && args && args[0]) {
+      return ACTION_LABEL[args[0]] || String(args[0]);
+    }
+    if (name === "look_save" && args && args[0]) {
+      return ACTION_LABEL[args[0]] || ACTION_LABEL.look_save;
+    }
+    return ACTION_LABEL[name] || name;
+  }
+
+  function hudShow(message, kind, context) {
+    var hud = $("actionHud");
+    if (!hud) return;
+    var state = kind === false || kind === "error" ? "error" : kind === true || kind === "done" ? "done" : "running";
+    var epoch = ++hudEpoch;
+    clearTimeout(hudTimer);
+    hud.hidden = false;
+    hud.classList.remove("running", "error", "done");
+    hud.classList.add(state);
+    if (context) hudContext = context;
+    if ($("actionHudContext")) $("actionHudContext").textContent = hudContext || "LOOK WebView2";
+    if ($("actionHudMessage")) $("actionHudMessage").textContent = String(message || "");
+    if ($("actionHudStage")) {
+      $("actionHudStage").textContent = state === "error"
+        ? "Napaka · preveri sporočilo"
+        : state === "done" ? "Uspešno končano" : "Opravilo poteka …";
+    }
+    if ($("actionHudFill")) $("actionHudFill").style.width = state === "running" ? "35%" : "100%";
+    if ($("actionHudTrack")) $("actionHudTrack").setAttribute("aria-valuenow", state === "running" ? "35" : "100");
+    if (state === "done" && hudPending <= 0) {
+      hudTimer = setTimeout(function () {
+        if (epoch === hudEpoch && hudPending <= 0) hud.hidden = true;
+      }, 6500);
+    }
+  }
 
   function api() {
     return (window.pywebview && window.pywebview.api) || null;
   }
   function call(name, args) {
     var a = api();
+    var label = actionLabel(name, args);
+    var silent = !!SILENT_CALL[name];
+    if (!silent) {
+      hudPending += 1;
+      hudShow("Izvajam: " + label + " …", "running", label);
+    }
     if (!a || typeof a[name] !== "function") {
+      if (!silent) {
+        hudPending = Math.max(0, hudPending - 1);
+        hudShow("Most ni pripravljen (" + name + ").", "error", label);
+      }
       return Promise.resolve({ ok: false, msg: "Most ni pripravljen (" + name + ")." });
     }
     try {
-      return Promise.resolve(a[name].apply(a, args || []));
+      return Promise.resolve(a[name].apply(a, args || [])).then(function (res) {
+        if (!silent) {
+          hudPending = Math.max(0, hudPending - 1);
+          if (!res || res.ok === false) {
+            hudShow((res && res.msg) || ("Napaka: " + label), "error", label);
+          } else if (hudPending <= 0) {
+            hudShow((res && res.msg) || (label + " — končano."), "done", label);
+          }
+        }
+        return res;
+      }, function (err) {
+        if (!silent) {
+          hudPending = Math.max(0, hudPending - 1);
+          hudShow(String(err && err.message ? err.message : err), "error", label);
+        }
+        return { ok: false, msg: String(err && err.message ? err.message : err) };
+      });
     } catch (err) {
+      if (!silent) {
+        hudPending = Math.max(0, hudPending - 1);
+        hudShow(String(err && err.message ? err.message : err), "error", label);
+      }
       return Promise.resolve({ ok: false, msg: String(err && err.message ? err.message : err) });
     }
   }
   function setStatus(msg, ok) {
     var el = $("statusLine");
-    if (!el) return;
-    el.textContent = msg || "";
-    el.style.color = ok === false ? "#c84b63" : "";
+    if (el) {
+      el.textContent = msg || "";
+      el.style.color = ok === false ? "#c84b63" : "";
+    }
+    if (msg) hudShow(msg, ok === false ? "error" : ok === true ? "done" : "running", hudContext);
   }
   function setCheckedSum(txt) {
     var el = $("checkedSum");
@@ -386,7 +510,7 @@
     dlg.hidden = false;
     btns.innerHTML = "";
     if (panel === "history") {
-      title.textContent = "Zgodovina verzij — " + (res.current || "5.0.11");
+      title.textContent = "Zgodovina verzij — " + (res.current || "5.0.14");
       var html = '<p class="note">Tk okno zgodovine je odstranjeno. Pregled je v LOOK.</p>';
       (res.versions || []).forEach(function (v) {
         html += "<div class='preset'><div><strong>" + esc(v.id) + "</strong> · " + esc(v.date) +
@@ -537,7 +661,7 @@
   }
 
   function act(name) {
-    setStatus("Izvajam: " + name + " …");
+    setStatus("Izvajam: " + (ACTION_LABEL[name] || name) + " …");
     return collectFields().then(function () {
       return call("invoke", [name]);
     }).then(function (res) {
@@ -712,8 +836,12 @@
     $("btnKontiPay").onclick = function () { act("_open_kontiranje_placila_editor"); };
     $("btnKontiVrsta").onclick = function () { act("_open_kontiranje_prihodkov_editor"); };
     $("btnPayRefresh").onclick = function () { act("_refresh_minimax_payment_methods"); };
-    $("yearIn").onchange = function () { collectFields().then(function () { setStatus("Obdobje shranjeno", true); }); };
-    $("monthIn").onchange = function () { collectFields().then(function () { setStatus("Obdobje shranjeno", true); }); };
+    $("yearIn").onchange = function () {
+      collectFields().then(function () { return call("import_if_folder_has_data", [true]); }).then(applySnap);
+    };
+    $("monthIn").onchange = function () {
+      collectFields().then(function () { return call("import_if_folder_has_data", [true]); }).then(applySnap);
+    };
     document.addEventListener("keydown", function (e) {
       if (e.key === "Delete" && state.selectedTreeId) act("_tree_clear_selected_result_row");
     });
@@ -734,6 +862,13 @@
   }
 
   function init() {
+    var hudClose = $("actionHudClose");
+    if (hudClose) {
+      hudClose.onclick = function () {
+        var hud = $("actionHud");
+        if (hud) hud.hidden = true;
+      };
+    }
     setupMenus();
     setupTooltips();
     setupSplitter();
@@ -750,8 +885,8 @@
         return;
       }
       state.boot = res;
-      $("brandVer").textContent = "WebView2 · " + (res.version || "5.0.11") + " · isti AppV21";
-      $("footVer").textContent = res.version || "5.0.11";
+      $("brandVer").textContent = "WebView2 · " + (res.version || "5.0.14") + " · isti AppV21";
+      $("footVer").textContent = res.version || "5.0.14";
       fillSelect("yearIn", res.years && res.years.length ? res.years : [String(new Date().getFullYear())], res.year);
       fillSelect("docTypeIn", res.doc_types || [], res.doc_type);
       fillSelect("vrstaIn", res.vrsta_labels || [], res.vrsta_prodaje);

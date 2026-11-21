@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Davčna Blagajna 5.0.11 — LOOK WebView2, stanje = isti AppV21 proces (brez Tk oken)."""
+"""Davčna Blagajna 5.0.14 — LOOK WebView2, stanje = isti AppV21 proces (brez Tk oken)."""
 from __future__ import annotations
 
 import ctypes
@@ -16,7 +16,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 os.chdir(str(ROOT))
 
-APP_VERSION = "5.0.11"
+APP_VERSION = "5.0.14"
 APP_TITLE = f"Davčna Blagajna {APP_VERSION}"
 UI = ROOT / "ui"
 PROFILE = ROOT / "data" / "webview2_profile"
@@ -63,7 +63,7 @@ ALLOWED_INVOKE = {
 }
 
 INVOKE_MSG = {
-    "_analyze": "Analiza končana.",
+    "_analyze": "Analiziraj: uvoz končan.",
     "_on_evidenca_filter_toggle": "Filter evidence posodobljen.",
     "_load_companies": "Seznam firm osvežen.",
     "_on_show_neobdavcljive_toggle": "Prikaz neobdavčljivih posodobljen.",
@@ -73,9 +73,9 @@ INVOKE_MSG = {
     "_tree_collapse_all": "Drevo skrčeno.",
     "_tree_clear_selected_result_row": "Vrstica odstranjena.",
     "_uvozi_kirkpr": "KIR/KPR uvožen.",
-    "_send_daily_to_minimax_api": "Prenos v Minimax: najprej API, sicer Excel.",
-    "_send_month_file_to_minimax_api": "Prenos v Minimax (mesec): API, sicer Excel.",
-    "_open_minimax_web_uvoz_browser": "Minimax spletni uvoz (že odprt WebView2, če obstaja).",
+    "_send_daily_to_minimax_api": "Oddaja Excel (spletni uvoz) — ni prek API.",
+    "_send_month_file_to_minimax_api": "Oddaja Excel (spletni uvoz) — ni prek API.",
+    "_open_minimax_web_uvoz_browser": "Oddaja Excel (spletni uvoz) — ni prek API.",
 }
 
 NO_TREE_INVOKE = {
@@ -271,14 +271,87 @@ class _LookDialogs:
         if not self.title and not self.msg:
             return ""
         first = (self.msg.split("\n") or [""])[0].strip()
-        if "uspeh" in self.title.lower():
-            return first or "API: poslano v Minimax. Odprto Knjiženje."
+        if "uspeh" in self.title.lower() and "api" in self.title.lower():
+            return first or "Oddaja prek API. Odprto Knjiženje."
+        if "spletni uvoz" in self.title.lower() or "spletni uvoz" in self.msg.lower():
+            extra = first
+            base = "Oddaja Excel (spletni uvoz) — ni prek API."
+            if extra and extra.casefold() not in base.casefold():
+                return f"{base} {extra}"
+            return base
         if self.kind == "error":
             return (f"{self.title}: {first}" if first else self.title).strip(": ")
         return first or self.title
 
 
 LOOK_DIALOGS = _LookDialogs()
+
+
+def _folder_has_blagajna_data(app: Any) -> bool:
+    """True, če v mapi Blagajna že so YYYY-MM mape ali ZIP."""
+    from DavcnaBlagajna import data_root_has_month_sources, resolve_analysis_data_root
+
+    raw = _sv(app, "root_dir")
+    if not raw:
+        return False
+    try:
+        root = app._to_path(raw)
+    except Exception:
+        root = Path(raw)
+    try:
+        source = resolve_analysis_data_root(root)
+    except Exception:
+        source = root
+    try:
+        return bool(data_root_has_month_sources(source))
+    except Exception:
+        return False
+
+PRENOS_INVOKE = {
+    "_send_daily_to_minimax_api",
+    "_send_month_file_to_minimax_api",
+    "_open_minimax_web_uvoz_browser",
+}
+
+
+def _look_prenos_status(app: Any, nm: str, look: str) -> Dict[str, Any]:
+    """LOOK pasica: API uspeh ali jasno Oddaja Excel, če ni API."""
+    title = (LOOK_DIALOGS.title or "").casefold()
+    body = (LOOK_DIALOGS.msg or look or "").casefold()
+    kind = LOOK_DIALOGS.kind
+    if "uspeh" in title and "api" in title:
+        return {
+            "ok": True,
+            "channel": "api",
+            "msg": look or "Oddaja prek API. Odprto Knjiženje.",
+        }
+    api_possible = False
+    try:
+        api_possible = bool(app._minimax_api_send_possible())
+    except Exception:
+        api_possible = False
+    excel = (
+        nm == "_open_minimax_web_uvoz_browser"
+        or "spletni uvoz" in title
+        or "spletni uvoz" in body
+        or (nm in PRENOS_INVOKE and not api_possible)
+        or (kind == "error" and "api" in title)
+    )
+    if excel:
+        extra = (look or "").split("\n")[0].strip()
+        msg = "Oddaja Excel (spletni uvoz) — ni prek API."
+        if extra and extra.casefold() not in msg.casefold():
+            msg = f"{msg} {extra}"
+        return {
+            "ok": kind not in ("error", "warning"),
+            "channel": "excel",
+            "msg": msg,
+        }
+    return {
+        "ok": kind != "error",
+        "channel": "api" if api_possible else "excel",
+        "msg": look or INVOKE_MSG.get(nm, "Končano."),
+    }
 
 
 def _win_browse_folder(title: str = "Izberi mapo") -> str:
@@ -598,10 +671,62 @@ class Bridge:
     def ping(self) -> Dict[str, Any]:
         return {"ok": True, "version": APP_VERSION}
 
-    def boot(self) -> Dict[str, Any]:
+    def _auto_import_folder_unlocked(self, *, force: bool = False) -> str:
+        """Če v mapi Blagajna so CSV/ZIP, poženi isti _analyze kot gumb Analiziraj."""
+        app = self.app
+        if not getattr(app, "selected_company", None):
+            return ""
+        monthly = getattr(app, "monthly", None) or {}
+        if monthly and not force:
+            return ""
+        if not _folder_has_blagajna_data(app):
+            return ""
+        app._session_restore_silent = True
+        try:
+            app._analyze()
+        except Exception as exc:
+            return f"V mapi so datoteke, uvoz ni uspel: {exc}"
+        finally:
+            app._session_restore_silent = False
+        n = len(getattr(app, "monthly", {}) or {})
+        if not n:
+            return "V mapi so datoteke, za izbrano obdobje ni vrstic."
+        y = _sv(app, "period_year")
+        m = _sv(app, "period_month")
+        self._tree_opened.clear()
+        if y:
+            self._tree_opened.add(f"year:{y}")
+        if y and m:
+            try:
+                self._tree_opened.add(f"month:{y}:{int(m):02d}")
+            except Exception:
+                self._tree_opened.add(f"month:{y}:{m}")
+        for key in (getattr(app, "monthly", {}) or {}):
+            if not isinstance(key, (tuple, list)) or len(key) < 2:
+                continue
+            self._tree_opened.add(f"year:{key[0]}")
+            self._tree_opened.add(f"month:{key[0]}:{key[1]}")
+        return f"Analiziraj: uvoženo iz mape ({n} mesecev)."
+
+    def import_if_folder_has_data(self, force: Any = False) -> Dict[str, Any]:
         def work() -> Dict[str, Any]:
+            msg = self._auto_import_folder_unlocked(force=bool(force))
             snap = self._snapshot_unlocked(include_tree=True)
             snap["ok"] = True
+            snap["force_tree"] = True
+            snap["msg"] = msg or "V mapi ni CSV/ZIP za samodejni uvoz."
+            return snap
+
+        return self._call_tk(work)
+
+    def boot(self) -> Dict[str, Any]:
+        def work() -> Dict[str, Any]:
+            imported = self._auto_import_folder_unlocked()
+            snap = self._snapshot_unlocked(include_tree=True)
+            snap["ok"] = True
+            if imported:
+                snap["msg"] = imported
+                snap["force_tree"] = True
             snap["views"] = list(VIEWS)
             snap["appearance"] = _load_appearance()
             try:
@@ -778,6 +903,7 @@ class Bridge:
                 self.app._save_ui_settings_to_disk()
             except Exception:
                 pass
+            imported = self._auto_import_folder_unlocked()
             self._tree_opened.clear()
             y = _sv(self.app, "period_year")
             m = _sv(self.app, "period_month")
@@ -800,7 +926,14 @@ class Bridge:
             snap = self._snapshot_unlocked(include_tree=True)
             snap["ok"] = True
             snap["force_tree"] = True
-            snap["msg"] = f"Izbrana firma Zšt {zst_s}"
+            if imported:
+                snap["msg"] = imported
+            elif getattr(self.app, "monthly", None):
+                snap["msg"] = f"Izbrana firma Zšt {zst_s} (analiza v pomnilniku)."
+            else:
+                snap["msg"] = (
+                    f"Izbrana firma Zšt {zst_s}. V mapi ni CSV/ZIP — po FURS klikni Analiziraj."
+                )
             snap["label"] = snap.get("company_label")
             return snap
 
@@ -1157,7 +1290,12 @@ class Bridge:
                 self._tree_opened = opened
             snap = self._snapshot_unlocked(include_tree=nm not in NO_TREE_INVOKE)
             look = LOOK_DIALOGS.look_msg()
-            if LOOK_DIALOGS.kind == "error":
+            if nm in PRENOS_INVOKE:
+                prenos = _look_prenos_status(self.app, nm, look)
+                snap["ok"] = prenos["ok"]
+                snap["msg"] = prenos["msg"]
+                snap["channel"] = prenos["channel"]
+            elif LOOK_DIALOGS.kind == "error":
                 snap["ok"] = False
                 snap["msg"] = look or INVOKE_MSG.get(nm, "Napaka.")
             else:
@@ -1380,7 +1518,7 @@ def _start_appv21() -> Any:
 
             import DavcnaBlagajna as core
 
-            core.log_info(f"PROGRAM START 5.0.11 ({get_current_patch_version()}) WebView2 LOOK")
+            core.log_info(f"PROGRAM START 5.0.14 ({get_current_patch_version()}) WebView2 LOOK")
             _install_no_tk_dialogs()
             app = AppV21()
             _patch_clipboard(app)

@@ -125,6 +125,29 @@ body.theme-dark .statusLine{color:#d5defl}
 .fld{display:flex;flex-direction:column;gap:4px;margin-bottom:10px;font-weight:700;font-size:12px}
 .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 
+.actionHud{position:fixed;right:22px;top:76px;z-index:9998;width:min(390px,calc(100vw - 34px));padding:17px 19px 16px;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:17px;box-shadow:0 20px 65px #202d5b40;animation:actionHudIn .18s ease-out}
+.actionHud[hidden]{display:none!important}
+.actionHudTop{display:flex;align-items:center;gap:10px}
+.actionHudGlyph{width:38px;height:38px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);border-radius:12px;font-size:20px}
+.actionHud.running .actionHudGlyph{animation:actionHudSpin 1.1s linear infinite}
+.actionHudCopy{flex:1;min-width:0}
+.actionHudTitle{font-weight:800;font-size:13px}
+.actionHudContext{color:var(--muted);font-size:11px;margin-top:4px}
+.actionHudClose{border:0;background:transparent;color:var(--muted);font-weight:800;font-size:20px;min-width:28px}
+.actionHudMessage{font-size:12px;line-height:1.5;margin:15px 0 10px;overflow-wrap:anywhere}
+.actionHudTrack{height:8px;border-radius:99px;background:var(--accent-soft);overflow:hidden}
+.actionHudFill{width:8%;height:100%;background:linear-gradient(90deg,#536de8,#8a66dd);border-radius:inherit;transition:width .35s}
+.actionHud.running .actionHudFill{background-size:200% 100%;animation:actionHudPulse 1.3s linear infinite}
+.actionHud.error{background:#fff3cd!important;color:#664d03!important;border-color:#ffda6a!important}
+.actionHud.done{background:#d1e7dd!important;color:#0f5132!important;border-color:#a3cfbb!important}
+.actionHud.error .actionHudFill{background:#d39e00}
+.actionHud.done .actionHudFill{background:#198754}
+.actionHudFoot{margin-top:9px;display:flex;align-items:center;justify-content:space-between;font-size:10px;color:var(--muted)}
+@keyframes actionHudPulse{from{filter:brightness(1)}50%{filter:brightness(1.23)}to{filter:brightness(1)}}
+@keyframes actionHudSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes actionHudIn{from{opacity:0;transform:translateY(-9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){.actionHud{top:10px;right:10px}}
+
 .tip{
   position:fixed;z-index:200;max-width:380px;padding:8px 10px;border-radius:8px;
   background:var(--tip-bg);color:#222;border:1px solid #e6d88a;

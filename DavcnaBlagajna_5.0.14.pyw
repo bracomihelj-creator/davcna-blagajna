@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Kopija zagona 5.0.1 (isti vstop kot DavcnaBlagajna.pyw)."""
+"""Zagon Davčna Blagajna 5.0.14 — isti vstop kot DavcnaBlagajna.pyw."""
 from __future__ import annotations
 
 import runpy
