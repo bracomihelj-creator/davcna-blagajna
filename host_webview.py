@@ -1586,6 +1586,66 @@ def _start_appv21() -> Any:
     return app
 
 
+EXIT_GRACE_S = 3.0
+_normal_exit = threading.Event()
+
+
+def _shutdown_after_close(app: Any) -> None:
+    """Po zaprtju glavnega okna: shrani stanje UI, ustavi Tk in zapri proces.
+
+    pywebview 6.2.1 (WinForms) po zaprtju okna včasih ne vrne iz webview.start(),
+    zato je proces ostal v ozadju. Tu: shrani blagajna_ui_settings.json (kot Tk
+    zapiranje), ustavi Tk zanko, splakni dnevnik; če proces po EXIT_GRACE_S še teče,
+    ga varnostno končaj z os._exit(0). Podatkov in izračunov ne spreminja.
+    """
+    done = threading.Event()
+
+    def on_tk() -> None:
+        try:
+            save = getattr(app, "_save_ui_settings_to_disk", None)
+            if callable(save):
+                save()
+        except Exception:
+            pass
+        try:
+            app.quit()
+        except Exception:
+            pass
+        done.set()
+
+    try:
+        app.after(0, on_tk)
+        done.wait(5.0)
+    except Exception:
+        pass
+    try:
+        import logging
+
+        logging.shutdown()
+    except Exception:
+        pass
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            if stream:
+                stream.flush()
+        except Exception:
+            pass
+    if not _normal_exit.wait(EXIT_GRACE_S):
+        os._exit(0)
+
+
+def _install_exit_on_close(window: Any, app: Any) -> None:
+    def on_closed(*_a: Any) -> None:
+        threading.Thread(
+            target=_shutdown_after_close, args=(app,), daemon=True, name="exit-on-close"
+        ).start()
+
+    try:
+        window.events.closed += on_closed
+    except Exception:
+        pass
+
+
 def desktop() -> None:
     if sys.platform != "win32":
         raise SystemExit("Namizni zagon je namenjen Windows 10/11.")
@@ -1610,7 +1670,7 @@ def desktop() -> None:
         webview.settings["OPEN_DEVTOOLS_IN_DEBUG"] = False
     except Exception:
         pass
-    webview.create_window(
+    window = webview.create_window(
         APP_TITLE,
         index.as_uri(),
         js_api=bridge,
@@ -1620,6 +1680,7 @@ def desktop() -> None:
         background_color="#f4f7fc",
         text_select=True,
     )
+    _install_exit_on_close(window, app)
     try:
         webview.start(gui="edgechromium", private_mode=False, storage_path=str(PROFILE))
     finally:
@@ -1631,6 +1692,7 @@ def desktop() -> None:
             app.after(0, app.destroy)
         except Exception:
             pass
+        _normal_exit.set()
 
 
 if __name__ == "__main__":

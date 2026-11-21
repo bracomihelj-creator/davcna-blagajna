@@ -71,7 +71,8 @@ Ni preneseno iz 3.0: `Arhiv/` (2.2.29), `data/_napaka_frames` (zaslonske slike),
 8. **Namizna bližnjica** `DavcnaBlagajna_5.0.1.lnk` (če obstaja) kaže na staro mapo. → Ponovno zaženi `INSTALL.pyw` (ustvari `DavcnaBlagajna_5.1.lnk`; ob tem preveri tudi pywebview).
 9. `v2/version_switch.py` kaže na `Arhiv/2.2.29`, ki ga v 5.1 ni (meni za preklop na 2.2.29 v Tk ne bo deloval). Mrtva pot, ni v LOOK.
 10. Trde poti v jedru (`D:\Trops\...`, `D:\PISARNA\Python\Podatki\...`, `FURS\edavki_halcom_win.py`, `Chrome_add\...`) — namenoma nespremenjene (poslovna datoteka).
-11. Ni oddaljenega repozitorija. → Zaseben GitHub repozitorij (kot Trops_v5).
+11. ~~Ni oddaljenega repozitorija.~~ **Urejeno:** zaseben GitHub repozitorij `bracomihelj-creator/davcna-blagajna` (veja master).
+12. ~~Proces Python ostane v ozadju po zaprtju okna~~ (pywebview 6.2.1 ne vrne iz `webview.start()`). **Popravljeno** v `host_webview.py`: ob dogodku `closed` se shrani `blagajna_ui_settings.json`, ustavi Tk zanka, splakne dnevnik, nato varnostni `os._exit(0)` po 3 s. Preizkušeno: proces izgine v ~6 s (gumb X in meni Zapri).
 
 ## 7. Commiti uskladitve
 
