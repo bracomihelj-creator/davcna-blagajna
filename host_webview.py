@@ -24,6 +24,18 @@ APPEARANCE_FILE = ROOT / "data" / "appearance.json"
 DEFAULT_APPEARANCE = {"theme": "light", "look": "t5", "accent": "#4f46e5", "radius": 12, "font_size": 13, "density": "normal"}
 # Rollback (iz 4.0 »Odpri legacy 3.0.68«): nespremenjena Tk 3.0.68 v sosednji mapi — samo zaganjalnik.
 LEGACY_TK_ROOT = Path(os.environ.get("DAVCNA_BLAGAJNA_LEGACY_ROOT") or r"D:\PISARNA\Python\DavčnaBlagajna")
+LEGACY_TK_UNAVAILABLE_MSG = "Stara verzija 3.0.68 ni na voljo"
+
+
+def _legacy_tk_target() -> Optional[Path]:
+    """Zaganjalnik nespremenjene Tk 3.0.68, če mapa/datoteka obstaja; sicer None."""
+    root = LEGACY_TK_ROOT
+    for name in ("DavcnaBlagajna.pyw", "DavcnaBlagajna_v2_1.py"):
+        target = root / name
+        if target.is_file():
+            return target
+    return None
+
 
 VIEWS = ("Blagajna", "KIR/KPR", "Primerjaj KIRKPR", "Primerjaj datoteke", "Minimax")
 
@@ -759,6 +771,7 @@ class Bridge:
                 snap["years"] = list(self.app._period_year_combo_values())
             except Exception:
                 snap["years"] = []
+            snap["legacy_tk_available"] = _legacy_tk_target() is not None
             return snap
 
         return self._call_tk(work)
@@ -1426,12 +1439,12 @@ class Bridge:
         import shutil
         import subprocess
 
-        root = LEGACY_TK_ROOT
-        target = root / "DavcnaBlagajna.pyw"
-        if not target.is_file():
-            target = root / "DavcnaBlagajna_v2_1.py"
-        if not target.is_file():
-            return {"ok": False, "msg": f"Tk 3.0.68 ni najdena: {root}"}
+        # Stara mapa D:\PISARNA\Python\DavčnaBlagajna trenutno ne obstaja;
+        # kode zaganjalnika ne brišemo, le sporočilo in meni sta onemogočena.
+        target = _legacy_tk_target()
+        if target is None:
+            return {"ok": False, "msg": LEGACY_TK_UNAVAILABLE_MSG, "legacy_tk_available": False}
+        root = target.parent
         pyw = shutil.which("pyw")
         if pyw:
             args = [pyw, "-3.10", str(target)]

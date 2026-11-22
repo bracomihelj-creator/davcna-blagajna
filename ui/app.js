@@ -178,6 +178,18 @@
   function normalizeLook(look) {
     return String(look || "").toLowerCase() === "t4" ? "t4" : "t5";
   }
+  function applyLegacyTkMenu(res) {
+    var btn = document.querySelector('[data-act="legacy_tk"]');
+    if (!btn) return;
+    var available = !!(res && res.legacy_tk_available);
+    btn.classList.toggle("is-disabled", !available);
+    btn.setAttribute("aria-disabled", available ? "false" : "true");
+    if (available) {
+      btn.setAttribute("data-tip", "Rollback: odpre nespremenjeno Davčno Blagajno 3.0.68 (Tk). To okno ostane odprto; stanje ni skupno.");
+    } else {
+      btn.setAttribute("data-tip", "Stara verzija 3.0.68 ni na voljo");
+    }
+  }
   function applyAppearance(a) {
     a = a || {};
     var root = document.documentElement;
@@ -821,6 +833,10 @@
         if (a === "history") { call("open_history").then(applySnap); return; }
         if (a === "settings") { call("open_settings").then(applySnap); return; }
         if (a === "legacy_tk") {
+          if (el.getAttribute("aria-disabled") === "true" || el.classList.contains("is-disabled")) {
+            setStatus("Stara verzija 3.0.68 ni na voljo", false);
+            return;
+          }
           call("open_legacy_tk").then(function (r) { setStatus((r && r.msg) || "", !!(r && r.ok)); });
           return;
         }
@@ -988,6 +1004,7 @@
       fillSelect("vrstaIn", res.vrsta_labels || [], res.vrsta_prodaje);
       fillSelect("edavkiLink", res.edavki_links || [], res.edavki_link);
       applyAppearance(res.appearance);
+      applyLegacyTkMenu(res);
       applySnap(res);
       showView(res.view_idx || 0, true);
       return loadCompanies();
